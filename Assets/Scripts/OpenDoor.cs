@@ -1,11 +1,30 @@
+using System.Collections;
 using UnityEngine;
 
 public class OpenDoor : MonoBehaviour
-{
-    [SerializeField] private Animator _animator;
+{ 
+    private Animator _animator;
+    private bool _isOpen;
+
+    private void Start()
+    {
+        _animator = GetComponent<Animator>();
+    }
 
     public void Open()
     {
-        _animator.SetTrigger("OpenDoor");
+        if (_isOpen)
+        {
+            _isOpen = true;
+            StartCoroutine(DoorOpen());
+        }
+    }
+
+    private IEnumerator DoorOpen()
+    {
+        _animator.SetBool("OpenDoor", true);
+        yield return new WaitForSeconds(4f);
+        _animator.SetBool("OpenDoor", false);
+        _isOpen = false;
     }
 }
