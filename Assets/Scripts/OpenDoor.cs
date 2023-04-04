@@ -13,7 +13,7 @@ public class OpenDoor : MonoBehaviour
 
     public void Open()
     {
-        if (_isOpen)
+        if (!_isOpen)
         {
             _isOpen = true;
             StartCoroutine(DoorOpen());
@@ -23,7 +23,7 @@ public class OpenDoor : MonoBehaviour
     private IEnumerator DoorOpen()
     {
         _animator.SetBool("OpenDoor", true);
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(7f);
         _animator.SetBool("OpenDoor", false);
         _isOpen = false;
     }

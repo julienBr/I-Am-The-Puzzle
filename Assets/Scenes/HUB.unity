@@ -280,6 +280,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2146341528829861612, guid: 90b78b879926dd641be7e1031f25e8e0,
+        type: 3}
+      propertyPath: m_HitClosestOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146341528829861612, guid: 90b78b879926dd641be7e1031f25e8e0,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146341528998049572, guid: 90b78b879926dd641be7e1031f25e8e0,
+        type: 3}
+      propertyPath: m_HitClosestOnly
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2146341528998049572, guid: 90b78b879926dd641be7e1031f25e8e0,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 2146341529016511558, guid: 90b78b879926dd641be7e1031f25e8e0,
         type: 3}
       propertyPath: m_RootOrder
@@ -435,7 +455,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6598815579406187027, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
@@ -561,6 +581,56 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 90
       objectReference: {fileID: 0}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_InteractionLayers.m_Bits
+      value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 6467863118256192994}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Open
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: OpenDoor, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830950915995301565, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_ClickAnimationDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 6830950915995301565, guid: 39f31034a21d2564a8ee60f613236100,
+        type: 3}
+      propertyPath: m_ClickAnimationCurve.m_UseConstant
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 39f31034a21d2564a8ee60f613236100, type: 3}
 --- !u!1001 &5534338635511747572
@@ -578,7 +648,7 @@ PrefabInstance:
     - target: {fileID: 5424395362573471196, guid: 162a7fd7481345b428e5a015f4c1a239,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5424395362573471196, guid: 162a7fd7481345b428e5a015f4c1a239,
         type: 3}
