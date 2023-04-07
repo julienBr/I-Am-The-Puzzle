@@ -31,6 +31,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -77,7 +78,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HighlightMode: 0
   m_OutlineSource: 0
-  m_Shader: {fileID: 4800000, guid: 7200aef8a341733498b6598b176e0828, type: 3}
+  m_Shader: {fileID: 4800000, guid: ce233b3e0a3274b4db21f582cb7abaa4, type: 3}
   m_HighlightMaterial: {fileID: 0}
   m_TransitionWidth: 1
   m_OutlineScale: 0.75
