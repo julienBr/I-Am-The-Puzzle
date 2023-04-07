@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2052243567537991182}
   - component: {fileID: 5649256195818543757}
   - component: {fileID: 660017056414566272}
+  - component: {fileID: 6629711848880298149}
   m_Layer: 0
   m_Name: Circle
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6629711848880298149
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791688485031224879}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2124705421725058983, guid: 306f87ca2aa5d5946837fbddc7931c6e, type: 3}
 --- !u!1 &8124600684291540398
 GameObject:
   m_ObjectHideFlags: 0
