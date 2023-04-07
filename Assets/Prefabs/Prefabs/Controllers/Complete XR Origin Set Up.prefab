@@ -4679,10 +4679,10 @@ MonoBehaviour:
   m_TwoHandedGrabMoveProvider: {fileID: 2146341530015916957}
   m_LeftHandManager: {fileID: 2146341528636550345}
   m_RightHandManager: {fileID: 2146341529802347818}
-  m_LeftHandLocomotionType: 0
+  m_LeftHandLocomotionType: 1
   m_RightHandLocomotionType: 1
-  m_LeftHandTurnStyle: 0
-  m_RightHandTurnStyle: 0
+  m_LeftHandTurnStyle: 1
+  m_RightHandTurnStyle: 1
   m_EnableComfortMode: 1
   m_ComfortMode: {fileID: 2146341528561854166}
   m_UseGravity: 1
