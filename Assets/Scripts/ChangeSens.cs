@@ -1,18 +1,30 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.Rendering.Universal;
 
 public class ChangeSens : MonoBehaviour
 {
-   
-   [SerializeField] private Volume _postprocessing;
+    [SerializeField] private VolumeProfile _postprocessing;
+    private ColorAdjustments _colorAdjustments;
 
-   public void ChangeVu()
-   {
-       _postprocessing.GetComponent<ColorAdjustments>().saturation.value = 0;
-   }
+    private void Awake()
+    {
+        if (_postprocessing.TryGet(out ColorAdjustments cA))
+        {
+            _colorAdjustments = cA;
+            _colorAdjustments.saturation.overrideState = true;
+            _colorAdjustments.saturation.value = -70f;
+        }
+    }
+
+    public void ChangeVu()
+    {
+        if (_postprocessing.TryGet(out ColorAdjustments cA))
+        {
+            _colorAdjustments = cA;
+            _colorAdjustments.saturation.overrideState = true;
+            _colorAdjustments.saturation.value = 0f;
+        }
+    } 
 }
