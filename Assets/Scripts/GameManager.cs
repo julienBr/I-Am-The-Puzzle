@@ -1,4 +1,6 @@
+using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,5 +13,18 @@ public class GameManager : MonoBehaviour
         #else
 		    Application.Quit();
         #endif
+    }
+
+    public void PressAnyKey()
+    {
+        StartCoroutine(ThrowGame());
+    }
+
+    private IEnumerator ThrowGame()
+    {
+        yield return new WaitForSeconds(1f);
+        fade.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("1_Hub");
     }
 }
