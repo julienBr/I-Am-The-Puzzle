@@ -3,7 +3,7 @@ using UnityEngine;
 public class Door : MonoBehaviour
 {
     private Animator _animator;
-    private bool _isOpen;
+    private bool _isOpen ;
 
     private void Start()
     {
