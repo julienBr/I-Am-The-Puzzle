@@ -18,12 +18,6 @@ public class LaserManager : MonoBehaviour
 
     private void Update()
     {
-        /*foreach (Transform transform in _trepied1)
-            Debug.DrawRay(transform.position, transform.forward * 20f, Color.green);
-        foreach (Transform transform in _trepied2)
-            Debug.DrawRay(transform.position, transform.forward * 20f, Color.red);
-        foreach (Transform transform in _trepied3)
-            Debug.DrawRay(transform.position, transform.forward * 20f, Color.blue);*/
         RotateToTarget();
         CheckHitTarget();
     }
@@ -58,9 +52,9 @@ public class LaserManager : MonoBehaviour
                     hit1[i] = false;
                 }
             }
-            /*if(Physics.Raycast(_trepied2[i].position, _trepied2[i].forward, out RaycastHit rayHit2))
+            if(Physics.Raycast(_trepied2[i].position, _trepied2[i].forward, out RaycastHit rayHit2))
             {
-                if (rayHit2.collider.gameObject.CompareTag("targetLaser"))
+                if (rayHit2.collider.gameObject.CompareTag("Target"))
                 {
                     //Debug.DrawRay(_trepied2[i].position, _trepied2[i].forward*20f, Color.red);
                     hit2[i] = true;
@@ -73,10 +67,10 @@ public class LaserManager : MonoBehaviour
                     hit2[i] = false;
                     _laser2[i].enabled = false;
                 }
-            }*/
-            /*if(Physics.Raycast(_trepied3[i].position, _trepied3[i].forward, out RaycastHit rayHit3))
+            }
+            if(Physics.Raycast(_trepied3[i].position, _trepied3[i].forward, out RaycastHit rayHit3))
             {
-                if (rayHit3.collider.gameObject.CompareTag("targetLaser"))
+                if (rayHit3.collider.gameObject.CompareTag("Target"))
                 {
                     //Debug.DrawRay(_trepied3[i].position, _trepied3[i].forward * 20f, Color.blue);
                     hit3[i] = true;
@@ -89,7 +83,7 @@ public class LaserManager : MonoBehaviour
                     hit3[i] = false;
                     _laser2[i].enabled = false;
                 }
-            }*/
+            }
         }
     }
 }
