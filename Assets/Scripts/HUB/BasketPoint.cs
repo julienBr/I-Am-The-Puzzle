@@ -49,6 +49,7 @@ public class BasketPoint : MonoBehaviour
         if (other.CompareTag("Ball") )
         {
             paniercollider = true;
+          
 
         }
 
