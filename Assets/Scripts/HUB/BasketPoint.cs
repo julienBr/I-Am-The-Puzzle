@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using UnityEngine;
 
 public class BasketPoint : MonoBehaviour
@@ -9,6 +10,7 @@ public class BasketPoint : MonoBehaviour
    [SerializeField] private AudioSource _panierPoint;
    public bool _raycastHit; 
    public bool paniercollider =false;
+ 
 
    private void Awake()
    {
@@ -39,6 +41,7 @@ public class BasketPoint : MonoBehaviour
            _panier.GetComponent<ParticleSystem>().Play();
            _panierPoint.Play();
            paniercollider = false;
+           StartCoroutine(DelaiPanier());
        }
       
    }
@@ -55,5 +58,12 @@ public class BasketPoint : MonoBehaviour
 
         
     }
+
+   IEnumerator DelaiPanier()
+   {
+      gameObject.GetComponent<Collider>().enabled = false ;
+       yield return new WaitForSeconds(7); 
+       gameObject.GetComponent<Collider>().enabled = true ;
+   }
    
 }

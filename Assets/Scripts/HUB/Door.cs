@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Door : MonoBehaviour
@@ -6,6 +7,7 @@ public class Door : MonoBehaviour
     private bool _isOpen ;
     [SerializeField] private AudioSource _closeDoor;
     [SerializeField] private AudioSource _openDoor;
+    
  
      private void Start()
      {
@@ -27,4 +29,8 @@ public class Door : MonoBehaviour
              _closeDoor.Play();
          }
      }
+
+
+
+     
  }
