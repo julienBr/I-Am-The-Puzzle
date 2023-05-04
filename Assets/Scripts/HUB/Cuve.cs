@@ -6,6 +6,7 @@ public class Cuve : MonoBehaviour
 {
     private Animator _animator;
     private bool _cuveisOpen ;
+   
 
     private void Start()
     {
@@ -16,13 +17,18 @@ public class Cuve : MonoBehaviour
     {
         if (!_cuveisOpen)
         {
+         
             _cuveisOpen = true;
             _animator.SetBool("OpenCuve", true);
         }
         else
         {
+           
             _cuveisOpen = false;
             _animator.SetBool("OpenCuve", false);
         }
     }
+
+
+
 }
