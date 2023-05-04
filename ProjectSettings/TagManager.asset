@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ball
   - Target
+  - Source1
+  - Source2
   layers:
   - Default
   - TransparentFX
