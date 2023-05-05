@@ -19,6 +19,11 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(ThrowGame());
     }
+    
+    public void Level2()
+    {
+        StartCoroutine(WaitLevel2());
+    }
 
     private IEnumerator ThrowGame()
     {
@@ -26,5 +31,13 @@ public class GameManager : MonoBehaviour
         fade.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
         SceneManager.LoadScene("1_Hub");
+    }
+    
+    private IEnumerator WaitLevel2()
+    {
+        yield return new WaitForSeconds(1f);
+        fade.GetComponent<Animator>().SetTrigger("FadeOut");
+        yield return new WaitForSeconds(1f);
+        SceneManager.LoadScene("3_Lvl_2");
     }
 }
