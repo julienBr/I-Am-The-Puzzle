@@ -47,6 +47,11 @@ PrefabInstance:
       propertyPath: m_PlayMaterialActivateAnim
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 566179490935405793, guid: 7993ae71b53b408449cea86d791c878e,
+        type: 3}
+      propertyPath: m_OutlineScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 566179490935405797, guid: 7993ae71b53b408449cea86d791c878e,
         type: 3}
       propertyPath: m_RootOrder

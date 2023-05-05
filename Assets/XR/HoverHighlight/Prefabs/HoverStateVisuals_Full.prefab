@@ -81,7 +81,7 @@ MonoBehaviour:
   m_Shader: {fileID: 4800000, guid: ce233b3e0a3274b4db21f582cb7abaa4, type: 3}
   m_HighlightMaterial: {fileID: 0}
   m_TransitionWidth: 1
-  m_OutlineScale: 0.75
+  m_OutlineScale: 0
   m_StartingOutlineScale: 0
   m_TransitionColor: 1
   m_OutlineColor: {r: 0.9254902, g: 0.5176471, b: 0.03529412, a: 1}
