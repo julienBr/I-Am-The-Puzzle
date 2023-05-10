@@ -53,9 +53,12 @@ public class Trepied : MonoBehaviour
             }
         }
     }
-    
+
     public void ClearTrepied()
     {
+        foreach (GameObject _trepied in _lookTrepied)
+            if (_trepied.GetComponent<Trepied>()._isConnectedSource1 || _trepied.GetComponent<Trepied>()._isConnectedSource1)
+                GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
         foreach (LineRenderer laser in _laser)
             laser.enabled = false;
     }
@@ -76,14 +79,5 @@ public class Trepied : MonoBehaviour
                 _trepied.GetComponent<Trepied>()._lookAtTrepied[i].LookAt(_trepied.GetComponent<Trepied>()._posTarget[i]);
             _trepied.GetComponent<Trepied>().HitLaser();
         }
-    }*/
-
-    /*public void ClearTrepied()
-    {
-        foreach (GameObject _trepied in _trepied)
-            if (_trepied.GetComponent<Trepied>()._touchSource)
-                GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
-        foreach (LineRenderer laser in _laserRenderer)
-            laser.enabled = false;
     }*/
 }
