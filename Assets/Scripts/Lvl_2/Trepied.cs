@@ -9,15 +9,8 @@ public class Trepied : MonoBehaviour
     private bool _isConnectedSource1;
     private bool _isConnectedSource2;
     
-    private void OnEnable()
-    {
-        Source.ConnectTrepied += Connect;
-    }
-
-    private void OnDisable()
-    {
-        Source.ConnectTrepied -= Connect;
-    }
+    private void OnEnable() { Source.ConnectTrepied += Connect; }
+    private void OnDisable() { Source.ConnectTrepied -= Connect; }
 
     private void Connect(GameObject posTrepied, int id, bool isConnected)
     {
@@ -31,14 +24,12 @@ public class Trepied : MonoBehaviour
     private void Awake()
     {
         foreach (GameObject lookTrepied in _lookTrepied)
-        {
             _laser.Add(lookTrepied.GetComponent<LineRenderer>());
-        }
     }
     
     public void HitLaser()
     {
-        for(int i = 0; i < _lookTrepied.Count; i++)
+        for (int i = 0; i < _lookTrepied.Count; i++)
         {
             _lookTrepied[i].transform.LookAt(_posTrepied[i]);
             if (Physics.Raycast(_lookTrepied[i].transform.position, _lookTrepied[i].transform.forward, out RaycastHit hit))
@@ -54,13 +45,21 @@ public class Trepied : MonoBehaviour
         }
     }
 
-    public void ClearTrepied()
+    public void RecalculateLaser()
     {
         foreach (GameObject _trepied in _lookTrepied)
-            if (_trepied.GetComponent<Trepied>()._isConnectedSource1 || _trepied.GetComponent<Trepied>()._isConnectedSource1)
-                GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+        {
+            if (_trepied.GetComponent<Trepied>()._isConnectedSource1 || _trepied.GetComponent<Trepied>()._isConnectedSource2)
+                _trepied.GetComponent<Trepied>().HitLaser();
+        }
+    }
+    
+    public void ClearTrepied()
+    {
         foreach (LineRenderer laser in _laser)
             laser.enabled = false;
+        foreach (GameObject trepied in _lookTrepied)
+            GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
     }
     
     /*[SerializeField] private List<GameObject> _trepied;
