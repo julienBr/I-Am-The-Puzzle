@@ -409,7 +409,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 83177123}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: ClearTrepied
+        m_MethodName: ClearLaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -421,55 +421,7 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 534630481}
-        m_TargetAssemblyTypeName: Source, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1419251773}
-        m_TargetAssemblyTypeName: Source, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 83177123}
-        m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 83177123}
-        m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: RecalculateLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -583,9 +535,12 @@ MonoBehaviour:
   _lookTrepied:
   - {fileID: 2132878130}
   - {fileID: 751807051}
-  _posTrepied:
-  - {fileID: 1914194609}
-  - {fileID: 680984637}
+  _trepied:
+  - {fileID: 1914194604}
+  - {fileID: 680984632}
+  _source:
+  - {fileID: 534630475}
+  - {fileID: 1419251767}
 --- !u!1 &151986369
 GameObject:
   m_ObjectHideFlags: 0
@@ -870,7 +825,7 @@ GameObject:
   - component: {fileID: 296468286}
   m_Layer: 31
   m_Name: Ground
-  m_TagString: Untagged
+  m_TagString: Ground
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -1585,12 +1540,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36e788a076d49f4f9c2dfa3ede6cf2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 1
+  _id: 0
   _lookTrepied:
   - {fileID: 1501328442}
   - {fileID: 1753984158}
   - {fileID: 1697618199}
-  _posTrepied:
+  _trepied:
   - {fileID: 83177116}
   - {fileID: 1914194604}
   - {fileID: 680984632}
@@ -1915,7 +1870,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 680984640}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: ClearTrepied
+        m_MethodName: ClearLaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1927,55 +1882,7 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 534630481}
-        m_TargetAssemblyTypeName: Source, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1419251773}
-        m_TargetAssemblyTypeName: Source, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 680984640}
-        m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 680984640}
-        m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: RecalculateLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -2089,9 +1996,12 @@ MonoBehaviour:
   _lookTrepied:
   - {fileID: 724150703}
   - {fileID: 1567041922}
-  _posTrepied:
-  - {fileID: 83177120}
-  - {fileID: 1914194609}
+  _trepied:
+  - {fileID: 83177116}
+  - {fileID: 1914194604}
+  _source:
+  - {fileID: 534630475}
+  - {fileID: 1419251767}
 --- !u!1 &724150703
 GameObject:
   m_ObjectHideFlags: 0
@@ -3323,12 +3233,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e36e788a076d49f4f9c2dfa3ede6cf2e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _id: 2
+  _id: 1
   _lookTrepied:
   - {fileID: 34783960}
   - {fileID: 515162760}
   - {fileID: 1311268908}
-  _posTrepied:
+  _trepied:
   - {fileID: 83177116}
   - {fileID: 1914194604}
   - {fileID: 680984632}
@@ -4580,7 +4490,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1914194615}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: ClearTrepied
+        m_MethodName: ClearLaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4592,55 +4502,7 @@ MonoBehaviour:
         m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 534630481}
-        m_TargetAssemblyTypeName: Source, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1419251773}
-        m_TargetAssemblyTypeName: Source, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1914194615}
-        m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: HitLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1914194615}
-        m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: RecalculateLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
   m_Activated:
     m_PersistentCalls:
       m_Calls: []
@@ -4738,9 +4600,12 @@ MonoBehaviour:
   _lookTrepied:
   - {fileID: 1853335873}
   - {fileID: 1502753248}
-  _posTrepied:
-  - {fileID: 83177120}
-  - {fileID: 680984637}
+  _trepied:
+  - {fileID: 83177116}
+  - {fileID: 680984632}
+  _source:
+  - {fileID: 534630475}
+  - {fileID: 1419251767}
 --- !u!1 &2105874423
 GameObject:
   m_ObjectHideFlags: 0
