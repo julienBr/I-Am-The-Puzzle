@@ -22,14 +22,14 @@ public class BasketPoint : MonoBehaviour
        RaycastHit hit;
        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
        {
-           Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10f, Color.yellow);
-           Debug.Log("Did Hit" + hit.collider.gameObject.name);
+        //   Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10f, Color.yellow);
+        //   Debug.Log("Did Hit" + hit.collider.gameObject.name);
            _raycastHit = true;
        }
        else
        {
-           Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10f, Color.red);
-           Debug.Log("Did not Hit");
+        //   Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10f, Color.red);
+       //    Debug.Log("Did not Hit");
            _raycastHit = false;
        }
    }
