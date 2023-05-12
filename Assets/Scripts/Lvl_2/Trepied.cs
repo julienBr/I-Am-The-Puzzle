@@ -3,13 +3,14 @@ using UnityEngine;
 
 public class Trepied : MonoBehaviour
 {
-    [SerializeField] private List<GameObject> _lookTrepied;
-    [SerializeField] private List<GameObject> _trepied;
-    [SerializeField] private List<GameObject> _source;
-    private List<LineRenderer> _laser = new ();
-    private bool _isConnectedSource1;
-    private bool _isConnectedSource2;
+    public List<GameObject> _lookTrepied;
+    public List<GameObject> _trepied;
+    public List<GameObject> _source;
+    public List<LineRenderer> _laser = new ();
+    public bool _isConnectedSource1;
+    public bool _isConnectedSource2;
     private bool _isGrabbed;
+    private bool _posDepart = true;
     
     private void OnEnable() { Source.ConnectTrepied += Connect; }
     private void OnDisable() { Source.ConnectTrepied -= Connect; }
@@ -50,7 +51,7 @@ public class Trepied : MonoBehaviour
         }
     }
 
-    public void RecalculateLaser()
+    private void RecalculateLaser()
     {
         foreach (GameObject trepied in _trepied)
             trepied.GetComponent<Trepied>().HitLaser();
@@ -58,26 +59,42 @@ public class Trepied : MonoBehaviour
     
     public void ClearLaser()
     {
-        _isGrabbed = true;
-        if (_isConnectedSource1)
-            GameObject.Find("Source1/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
-        if (_isConnectedSource2)
-            GameObject.Find("Source2/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
-        foreach (LineRenderer laser in _laser)
-            laser.enabled = false;
-        foreach (GameObject trepied in _lookTrepied)
-            GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+        if (!_posDepart)
+        {
+            if (_isConnectedSource1)
+                GameObject.Find("Source1/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+            if (_isConnectedSource2)
+                GameObject.Find("Source2/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+            foreach (LineRenderer laser in _laser)
+                laser.enabled = false;
+            foreach (GameObject trepied in _trepied)
+            {
+                GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+                Debug.Log(trepied.name + " : LookAt" + gameObject.name);
+            }
+        }
     }
 
+    public void Entered()
+    {
+        _isGrabbed = true;
+        _isConnectedSource1 = false;
+        _isConnectedSource2 = false;
+    }
+    public void Exited()
+    {
+        _isGrabbed = false;
+        _posDepart = false;
+    }
+    
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground") && _isGrabbed)
+        if (other.gameObject.CompareTag("Ground") && !_isGrabbed && !_posDepart)
         {
             foreach (GameObject source in _source)
                 source.GetComponent<Source>().HitLaser();
             HitLaser();
             RecalculateLaser();
-            _isGrabbed = false;
         }
     }
 }

@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,11 +17,6 @@ public class Source : MonoBehaviour
         {
             _laser.Add(lookTrepied.GetComponent<LineRenderer>());
         }
-    }
-
-    public void Test()
-    {
-        Debug.Log("JACTIVEEEE !!");
     }
 
     public void HitLaser()
@@ -47,7 +41,5 @@ public class Source : MonoBehaviour
                 }
             }
         }
-        
-       
     }
 }
