@@ -61,10 +61,8 @@ public class Trepied : MonoBehaviour
     {
         if (!_posDepart)
         {
-            if (_isConnectedSource1)
-                GameObject.Find("Source1/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
-            if (_isConnectedSource2)
-                GameObject.Find("Source2/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+            GameObject.Find("Source1/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+            GameObject.Find("Source2/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
             foreach (LineRenderer laser in _laser)
                 laser.enabled = false;
             foreach (GameObject trepied in _trepied)
