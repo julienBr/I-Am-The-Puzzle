@@ -9,6 +9,9 @@ TagManager:
   - Source1
   - Source2
   - Ground
+  - Recepteur1
+  - Recepteur2
+  - Recepteur3
   layers:
   - Default
   - TransparentFX

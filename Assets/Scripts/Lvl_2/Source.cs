@@ -21,7 +21,6 @@ public class Source : MonoBehaviour
 
     public void HitLaser()
     {
-
         for(int i = 0; i < _lookTrepied.Count; i++)
         {
             _lookTrepied[i].transform.LookAt(_trepied[i].transform);
