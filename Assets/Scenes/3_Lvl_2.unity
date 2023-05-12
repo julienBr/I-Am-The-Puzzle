@@ -409,7 +409,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 83177123}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: ClearLaser
+        m_MethodName: Entered
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -421,7 +421,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 83177123}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: Entered
+        m_MethodName: ClearLaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1897,7 +1897,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 680984640}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: ClearLaser
+        m_MethodName: Entered
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1909,7 +1909,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 680984640}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: Entered
+        m_MethodName: ClearLaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4544,7 +4544,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1914194615}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: ClearLaser
+        m_MethodName: Entered
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4556,7 +4556,7 @@ MonoBehaviour:
         m_CallState: 2
       - m_Target: {fileID: 1914194615}
         m_TargetAssemblyTypeName: Trepied, Assembly-CSharp
-        m_MethodName: Entered
+        m_MethodName: ClearLaser
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
