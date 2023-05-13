@@ -62,6 +62,7 @@ public class Trepied : MonoBehaviour
     
     public void ClearLaser()
     {
+        Debug.Log(GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled);
         if (!_posDepart)
         {
             GameObject.Find("Source1/LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
@@ -71,7 +72,13 @@ public class Trepied : MonoBehaviour
             foreach (GameObject trepied in _trepied)
             {
                 //Debug.Log(trepied.name + " : " + GameObject.Find("LookAt" + gameObject.name));
-                GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+                //Debug.Log($"{trepied.name} : {GameObject.Find("LookAt" + gameObject.name)}");
+                //GameObject.Find("LookAt" + gameObject.name).GetComponent<LineRenderer>().enabled = false;
+                foreach (LineRenderer laser in trepied.GetComponentsInChildren<LineRenderer>())
+                {
+                    if (laser.name == "LookAt" + gameObject.name)
+                        laser.enabled = false;
+                }
             }
         }
     }
