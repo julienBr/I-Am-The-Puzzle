@@ -12,6 +12,9 @@ TagManager:
   - Recepteur1
   - Recepteur2
   - Recepteur3
+  - ObjectToTeleport
+  - RedDoor
+  - BlueDoor
   layers:
   - Default
   - TransparentFX
