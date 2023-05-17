@@ -897,6 +897,7 @@ GameObject:
   - component: {fileID: 254161556}
   - component: {fileID: 254161555}
   - component: {fileID: 254161554}
+  - component: {fileID: 254161557}
   m_Layer: 0
   m_Name: Porte3
   m_TagString: Untagged
@@ -913,7 +914,7 @@ Transform:
   m_GameObject: {fileID: 254161552}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.62, y: 0.9, z: 3.75}
-  m_LocalScale: {x: 0.25, y: 1.8, z: 2.5}
+  m_LocalScale: {x: 0.25, y: 1.8, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712629572}
@@ -982,6 +983,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 254161552}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &254161557
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254161552}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d39bc9c97e0d9a0499848244d650bf67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &284557943
 GameObject:
   m_ObjectHideFlags: 0
@@ -3911,6 +3932,7 @@ GameObject:
   - component: {fileID: 1011363217}
   - component: {fileID: 1011363216}
   - component: {fileID: 1011363215}
+  - component: {fileID: 1011363218}
   m_Layer: 0
   m_Name: Porte1
   m_TagString: Untagged
@@ -3996,6 +4018,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1011363213}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1011363218
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011363213}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d39bc9c97e0d9a0499848244d650bf67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1031327695
 GameObject:
   m_ObjectHideFlags: 0
@@ -4448,6 +4490,7 @@ GameObject:
   - component: {fileID: 1141827312}
   - component: {fileID: 1141827311}
   - component: {fileID: 1141827310}
+  - component: {fileID: 1141827313}
   m_Layer: 0
   m_Name: Porte2
   m_TagString: Untagged
@@ -4464,7 +4507,7 @@ Transform:
   m_GameObject: {fileID: 1141827308}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.62, y: 0.9, z: -0.25}
-  m_LocalScale: {x: 0.25, y: 1.8, z: 2.5}
+  m_LocalScale: {x: 0.25, y: 1.8, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712629572}
@@ -4533,6 +4576,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1141827308}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1141827313
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141827308}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d39bc9c97e0d9a0499848244d650bf67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1159943051
 GameObject:
   m_ObjectHideFlags: 0
@@ -5076,6 +5139,7 @@ GameObject:
   - component: {fileID: 1339478866}
   - component: {fileID: 1339478865}
   - component: {fileID: 1339478864}
+  - component: {fileID: 1339478867}
   m_Layer: 0
   m_Name: Porte4
   m_TagString: Untagged
@@ -5092,7 +5156,7 @@ Transform:
   m_GameObject: {fileID: 1339478862}
   m_LocalRotation: {x: -0, y: 0.7071068, z: -0, w: 0.7071068}
   m_LocalPosition: {x: -0.62, y: 0.9, z: 9.25}
-  m_LocalScale: {x: 0.25, y: 1.8, z: 2.5}
+  m_LocalScale: {x: 0.25, y: 1.8, z: 3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712629572}
@@ -5161,6 +5225,26 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1339478862}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &1339478867
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339478862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d39bc9c97e0d9a0499848244d650bf67, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1419251767
 GameObject:
   m_ObjectHideFlags: 0
