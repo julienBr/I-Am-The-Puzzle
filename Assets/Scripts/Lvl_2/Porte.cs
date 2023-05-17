@@ -1,17 +1,29 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Porte : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private Animator _animator;
+
+    private void Awake() { _animator = GetComponent<Animator>(); }
+
+    private void OnEnable()
     {
-        
+        Trepied.ConnectRecepteur1 += Connect1;
+        Trepied.ConnectRecepteur2 += Connect2;
+    }
+    private void OnDisable()
+    {
+        Trepied.ConnectRecepteur1 -= Connect1;
+        Trepied.ConnectRecepteur2 -= Connect2;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Connect1(GameObject recepteur, int id, bool isTouched)
+    {
+        if (isTouched)
+            Debug.Log($"{recepteur.name} - {id} - {isTouched}");
+    }
+    
+    private void Connect2(GameObject recepteur, int id, bool isTouched)
     {
         
     }

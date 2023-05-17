@@ -16,6 +16,10 @@ public class Trepied : MonoBehaviour
     public bool _isConnectedSource2Trepied;
     private bool _isGrabbed;
     private bool _posDepart = true;
+
+    public delegate void LinkToRecepteur(GameObject recepteur, int id, bool isTouched);
+    public static event LinkToRecepteur ConnectRecepteur1;
+    public static event LinkToRecepteur ConnectRecepteur2;
     
     private void Awake()
     {
@@ -99,11 +103,14 @@ public class Trepied : MonoBehaviour
                     {
                         _laserToRecepteur[i].enabled = true;
                         Gradient gradient = new Gradient();
-                        gradient.SetKeys(new[] {new GradientColorKey(Color.blue, 0f)}, new[] {new GradientAlphaKey(1f, 0f)});
+                        gradient.SetKeys(new[] { new GradientColorKey(Color.blue, 0f) },
+                            new[] { new GradientAlphaKey(1f, 0f) });
                         _laserToRecepteur[i].colorGradient = gradient;
                         _laserToRecepteur[i].SetPosition(0, _lookRecepteur[i].transform.position);
                         _laserToRecepteur[i].SetPosition(1, _recepteur[i].transform.position);
+                        ConnectRecepteur1?.Invoke(_recepteur[i], i, true);
                     }
+                    else ConnectRecepteur1?.Invoke(_recepteur[i], i, false);
                 }
             }
         }
@@ -122,7 +129,9 @@ public class Trepied : MonoBehaviour
                         _laserToRecepteur[i].colorGradient = gradient;
                         _laserToRecepteur[i].SetPosition(0, _lookRecepteur[i].transform.position);
                         _laserToRecepteur[i].SetPosition(1, _recepteur[i].transform.position);
+                        ConnectRecepteur2?.Invoke(_recepteur[i], i, true);
                     }
+                    else ConnectRecepteur2?.Invoke(_recepteur[i], i, false);
                 }
             }
         }
