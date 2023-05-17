@@ -48,7 +48,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - Vector1_1200c38ec7f841ad83d5404aa19ee8c5: 200
+    - Vector1_1200c38ec7f841ad83d5404aa19ee8c5: 250
     - Vector1_6a9cfc09d7764e3784e82cafb96bc9a1: 0.15
     - Vector1_d331b9c96f414215ba4a1eb3a2e90270: 100
     - _QueueControl: 0

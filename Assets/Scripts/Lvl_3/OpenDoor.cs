@@ -14,6 +14,11 @@ public class OpenDoor : MonoBehaviour
 
     }
 
+    public void ok()
+    {
+        Debug.Log("OK");
+    }
+
 
     void Update()
     {
