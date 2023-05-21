@@ -62,7 +62,8 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         fade.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("3_Lvl_2");
+       // SceneManager.LoadScene("3_Lvl_2");
+       SceneManager.LoadScene("3_Lvl_2TEST");
     }
     
     public IEnumerator WaitLevel3()
@@ -70,6 +71,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         fade.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("4_Lvl_3");
+        //SceneManager.LoadScene("4_Lvl_3");
+        SceneManager.LoadScene("lvl3_test");
     }
 }

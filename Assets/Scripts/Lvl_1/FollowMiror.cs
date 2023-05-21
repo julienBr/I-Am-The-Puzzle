@@ -6,9 +6,8 @@ public class FollowMiror : MonoBehaviour
 {
     public Transform _objectToFollow;
     public Transform _mirror;
-    private bool _obstacleOk;
-    private bool _clonePlayerOk;
-    public bool _raycastHit; 
+ 
+   
     
     void Start()
     {
@@ -26,27 +25,7 @@ public class FollowMiror : MonoBehaviour
         
     }
     
-    private void Awake()
-    {
-        _raycastHit = false;
-    }
-
-    private void FixedUpdate()
-    {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-        {
-               Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10f, Color.yellow);
-               Debug.Log("Did Hit" + hit.collider.gameObject.name);
-            _raycastHit = true;
-        }
-        else
-        {
-              Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10f, Color.red);
-                Debug.Log("Did not Hit");
-            _raycastHit = false;
-        }
-    }
+   
     
     
     
