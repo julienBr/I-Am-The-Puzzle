@@ -15,6 +15,7 @@ TagManager:
   - ObjectToTeleport
   - RedDoor
   - BlueDoor
+  - obstacle
   layers:
   - Default
   - TransparentFX
