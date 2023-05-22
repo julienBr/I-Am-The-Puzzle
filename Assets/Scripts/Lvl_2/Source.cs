@@ -21,7 +21,7 @@ public class Source : MonoBehaviour
 
     public void HitLaser()
     {
-        for(int i = 0; i < _lookTrepied.Count; i++)
+        for(int i = 0; i < _trepied.Count; i++)
         {
             _lookTrepied[i].transform.LookAt(_trepied[i].transform);
             if (Physics.Raycast(_lookTrepied[i].transform.position, _lookTrepied[i].transform.forward, out RaycastHit hit))

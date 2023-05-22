@@ -6,14 +6,14 @@ public class Trepied : MonoBehaviour
     [SerializeField] private List<GameObject> _lookTrepied;
     [SerializeField] private List<GameObject> _lookRecepteur;
     [SerializeField] private List<GameObject> _trepied;
-    [SerializeField] private List<GameObject> _recepteur;
+    [SerializeField] private List<GameObject> _recepteur1;
+    [SerializeField] private List<GameObject> _recepteur2;
     [SerializeField] private List<GameObject> _source;
     private List<LineRenderer> _laser = new();
-    private List<LineRenderer> _laserToRecepteur = new();
     public bool _isConnectedSource1;
     public bool _isConnectedSource2;
-    public bool _isConnectedSource1Trepied;
-    public bool _isConnectedSource2Trepied;
+    public bool _isConnectedTrepiedSource1;
+    public bool _isConnectedTrepiedSource2;
     private bool _isGrabbed;
     private bool _posDepart = true;
 
@@ -21,8 +21,6 @@ public class Trepied : MonoBehaviour
     {
         foreach (GameObject lookTrepied in _lookTrepied)
             _laser.Add(lookTrepied.GetComponent<LineRenderer>());
-        foreach (GameObject lookRecepteur in _lookRecepteur)
-            _laserToRecepteur.Add(lookRecepteur.GetComponent<LineRenderer>());
     }
     
     private void OnEnable() { Source.ConnectTrepied += Connect; }
@@ -69,8 +67,8 @@ public class Trepied : MonoBehaviour
                 {
                     if (hit.collider.gameObject.CompareTag("Target"))
                     {
-                        if (_isConnectedSource1) _trepied[i].GetComponent<Trepied>()._isConnectedSource1Trepied = true;
-                        else _trepied[i].GetComponent<Trepied>()._isConnectedSource2Trepied = true;
+                        if (_isConnectedSource1) _trepied[i].GetComponent<Trepied>()._isConnectedTrepiedSource1 = true;
+                        else _trepied[i].GetComponent<Trepied>()._isConnectedTrepiedSource2 = true;
                         _laser[i].enabled = true;
                         _laser[i].SetPosition(0, _lookTrepied[i].transform.position);
                         _laser[i].SetPosition(1, _trepied[i].transform.position);
@@ -78,17 +76,17 @@ public class Trepied : MonoBehaviour
                     else
                     {
                         _laser[i].enabled = false;
-                        _trepied[i].GetComponent<Trepied>()._isConnectedSource1Trepied = false;
-                        _trepied[i].GetComponent<Trepied>()._isConnectedSource2Trepied = false;
+                        _trepied[i].GetComponent<Trepied>()._isConnectedTrepiedSource1 = false;
+                        _trepied[i].GetComponent<Trepied>()._isConnectedTrepiedSource2 = false;
                     }
                 }
             }
         }
     }
 
-    private void HitRecepteur()
+    /*private void HitRecepteur()
     {
-        if (_isConnectedSource1 || _isConnectedSource1Trepied)
+        if (_isConnectedSource1 || _isConnectedTrepiedSource1)
         {
             for (int i = 0; i < _lookRecepteur.Count; i++)
             {
@@ -108,7 +106,7 @@ public class Trepied : MonoBehaviour
                 }
             }
         }
-        if (_isConnectedSource2 || _isConnectedSource2Trepied)
+        if (_isConnectedSource2 || _isConnectedTrepiedSource2)
         {
             for (int i = 0; i < _lookRecepteur.Count; i++)
             {
@@ -127,7 +125,7 @@ public class Trepied : MonoBehaviour
                 }
             }
         }
-    }
+    }*/
     
     private void RecalculateLaser()
     {
@@ -135,8 +133,8 @@ public class Trepied : MonoBehaviour
         {
             if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2)
                 trepied.GetComponent<Trepied>().HitLaser();
-            if (trepied.GetComponent<Trepied>()._isConnectedSource1Trepied || trepied.GetComponent<Trepied>()._isConnectedSource2Trepied)
-                trepied.GetComponent<Trepied>().HitRecepteur();
+            /*if (trepied.GetComponent<Trepied>()._isConnectedTrepiedSource1 || trepied.GetComponent<Trepied>()._isConnectedTrepiedSource2)
+                trepied.GetComponent<Trepied>().HitRecepteur();*/
         }
     }
     
@@ -144,26 +142,20 @@ public class Trepied : MonoBehaviour
     {
         if (!_posDepart)
         {
+            foreach (LineRenderer laser in _laser) laser.enabled = false;
             foreach (GameObject source in _source)
                 foreach (LineRenderer laser in source.GetComponentsInChildren<LineRenderer>())
                     if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
-            foreach (LineRenderer laser in _laser)
-            {
-                laser.enabled = false;
-                _isConnectedSource1Trepied = false;
-                _isConnectedSource2Trepied = false;
-            }
-            foreach (LineRenderer laserRecepteur in _laserToRecepteur) laserRecepteur.enabled = false;
+            foreach (GameObject recepteur in _recepteur1)
+                foreach (LineRenderer laser in recepteur.GetComponentsInChildren<LineRenderer>())
+                    if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
+            foreach (GameObject recepteur in _recepteur2)
+                foreach (LineRenderer laser in recepteur.GetComponentsInChildren<LineRenderer>())
+                    if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
             foreach (GameObject trepied in _trepied)
             {
                 foreach (LineRenderer laser in trepied.GetComponentsInChildren<LineRenderer>())
                     if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
-                if (trepied.GetComponent<Trepied>()._isConnectedSource1)
-                    foreach (LineRenderer laserRecepteur in trepied.GetComponent<Trepied>()._laserToRecepteur)
-                        if (laserRecepteur.CompareTag("Recepteur1")) laserRecepteur.enabled = false;
-                if (trepied.GetComponent<Trepied>()._isConnectedSource2)
-                    foreach (LineRenderer laserRecepteur in trepied.GetComponent<Trepied>()._laserToRecepteur)
-                        if (laserRecepteur.CompareTag("Recepteur2")) laserRecepteur.enabled = false;
             }
         }
     }
@@ -173,6 +165,8 @@ public class Trepied : MonoBehaviour
         _isGrabbed = true;
         _isConnectedSource1 = false;
         _isConnectedSource2 = false;
+        _isConnectedTrepiedSource1 = false;
+        _isConnectedTrepiedSource2 = false;
     }
     public void SelectExited()
     {
@@ -185,9 +179,15 @@ public class Trepied : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground") && !_isGrabbed && !_posDepart)
         {
-            foreach (GameObject source in _source) source.GetComponent<Source>().HitLaser();
+            foreach (GameObject source in _source)
+                source.GetComponent<Source>().HitLaser();
             HitLaser();
-            HitRecepteur();
+            if (_isConnectedSource1 ||_isConnectedTrepiedSource1)
+                foreach (GameObject recepteur in _recepteur1)
+                    recepteur.GetComponent<Recepteur>().HitLaser();
+            if (_isConnectedSource2 ||_isConnectedTrepiedSource2)
+                foreach (GameObject recepteur in _recepteur2)
+                    recepteur.GetComponent<Recepteur>().HitLaser();
             RecalculateLaser();
         }
     }
