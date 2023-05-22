@@ -17,10 +17,6 @@ public class Trepied : MonoBehaviour
     private bool _isGrabbed;
     private bool _posDepart = true;
 
-    public delegate void LinkToRecepteur(GameObject recepteur, int id, bool isTouched);
-    public static event LinkToRecepteur ConnectRecepteur1;
-    public static event LinkToRecepteur ConnectRecepteur2;
-    
     private void Awake()
     {
         foreach (GameObject lookTrepied in _lookTrepied)
@@ -32,11 +28,11 @@ public class Trepied : MonoBehaviour
     private void OnEnable() { Source.ConnectTrepied += Connect; }
     private void OnDisable() { Source.ConnectTrepied -= Connect; }
 
-    private void Connect(GameObject posTrepied, int id, bool isConnected)
+    private void Connect(GameObject trepied, int id, bool isConnected)
     {
         if (isConnected)
         {
-            if (posTrepied == gameObject)
+            if (trepied == gameObject)
             {
                 if (id == 0)
                 {
@@ -108,9 +104,7 @@ public class Trepied : MonoBehaviour
                         _laserToRecepteur[i].colorGradient = gradient;
                         _laserToRecepteur[i].SetPosition(0, _lookRecepteur[i].transform.position);
                         _laserToRecepteur[i].SetPosition(1, _recepteur[i].transform.position);
-                        ConnectRecepteur1?.Invoke(_recepteur[i], i, true);
                     }
-                    else ConnectRecepteur1?.Invoke(_recepteur[i], i, false);
                 }
             }
         }
@@ -129,9 +123,7 @@ public class Trepied : MonoBehaviour
                         _laserToRecepteur[i].colorGradient = gradient;
                         _laserToRecepteur[i].SetPosition(0, _lookRecepteur[i].transform.position);
                         _laserToRecepteur[i].SetPosition(1, _recepteur[i].transform.position);
-                        ConnectRecepteur2?.Invoke(_recepteur[i], i, true);
                     }
-                    else ConnectRecepteur2?.Invoke(_recepteur[i], i, false);
                 }
             }
         }
@@ -166,23 +158,23 @@ public class Trepied : MonoBehaviour
             {
                 foreach (LineRenderer laser in trepied.GetComponentsInChildren<LineRenderer>())
                     if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
-                if (trepied.GetComponent<Trepied>()._isConnectedSource1Trepied)
+                if (trepied.GetComponent<Trepied>()._isConnectedSource1)
                     foreach (LineRenderer laserRecepteur in trepied.GetComponent<Trepied>()._laserToRecepteur)
                         if (laserRecepteur.CompareTag("Recepteur1")) laserRecepteur.enabled = false;
-                if (trepied.GetComponent<Trepied>()._isConnectedSource2Trepied)
+                if (trepied.GetComponent<Trepied>()._isConnectedSource2)
                     foreach (LineRenderer laserRecepteur in trepied.GetComponent<Trepied>()._laserToRecepteur)
                         if (laserRecepteur.CompareTag("Recepteur2")) laserRecepteur.enabled = false;
             }
         }
     }
 
-    public void Entered()
+    public void SelectEntered()
     {
         _isGrabbed = true;
         _isConnectedSource1 = false;
         _isConnectedSource2 = false;
     }
-    public void Exited()
+    public void SelectExited()
     {
         _isGrabbed = false;
         _posDepart = false;

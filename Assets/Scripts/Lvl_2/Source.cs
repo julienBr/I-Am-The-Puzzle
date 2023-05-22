@@ -8,7 +8,7 @@ public class Source : MonoBehaviour
     [SerializeField] private List<GameObject> _trepied;
     private List<LineRenderer> _laser = new ();
 
-    public delegate void LinkToSource(GameObject posTrepied, int id, bool isConnected);
+    public delegate void LinkToSource(GameObject trepied, int id, bool isConnected);
     public static event LinkToSource ConnectTrepied;
 
     private void Awake()
