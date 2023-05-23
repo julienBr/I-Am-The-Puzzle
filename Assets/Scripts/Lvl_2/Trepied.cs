@@ -75,8 +75,6 @@ public class Trepied : MonoBehaviour
                     else
                     {
                         _laser[i].enabled = false;
-                        _trepied[i].GetComponent<Trepied>()._isConnectedTrepiedSource1 = false;
-                        _trepied[i].GetComponent<Trepied>()._isConnectedTrepiedSource2 = false;
                     }
                 }
             }
@@ -85,13 +83,9 @@ public class Trepied : MonoBehaviour
 
     private void RecalculateLaser()
     {
-        foreach (GameObject trepied in _trepied)
-        {
+        foreach (GameObject trepied in _trepied) 
             if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2)
                 trepied.GetComponent<Trepied>().HitLaser();
-        }
-        /*foreach (GameObject recepteur in _recepteur1) recepteur.GetComponent<Recepteur>().HitLaser();
-        foreach (GameObject recepteur in _recepteur2) recepteur.GetComponent<Recepteur>().HitLaser();*/
     }
     
     public void ClearLaser()
@@ -121,8 +115,11 @@ public class Trepied : MonoBehaviour
                     foreach (GameObject recepteur in _recepteur1)
                     {
                         foreach (LineRenderer laser in recepteur.GetComponentsInChildren<LineRenderer>())
-                            if (laser.name != "LookAt" + gameObject.name)
+                            if (laser.name == "LookAt" + trepied.name)
+                            {
+                                trepied.GetComponent<Trepied>()._isConnectedTrepiedSource1 = false;
                                 laser.enabled = false;
+                            }
                     }
                     _isConnectedSource1 = false;
                 }
@@ -131,8 +128,11 @@ public class Trepied : MonoBehaviour
                     foreach (GameObject recepteur in _recepteur2)
                     {
                         foreach (LineRenderer laser in recepteur.GetComponentsInChildren<LineRenderer>())
-                            if (laser.name != "LookAt" + gameObject.name)
+                            if (laser.name == "LookAt" + trepied.name)
+                            {
+                                trepied.GetComponent<Trepied>()._isConnectedTrepiedSource2 = false;
                                 laser.enabled = false;
+                            }
                     }
                     _isConnectedSource2 = false;
                 }
@@ -160,12 +160,12 @@ public class Trepied : MonoBehaviour
             foreach (GameObject source in _source)
                 source.GetComponent<Source>().HitLaser();
             HitLaser();
-            /*if (_isConnectedSource1 || _isConnectedTrepiedSource1)
+            if (_isConnectedSource1 || _isConnectedTrepiedSource1)
                 foreach (GameObject recepteur in _recepteur1)
                     recepteur.GetComponent<Recepteur>().HitLaser();
             if (_isConnectedSource2 || _isConnectedTrepiedSource2)
                 foreach (GameObject recepteur in _recepteur2)
-                    recepteur.GetComponent<Recepteur>().HitLaser();*/
+                    recepteur.GetComponent<Recepteur>().HitLaser();
             RecalculateLaser();
         }
     }
