@@ -59,7 +59,7 @@ public class Trepied : MonoBehaviour
     {
         if (_isConnectedSource1 || _isConnectedSource2)
         {
-            for (int i = 0; i < _lookTrepied.Count; i++)
+            for (int i = 0; i < _trepied.Count; i++)
             {
                 _lookTrepied[i].transform.LookAt(_trepied[i].transform);
                 if (Physics.Raycast(_lookTrepied[i].transform.position, _lookTrepied[i].transform.forward, out RaycastHit hit))
@@ -87,11 +87,11 @@ public class Trepied : MonoBehaviour
     {
         foreach (GameObject trepied in _trepied)
         {
-            //if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2)
+            if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2)
                 trepied.GetComponent<Trepied>().HitLaser();
         }
-        foreach (GameObject recepteur in _recepteur1) recepteur.GetComponent<Recepteur>().HitLaser();
-        foreach (GameObject recepteur in _recepteur2) recepteur.GetComponent<Recepteur>().HitLaser();
+        /*foreach (GameObject recepteur in _recepteur1) recepteur.GetComponent<Recepteur>().HitLaser();
+        foreach (GameObject recepteur in _recepteur2) recepteur.GetComponent<Recepteur>().HitLaser();*/
     }
     
     public void ClearLaser()
@@ -160,12 +160,12 @@ public class Trepied : MonoBehaviour
             foreach (GameObject source in _source)
                 source.GetComponent<Source>().HitLaser();
             HitLaser();
-            if (_isConnectedSource1 || _isConnectedTrepiedSource1)
+            /*if (_isConnectedSource1 || _isConnectedTrepiedSource1)
                 foreach (GameObject recepteur in _recepteur1)
                     recepteur.GetComponent<Recepteur>().HitLaser();
             if (_isConnectedSource2 || _isConnectedTrepiedSource2)
                 foreach (GameObject recepteur in _recepteur2)
-                    recepteur.GetComponent<Recepteur>().HitLaser();
+                    recepteur.GetComponent<Recepteur>().HitLaser();*/
             RecalculateLaser();
         }
     }
