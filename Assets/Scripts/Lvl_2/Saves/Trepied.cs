@@ -84,8 +84,8 @@ public class Trepied : MonoBehaviour
 
     private void RecalculateLaser()
     {
-        foreach (GameObject trepied in _trepied) 
-            if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2)
+        foreach (GameObject trepied in _trepied)
+            if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2) 
                 trepied.GetComponent<Trepied>().HitLaser();
     }
     

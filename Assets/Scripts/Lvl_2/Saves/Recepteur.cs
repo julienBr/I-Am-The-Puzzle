@@ -6,11 +6,9 @@ public class Recepteur : MonoBehaviour
     [SerializeField] private int _id;
     [SerializeField] private List<GameObject> _lookTrepied;
     [SerializeField] private List<GameObject> _trepied;
+    [SerializeField] private Animator _doorAnimator;
     private List<LineRenderer> _laser = new ();
 
-    public delegate void LinkToRecepteur(int id, bool isConnected);
-    public static event LinkToRecepteur ConnectDoor;
-    
     private void Awake()
     {
         foreach (GameObject lookTrepied in _lookTrepied)
@@ -32,13 +30,11 @@ public class Recepteur : MonoBehaviour
                         _laser[i].enabled = true;
                         _laser[i].SetPosition(0, _trepied[i].transform.position);
                         _laser[i].SetPosition(1, _laser[i].transform.position);
-                        Debug.Log(i);
-                        ConnectDoor?.Invoke(i, true);
+                        _doorAnimator.SetBool("OpenDoor", true);
                     }
                     else
                     {
                         _laser[i].enabled = false;
-                        ConnectDoor?.Invoke(i, false);
                     }
                 }
             }
@@ -53,12 +49,10 @@ public class Recepteur : MonoBehaviour
                         _laser[i].enabled = true;
                         _laser[i].SetPosition(0, _trepied[i].transform.position);
                         _laser[i].SetPosition(1, _laser[i].transform.position);
-                        ConnectDoor?.Invoke(i, true);
                     }
                     else
                     {
                         _laser[i].enabled = false;
-                        ConnectDoor?.Invoke(i, false);
                     }
                 }
             }
