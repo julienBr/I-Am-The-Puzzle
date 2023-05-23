@@ -37,7 +37,8 @@ public class Trepied : MonoBehaviour
                     foreach (LineRenderer laser in _laser)
                     {
                         Gradient gradient = new Gradient();
-                        gradient.SetKeys(new[] {new GradientColorKey(Color.blue, 0f)}, new[] {new GradientAlphaKey(1f, 0f)});
+                        gradient.SetKeys(new[] {new GradientColorKey(Color.blue, 0f), new GradientColorKey(Color.cyan, 0.5f), new GradientColorKey(Color.blue, 1f)},
+                            new[] {new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 0.5f), new GradientAlphaKey(1f, 1f)});
                         laser.colorGradient = gradient;
                     }
                 }
@@ -93,19 +94,15 @@ public class Trepied : MonoBehaviour
         if (!_posDepart)
         {
             foreach (LineRenderer laser in _laser) laser.enabled = false;
-            
             foreach (GameObject source in _source)
                 foreach (LineRenderer laser in source.GetComponentsInChildren<LineRenderer>())
                     if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
-            
             foreach (GameObject recepteur in _recepteur1)
                 foreach (LineRenderer laser in recepteur.GetComponentsInChildren<LineRenderer>())
                     if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
-            
             foreach (GameObject recepteur in _recepteur2)
                 foreach (LineRenderer laser in recepteur.GetComponentsInChildren<LineRenderer>())
                     if (laser.name == "LookAt" + gameObject.name) laser.enabled = false;
-            
             foreach (GameObject trepied in _trepied)
             {
                 foreach (LineRenderer laser in trepied.GetComponentsInChildren<LineRenderer>())

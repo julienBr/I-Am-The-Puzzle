@@ -380,7 +380,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83177116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.75, y: 0.5, z: -4.89}
+  m_LocalPosition: {x: -4.97, y: 0.5, z: -12.23}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -892,7 +892,7 @@ GameObject:
   - component: {fileID: 254161557}
   - component: {fileID: 254161558}
   m_Layer: 0
-  m_Name: Porte3
+  m_Name: Porte4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -911,7 +911,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712629572}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &254161554
 BoxCollider:
@@ -1008,6 +1008,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaf0461bcdd5564e9af3ce336d2e98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 3
 --- !u!1 &296468281
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,7 +2008,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680984632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.21, y: 0.5, z: 0.86}
+  m_LocalPosition: {x: -0.94, y: 0.5, z: -1.37}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3433,7 +3434,7 @@ GameObject:
   - component: {fileID: 1011363218}
   - component: {fileID: 1011363219}
   m_Layer: 0
-  m_Name: Porte1
+  m_Name: Porte3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3452,7 +3453,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712629572}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1011363215
 BoxCollider:
@@ -3549,6 +3550,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaf0461bcdd5564e9af3ce336d2e98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 2
 --- !u!1 &1065168396
 GameObject:
   m_ObjectHideFlags: 0
@@ -4291,7 +4293,7 @@ GameObject:
   - component: {fileID: 1141827313}
   - component: {fileID: 1141827314}
   m_Layer: 0
-  m_Name: Porte2
+  m_Name: Porte1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4310,7 +4312,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712629572}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1141827310
 BoxCollider:
@@ -4407,6 +4409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaf0461bcdd5564e9af3ce336d2e98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 0
 --- !u!1 &1159943051
 GameObject:
   m_ObjectHideFlags: 0
@@ -4953,7 +4956,7 @@ GameObject:
   - component: {fileID: 1339478867}
   - component: {fileID: 1339478868}
   m_Layer: 0
-  m_Name: Porte4
+  m_Name: Porte2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4972,7 +4975,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1712629572}
-  m_RootOrder: 3
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!65 &1339478864
 BoxCollider:
@@ -5069,6 +5072,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4aaf0461bcdd5564e9af3ce336d2e98f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _id: 1
 --- !u!1 &1349285655
 GameObject:
   m_ObjectHideFlags: 0
@@ -6055,7 +6059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1712629572
 Transform:
   m_ObjectHideFlags: 0
@@ -6068,10 +6072,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1011363214}
   - {fileID: 1141827309}
-  - {fileID: 254161553}
   - {fileID: 1339478863}
+  - {fileID: 1011363214}
+  - {fileID: 254161553}
   m_Father: {fileID: 1005106926}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7164,7 +7168,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914194604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.37, y: 0.5, z: -4.79}
+  m_LocalPosition: {x: 5.82, y: 0.5, z: -12.57}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
