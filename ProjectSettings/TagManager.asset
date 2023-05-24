@@ -16,6 +16,8 @@ TagManager:
   - RedDoor
   - BlueDoor
   - obstacle
+  - Source
+  - Source0
   layers:
   - Default
   - TransparentFX

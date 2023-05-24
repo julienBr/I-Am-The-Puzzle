@@ -85,8 +85,12 @@ public class Trepied : MonoBehaviour
     private void RecalculateLaser()
     {
         foreach (GameObject trepied in _trepied)
-            if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2) 
+        {
+            if (trepied.GetComponent<Trepied>()._isConnectedSource1 || trepied.GetComponent<Trepied>()._isConnectedSource2)
                 trepied.GetComponent<Trepied>().HitLaser();
+            foreach (GameObject recepteur in _recepteur1) recepteur.GetComponent<Recepteur>().HitLaser();
+            foreach (GameObject recepteur in _recepteur2) recepteur.GetComponent<Recepteur>().HitLaser();
+        }
     }
     
     public void ClearLaser()
@@ -147,7 +151,7 @@ public class Trepied : MonoBehaviour
     {
         _isGrabbed = false;
         _posDepart = false;
-        foreach (GameObject trepied in _trepied) trepied.GetComponent<Trepied>()._posDepart = false;
+        //foreach (GameObject trepied in _trepied) trepied.GetComponent<Trepied>()._posDepart = false;
     }
     
     private void OnCollisionStay(Collision other)
@@ -157,11 +161,9 @@ public class Trepied : MonoBehaviour
             foreach (GameObject source in _source)
                 source.GetComponent<Source>().HitLaser();
             HitLaser();
-            if (_isConnectedSource1 || _isConnectedTrepiedSource1)
-                foreach (GameObject recepteur in _recepteur1)
+            foreach (GameObject recepteur in _recepteur1)
                     recepteur.GetComponent<Recepteur>().HitLaser();
-            if (_isConnectedSource2 || _isConnectedTrepiedSource2)
-                foreach (GameObject recepteur in _recepteur2)
+            foreach (GameObject recepteur in _recepteur2)
                     recepteur.GetComponent<Recepteur>().HitLaser();
             RecalculateLaser();
         }
