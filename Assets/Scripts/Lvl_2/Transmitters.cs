@@ -8,13 +8,15 @@ public class Transmitters : MonoBehaviour
     [SerializeField] private List<GameObject> _lookAtTargets;
     [SerializeField] private bool _isSource;
     [SerializeField] private bool _posDepart = true;
-    private Rays _sourceRay;
+    [SerializeField] private Rays _sourceRay;
     private bool _onGround;
 
     public void Update()
     {
         if (_isSource || (_onGround && _sourceRay != null))
+        {
             LocateTargets();
+        }
     }
     
     private void LocateTargets()
@@ -22,20 +24,23 @@ public class Transmitters : MonoBehaviour
         for (int i = 0; i < _targets.Count; i++)
         {
             _lookAtTargets[i].transform.LookAt(_targets[i].transform);
-            if (Physics.Raycast(_lookAtTargets[i].transform.position, _lookAtTargets[i].transform.forward, out RaycastHit hit))// && _onGround && _sourceRay == null)
+            if (Physics.Raycast(_lookAtTargets[i].transform.position, _lookAtTargets[i].transform.forward, out RaycastHit hit) && _sourceRay == null)
             {
                 if (hit.collider.gameObject.CompareTag("Target"))
                 {
+                    //Debug.Log($"{gameObject.name} - Lance la fonction DrawRay");
                     DrawRay(gameObject, _targets[i], _lookAtTargets[i].GetComponent<RayRenderer>());
                     _targets[i].GetComponent<Transmitters>()._sourceRay = _sourceRay;
+                    _targets[i].GetComponent<Transmitters>()._isSource = true;
                 }
-                else _targets[i].GetComponent<Transmitters>()._sourceRay = null;
+                //else _targets[i].GetComponent<Transmitters>()._sourceRay = null;
             }
         }
     }
 
     private void DrawRay(GameObject transmitter, GameObject receptor, RayRenderer ray)
     {
+        ray.GetComponent<LineRenderer>().enabled = true;
         ray.GetComponent<LineRenderer>().SetPosition(0, transmitter.transform.position);
         ray.GetComponent<LineRenderer>().SetPosition(1, receptor.transform.position);
     }
@@ -56,7 +61,6 @@ public class Transmitters : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Ground") && _onGround && !_posDepart)
         {
-            Debug.Log("onGround");
             LocateTargets();
         }
     }

@@ -1,28 +1,33 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class Transmitter : MonoBehaviour
 {
-    [Header("Sources References")]
-    [SerializeField] private List<GameObject> _sources;
+    [Header("Sources References")] [SerializeField]
+    private List<GameObject> _sources;
+
     [SerializeField] private List<GameObject> _lookAtSources;
-    
-    [Header("Tripods References")]
-    [SerializeField] private List<GameObject> _tripods;
+
+    [Header("Tripods References")] [SerializeField]
+    private List<GameObject> _tripods;
+
     [SerializeField] private List<GameObject> _lookAtTripods;
 
-    [Header("Receptors References")]
-    [SerializeField] private List<GameObject> _receptors;
+    [Header("Receptors References")] [SerializeField]
+    private List<GameObject> _receptors;
+
     [SerializeField] private List<GameObject> _lookAtReceptors;
-    
+
     private List<LineRenderer> _laserSources = new();
     private List<LineRenderer> _laserTripods = new();
     private List<LineRenderer> _laserReceptors = new();
 
-    [Header("Connected References")]
-    public List<bool> _isSource;
-    public bool _isAlreadyConnected;
+    [Header("Connected References")] public List<bool> _isSource;
+    public bool _isConnected;
+    public bool _posDépart = true;
+    public bool _isGrabbed;
+    public bool _alreadyDone;
+    
     
     private void Awake()
     {
@@ -36,31 +41,45 @@ public class Transmitter : MonoBehaviour
 
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground"))
+        if (other.gameObject.CompareTag("Ground") && !_isGrabbed && !_posDépart && !_alreadyDone)
         {
             LocateSources();
+            _alreadyDone = true;
             if (_isSource[0] || _isSource[1]) LocateTargets();
         }
     }
 
+    public void SelectEntered()
+    {
+        _alreadyDone = false;
+        _isGrabbed = true;
+        EraseLaser();
+        _isConnected = false;
+        for (int i = 0; i < _isSource.Count; i++) _isSource[i] = false;
+    }
+
+    public void SelectExited()
+    {
+        _posDépart = false;
+        _isGrabbed = false;
+    }
+
     private void LocateSources()
     {
+        Debug.Log("LocateSource()");
         for (int i = 0; i < _sources.Count; i++)
         {
             _lookAtSources[i].transform.LookAt(_sources[i].transform);
-            if (Physics.Raycast(_lookAtSources[i].transform.position, _lookAtSources[i].transform.forward, out RaycastHit hit))
+            if (Physics.Raycast(_lookAtSources[i].transform.position, _lookAtSources[i].transform.forward,
+                    out RaycastHit hit))
             {
                 if (hit.collider.gameObject.CompareTag($"Source{i}"))
                 {
                     _isSource[i] = true;
-                    _isAlreadyConnected = true;
+                    _isConnected = true;
                     ShootLaser(_laserSources[i], _sources[i], gameObject, _isSource);
                 }
-                else
-                {
-                    _isSource[i] = false;
-                    _laserSources[i].enabled = false;
-                }
+                else _isSource[i] = false;
             }
         }
     }
@@ -70,21 +89,21 @@ public class Transmitter : MonoBehaviour
         for (int i = 0; i < _tripods.Count; i++)
         {
             _lookAtTripods[i].transform.LookAt(_tripods[i].transform);
-            if (Physics.Raycast(_lookAtTripods[i].transform.position, _lookAtTripods[i].transform.forward, out RaycastHit hit))
+            if (Physics.Raycast(_lookAtTripods[i].transform.position, _lookAtTripods[i].transform.forward,
+                    out RaycastHit hit))
             {
-                if (hit.collider.gameObject.CompareTag("Target") && _tripods[i].GetComponent<Transmitter>()._isAlreadyConnected == false)
+                if (hit.collider.gameObject.CompareTag("Target") && !_tripods[i].GetComponent<Transmitter>()._isConnected &&
+                    !_tripods[i].GetComponent<Transmitter>()._isSource[0] && !_tripods[i].GetComponent<Transmitter>()._isSource[1])
                 {
-                    _isSource[i] = _tripods[i].GetComponent<Transmitter>()._isSource[i];
-                    ShootLaser(_laserTripods[i], _tripods[i], gameObject, _isSource);
-                }
-                else
-                {
-                    _laserTripods[i].enabled = false;
+                    _tripods[i].GetComponent<Transmitter>()._isConnected = true;
+                    _tripods[i].GetComponent<Transmitter>()._isSource[0] = _isSource[0];
+                    _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
+                    ShootLaser(_laserTripods[i], gameObject, _tripods[i], _isSource);
                 }
             }
         }
     }
-    
+
     private void ShootLaser(LineRenderer laser, GameObject start, GameObject end, List<bool> source)
     {
         Gradient gradient = new Gradient();
@@ -105,5 +124,30 @@ public class Transmitter : MonoBehaviour
         laser.colorGradient = gradient;
         laser.SetPosition(0, start.transform.position);
         laser.SetPosition(1, end.transform.position);
+    }
+
+    private void EraseLaser()
+    {
+        foreach (LineRenderer laserSources in _laserSources) laserSources.enabled = false;
+        foreach (LineRenderer laserTripods in _laserTripods) laserTripods.enabled = false;
+        foreach (GameObject tripods in _tripods)
+        {
+            foreach (LineRenderer laser in tripods.GetComponentsInChildren<LineRenderer>())
+                if (laser.name == "LookAt" + gameObject.name)
+                {
+                    if (_isSource[0])
+                    {
+                        tripods.GetComponent<Transmitter>()._isSource[0] = false;
+                        tripods.GetComponent<Transmitter>()._isConnected = false;
+                    }
+
+                    if (_isSource[1])
+                    {
+                        tripods.GetComponent<Transmitter>()._isSource[1] = false;
+                        tripods.GetComponent<Transmitter>()._isConnected = false;
+                    }
+                    laser.enabled = false;
+                }
+        }
     }
 }
