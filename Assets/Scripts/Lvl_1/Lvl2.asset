@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a075126ddcad9b9429bfe1bd3c7c8ea0, type: 3}
   m_Name: Lvl2
   m_EditorClassIdentifier: 
-  SpawnPistolWithAmmo: 1
+  SpawnPistolWithAmmo: 0
   SpawnPistolWithoutAmmo: 0
   SpawnFlashLight: 0
   SpawnBattery: 0
