@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,10 +42,9 @@ public class Transmitter : MonoBehaviour
         {
             _alreadyDone = true;
             LocateSources();
-            if (_isConnected) LocateTargets();
             foreach (GameObject tripods in _tripods)
             {
-                if (/*!tripods.GetComponent<Transmitter>()._posDépart && */tripods.GetComponent<Transmitter>()._isConnected)
+                if (tripods.GetComponent<Transmitter>()._isConnected)
                 {
                     tripods.GetComponent<Transmitter>().LocateTargets();
                 }
@@ -77,7 +77,7 @@ public class Transmitter : MonoBehaviour
                 {
                     _isSource[i] = true;
                     _isConnected = true;
-                    ShootLaser(_laserSources[i], _sources[i], gameObject, _isSource);
+                    StartCoroutine(ShootLaser(_laserSources[i], _sources[i], gameObject, _isSource));
                 }
                 else _isSource[i] = false;
             }
@@ -97,15 +97,16 @@ public class Transmitter : MonoBehaviour
                 {
                     _tripods[i].GetComponent<Transmitter>()._isSource[0] = _isSource[0];
                     _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
-                    ShootLaser(_laserTripods[i], gameObject, _tripods[i], _isSource);
+                    StartCoroutine(ShootLaser(_laserTripods[i], gameObject, _tripods[i], _isSource));
                 }
             }
         }
     }
 
-    private void ShootLaser(LineRenderer laser, GameObject start, GameObject end, List<bool> source)
+    private IEnumerator ShootLaser(LineRenderer laser, GameObject start, GameObject end, List<bool> source)
     {
         Gradient gradient = new Gradient();
+        float time = 0.75f;
         gradient.SetKeys(
             source[0]
                 ? new[]
@@ -126,7 +127,15 @@ public class Transmitter : MonoBehaviour
         laser.enabled = true;
         laser.colorGradient = gradient;
         laser.SetPosition(0, start.transform.position);
-        laser.SetPosition(1, end.transform.position);
+        for (float t = 0f; t < time; t += Time.deltaTime)
+        {
+            laser.SetPosition(1, Vector3.Lerp(start.transform.position, end.transform.position, t / time));
+            yield return null;
+        }
+        if (_isConnected)
+        {
+            LocateTargets();
+        }
     }
 
     private void EraseLaser()
