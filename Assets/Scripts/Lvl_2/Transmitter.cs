@@ -45,12 +45,8 @@ public class Transmitter : MonoBehaviour
             _alreadyDone = true;
             LocateSources();
             foreach (GameObject tripods in _tripods)
-            {
                 if (tripods.GetComponent<Transmitter>()._isConnected)
-                {
                     tripods.GetComponent<Transmitter>().LocateTargets();
-                }
-            }
         }
     }
 
