@@ -41,11 +41,10 @@ public class Transmitter : MonoBehaviour
         {
             _alreadyDone = true;
             LocateSources();
-            if (_isSource[0] || _isSource[1]) LocateTargets();
+            if (_isConnected) LocateTargets();
             foreach (GameObject tripods in _tripods)
             {
-                if (!tripods.GetComponent<Transmitter>()._posDépart && (tripods.GetComponent<Transmitter>()._isSource[0] ||
-                     tripods.GetComponent<Transmitter>()._isSource[1]))
+                if (/*!tripods.GetComponent<Transmitter>()._posDépart && */tripods.GetComponent<Transmitter>()._isConnected)
                 {
                     tripods.GetComponent<Transmitter>().LocateTargets();
                 }
@@ -68,7 +67,6 @@ public class Transmitter : MonoBehaviour
 
     private void LocateSources()
     {
-        Debug.Log($"{gameObject.name} : LocateSource()");
         for (int i = 0; i < _sources.Count; i++)
         {
             _lookAtSources[i].transform.LookAt(_sources[i].transform);
@@ -88,17 +86,15 @@ public class Transmitter : MonoBehaviour
 
     private void LocateTargets()
     {
-        Debug.Log($"{gameObject.name} : LocateTarget()");
         for (int i = 0; i < _tripods.Count; i++)
         {
             _lookAtTripods[i].transform.LookAt(_tripods[i].transform);
             if (Physics.Raycast(_lookAtTripods[i].transform.position, _lookAtTripods[i].transform.forward,
                     out RaycastHit hit))
             {
-                if (hit.collider.gameObject.CompareTag("Target") && !_tripods[i].GetComponent<Transmitter>()._isConnected &&
-                    !_tripods[i].GetComponent<Transmitter>()._isSource[0] && !_tripods[i].GetComponent<Transmitter>()._isSource[1])
+                if (hit.collider.gameObject.CompareTag("Target") && !_tripods[i].GetComponent<Transmitter>()._isSource[0]
+                                                                 && !_tripods[i].GetComponent<Transmitter>()._isSource[1])
                 {
-                    _tripods[i].GetComponent<Transmitter>()._isConnected = true;
                     _tripods[i].GetComponent<Transmitter>()._isSource[0] = _isSource[0];
                     _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
                     ShootLaser(_laserTripods[i], gameObject, _tripods[i], _isSource);
@@ -139,27 +135,22 @@ public class Transmitter : MonoBehaviour
         foreach (LineRenderer laserTripods in _laserTripods) laserTripods.enabled = false;
         foreach (GameObject tripods in _tripods)
         {
+            if (_isConnected)
+            {
+                if (_isSource[0] && !tripods.GetComponent<Transmitter>()._isConnected)
+                    tripods.GetComponent<Transmitter>()._isSource[0] = false;
+                if (_isSource[1] && !tripods.GetComponent<Transmitter>()._isConnected)
+                    tripods.GetComponent<Transmitter>()._isSource[1] = false;
+            }
             foreach (LineRenderer laser in tripods.GetComponentsInChildren<LineRenderer>())
             {
-                if (laser.name == "LookAt" + gameObject.name)
+                if (laser.name == $"LookAt{gameObject.name}")
                 {
-                    if (_isSource[0])
-                    {
-                        tripods.GetComponent<Transmitter>()._isSource[0] = false;
-                        tripods.GetComponent<Transmitter>()._isConnected = false;
-                    }
-
-                    if (_isSource[1])
-                    {
-                        tripods.GetComponent<Transmitter>()._isSource[1] = false;
-                        tripods.GetComponent<Transmitter>()._isConnected = false;
-                    }
-
                     laser.enabled = false;
-                    _isConnected = false;
-                    for (int i = 0; i < _isSource.Count; i++) _isSource[i] = false;
                 }
             }
         }
+        _isConnected = false;
+        for (int i = 0; i < _isSource.Count; i++) _isSource[i] = false;
     }
 }
