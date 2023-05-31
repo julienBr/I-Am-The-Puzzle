@@ -18,6 +18,10 @@ TagManager:
   - obstacle
   - Source
   - Source0
+  - Receptor0
+  - Receptor1
+  - Receptor2
+  - Receptor3
   layers:
   - Default
   - TransparentFX
