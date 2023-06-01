@@ -16,7 +16,6 @@ public class LevelData : ScriptableObject
   public bool SpawnFlashLight;
   public bool SpawnBattery;
   public bool SpawnChest; 
-  public bool SpawnPoster;
   public bool SpawnAmmo; 
   public bool SpawnObstacle; 
   public bool BoutonObstacle; 
