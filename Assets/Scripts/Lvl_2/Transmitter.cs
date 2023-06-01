@@ -177,8 +177,9 @@ public class Transmitter : MonoBehaviour
         if (_isConnectedSource)
         {
             LocateTargets();
-            LocateReceptors(_isSource); 
-            yield return new WaitForSeconds(time);
+            LocateReceptors(_isSource);
+            if (!_isConnectedTripod)
+                yield return new WaitForSeconds(time);
         }
         foreach (GameObject tripods in _tripods)
             tripods.GetComponent<Transmitter>().LocateReceptors(tripods.GetComponent<Transmitter>()._isSource);
