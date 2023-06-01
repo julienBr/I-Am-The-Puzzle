@@ -9,19 +9,20 @@ public class Lvl1Manager : MonoBehaviour
     private int _enigmeNumberFinished = 0;
     private int _enigmeTotal = 3;
     [SerializeField] private AppData levelLoad;
-    [SerializeField] private GameObject pistolwithAmmo;
-    [SerializeField] private GameObject pistolwithoutAmmo;
+    [SerializeField] private GameObject pistolwithAmmo1side;
+    [SerializeField] private GameObject pistolwithAmmo2side;
     [SerializeField] private GameObject flashLight;
     [SerializeField] private GameObject obstacle;
     //[SerializeField] private GameObject obstacleButton;
-   // [SerializeField] private GameObject ammo;
+   // [SerializeField] private GameObject ammo1side;
     [SerializeField] private GameObject chest;
-    //[SerializeField] private GameObject battery;
+    //[SerializeField] private GameObject battery2side;
     [SerializeField] private GameManager _gameManager;
     
     
     
-    [SerializeField] public Vector3 spawnpistol;
+    [SerializeField] public Vector3 spawnPistol;
+    [SerializeField] public Vector3 spawnClonePistol;
     [SerializeField] public Vector3 spawnflashLight;
     [SerializeField] public Vector3 spawnobstacle;
     [SerializeField] public Vector3 spawn;
@@ -71,17 +72,27 @@ public class Lvl1Manager : MonoBehaviour
     
     void Start()
     {
-       
-        
-            
-        
+        if (levelLoad.levelactuelle.SpawnPistol1side == true)
         {
-            
+            Instantiate(pistolwithAmmo1side, spawnClonePistol,quaternion.identity);
+          
         }
-        if (levelLoad.levelactuelle.SpawnPistolWithAmmo == true)
+
+        else if (levelLoad.levelactuelle.SpawnPistol2side == true)
         {
-            Instantiate(pistolwithAmmo, spawnpistol,quaternion.identity);
+            Instantiate(pistolwithAmmo2side, spawnPistol,quaternion.identity);
+            Instantiate(pistolwithAmmo1side, spawnClonePistol,quaternion.identity);
         }
+        else if (levelLoad.levelactuelle.SpawnObstacle == true)
+        {
+            Instantiate(obstacle, spawnobstacle,quaternion.identity);
+        }
+        else if (levelLoad.levelactuelle.SpawnObstacle == true)
+        {
+            Instantiate(pistolwithAmmo1side, spawnClonePistol,quaternion.identity);
+        }
+        
+        
     }
 
     
@@ -89,5 +100,9 @@ public class Lvl1Manager : MonoBehaviour
     {
         
     }
-    
+    public void ChangeLvl ()
+    {
+       levelLoad.levelactuelle = levelLoad.tableauLevel[1];
+       SceneManager.LoadScene("Lvl_1_test");
+    }
 }

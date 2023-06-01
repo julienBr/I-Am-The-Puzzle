@@ -8,6 +8,8 @@ public class TeleportObjects : MonoBehaviour
     [SerializeField] private GameObject _zonetoTeleport;
     [SerializeField] private bool _objectOn = false;
     private GameObject _objectToTeleport;
+   
+    
     
     void Start()
     {
@@ -26,6 +28,7 @@ public class TeleportObjects : MonoBehaviour
         if (_objectOn == true )
         {
             _objectToTeleport.transform.position = _zonetoTeleport.transform.position;
+          //  _objectToTeleport.GetComponent<ObjectFollowMiror>().enabled = true;
         }
         
     }

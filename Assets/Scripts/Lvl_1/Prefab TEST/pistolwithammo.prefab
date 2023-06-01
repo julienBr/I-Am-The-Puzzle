@@ -14,10 +14,12 @@ GameObject:
   - component: {fileID: 8811095876118620365}
   - component: {fileID: 8811095876118620362}
   - component: {fileID: 8811095876118620363}
-  - component: {fileID: 8811095876118620364}
+  - component: {fileID: -1460849684797109451}
+  - component: {fileID: 2459041622596067578}
+  - component: {fileID: 7192143116485237225}
   m_Layer: 0
   m_Name: pistolwithammo
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -250,17 +252,42 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9675a22c66a94db49899f9ce8c8361b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &8811095876118620364
-MonoBehaviour:
+--- !u!65 &-1460849684797109451
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2925407111589452220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d692e9cf4ff020044a38a460b7072201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _zonetoTeleport: {fileID: 0}
-  _objectOn: 0
+  serializedVersion: 2
+  m_Size: {x: 0.0008586194, y: 0.0033243028, z: 0.00065509306}
+  m_Center: {x: 0.00001490131, y: -0.00012689829, z: 0.000065649816}
+--- !u!65 &2459041622596067578
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925407111589452220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0008586194, y: 0.00082483917, z: 0.0009002492}
+  m_Center: {x: 0.00001490131, y: -0.00063542224, z: -0.00065026793}
+--- !u!65 &7192143116485237225
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2925407111589452220}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0008586194, y: 0.00055897515, z: 0.0008609703}
+  m_Center: {x: 0.000014901309, y: 0.0012435066, z: -0.0006698926}
