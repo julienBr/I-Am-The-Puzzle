@@ -7,6 +7,7 @@ public class ExitLight : MonoBehaviour
     [SerializeField] private Color _redLight;
     [SerializeField] private Color _greenLight;
     [SerializeField] private int _lampNumber = 0;
+   
     private void OnEnable()
     {
        Lvl1Manager.OnLampColorChange += ChangeColor;

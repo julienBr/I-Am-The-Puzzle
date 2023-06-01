@@ -17,7 +17,14 @@ public class Lvl1Manager : MonoBehaviour
    // [SerializeField] private GameObject ammo;
     [SerializeField] private GameObject chest;
     //[SerializeField] private GameObject battery;
+    [SerializeField] private GameManager _gameManager;
+    
+    
+    
     [SerializeField] public Vector3 spawnpistol;
+    [SerializeField] public Vector3 spawnflashLight;
+    [SerializeField] public Vector3 spawnobstacle;
+    [SerializeField] public Vector3 spawn;
     
     public delegate void enigmeResult(int number, bool unlock);
 
@@ -45,7 +52,7 @@ public class Lvl1Manager : MonoBehaviour
         
         if (_enigmeNumberFinished >= _enigmeTotal)
         {
-            SceneManager.LoadScene("1_Hub");
+           _gameManager.PressAnyKey();
 
         }
         // Sinon on allume une lampe pour dire qu'on a fini une enigme
@@ -82,13 +89,5 @@ public class Lvl1Manager : MonoBehaviour
     {
         
     }
-
-
-
-    public void FinishLvl1()
-    {
-        SceneManager.LoadScene("Lvl_1_test");
-        levelLoad.levelactuelle = levelLoad.tableauLevel[0];
-      
-    }
+    
 }
