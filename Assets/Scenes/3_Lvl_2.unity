@@ -249,7 +249,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 83177116}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.02, y: 0.5, z: -12.39}
+  m_LocalPosition: {x: -1.38, y: 0.5, z: -7.83}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -475,7 +475,8 @@ MonoBehaviour:
   - {fileID: 1914839576}
   - {fileID: 627849633}
   _isSource: 0000
-  _isConnected: 0
+  _isConnectedSource: 0
+  _isConnectedTripod: 0
   _receptorTouched: 00000000
   "_posD\xE9part": 1
   _isGrabbed: 0
@@ -2641,7 +2642,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 680984632}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5.83, y: 0.5, z: -12.39}
+  m_LocalPosition: {x: 4.7, y: 0.5, z: -4.93}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2867,7 +2868,8 @@ MonoBehaviour:
   - {fileID: 358599377}
   - {fileID: 131402009}
   _isSource: 0000
-  _isConnected: 0
+  _isConnectedSource: 0
+  _isConnectedTripod: 0
   _receptorTouched: 00000000
   "_posD\xE9part": 1
   _isGrabbed: 0
@@ -7040,7 +7042,8 @@ MonoBehaviour:
   - {fileID: 1179977067}
   - {fileID: 264412395}
   _isSource: 0000
-  _isConnected: 0
+  _isConnectedSource: 0
+  _isConnectedTripod: 0
   _receptorTouched: 00000000
   "_posD\xE9part": 1
   _isGrabbed: 0

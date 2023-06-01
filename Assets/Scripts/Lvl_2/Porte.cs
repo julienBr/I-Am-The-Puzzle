@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Porte : MonoBehaviour
@@ -7,11 +8,32 @@ public class Porte : MonoBehaviour
 
     private void Awake() { _animator = GetComponent<Animator>(); }
 
-    private void OpenDoor(int id, bool isConnected)
+    private void OnEnable()
     {
-        if (id == _id)
-        {
-            _animator.SetBool("OpenDoor", isConnected);
-        }
+        Transmitter.OpenDoor += Open;
+        Transmitter.CloseDoor += Close;
+    }
+
+    private void OnDisable()
+    {
+        Transmitter.OpenDoor -= Open;
+        Transmitter.CloseDoor -= Close;
+    }
+
+    private void Open(int receptorId)
+    {
+        if (receptorId == _id) StartCoroutine(ThrowAnimationDoor(true));
+    }
+
+    private void Close(int receptorId)
+    {
+        if (receptorId == _id) StartCoroutine(ThrowAnimationDoor(false));
+    }
+    
+    private IEnumerator ThrowAnimationDoor(bool connected)
+    {
+        if(connected)
+            yield return new WaitForSeconds(0.75f);
+        _animator.SetBool("OpenDoor", connected);
     }
 }
