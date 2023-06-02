@@ -13,11 +13,15 @@ MonoBehaviour:
   m_Name: Lvl3
   m_EditorClassIdentifier: 
   SpawnPistolWithAmmo: 0
-  SpawnPistolWithoutAmmo: 1
+  SpawnMirrorPistolWithAmmo: 0
+  SpawnPistolWithoutAmmo: 0
+  SpawnMirrorPistolWithoutAmmo: 1
+  SpawnTransparentPistol: 0
   SpawnFlashLight: 1
-  SpawnBattery: 1
-  SpawnChest: 1
-  SpawnPoster: 1
-  SpawnAmmo: 1
+  SpawnMirrorFlashLight: 1
+  SpawnMirrorBattery: 1
+  Spawn2SideChest: 1
+  Spawn1sideAmmo: 1
   SpawnObstacle: 0
+  SpawnMirrorObstacle: 0
   BoutonObstacle: 0

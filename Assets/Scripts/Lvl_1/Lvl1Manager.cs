@@ -9,23 +9,28 @@ public class Lvl1Manager : MonoBehaviour
     private int _enigmeNumberFinished = 0;
     private int _enigmeTotal = 3;
     [SerializeField] private AppData levelLoad;
-    [SerializeField] private GameObject pistolwithAmmo1side;
-    [SerializeField] private GameObject pistolwithAmmo2side;
-    [SerializeField] private GameObject flashLight;
-    [SerializeField] private GameObject obstacle;
-    //[SerializeField] private GameObject obstacleButton;
-   // [SerializeField] private GameObject ammo1side;
-    [SerializeField] private GameObject chest;
-    //[SerializeField] private GameObject battery2side;
     [SerializeField] private GameManager _gameManager;
     
     
+    [SerializeField] private GameObject pistolwithAmmo;
+    [SerializeField] private GameObject pistolwithAmmoMirror;
+    [SerializeField] private GameObject pistolTransparent;
+    [SerializeField] private GameObject pistolwithoutAmmo;
+    [SerializeField] private GameObject pistolwithoutAmmoMirror;
+    [SerializeField] private GameObject flashLight;
+    [SerializeField] private GameObject flashLightMirror;
+    [SerializeField] private GameObject obstacle;
+    [SerializeField] private GameObject obstaclemirror;
+    [SerializeField] private GameObject obstacleButton;
+    [SerializeField] private GameObject ammo;
+    [SerializeField] private GameObject ammoTransparent;
+    [SerializeField] private GameObject chest;
+    [SerializeField] private GameObject chestMirror;
+    [SerializeField] private GameObject battery;
+    [SerializeField] private GameObject batteryMirror;
+    [SerializeField] private GameObject batterytransparent;
     
-    [SerializeField] public Vector3 spawnPistol;
-    [SerializeField] public Vector3 spawnClonePistol;
-    [SerializeField] public Vector3 spawnflashLight;
-    [SerializeField] public Vector3 spawnobstacle;
-    [SerializeField] public Vector3 spawn;
+    
     
     public delegate void enigmeResult(int number, bool unlock);
 
@@ -72,25 +77,59 @@ public class Lvl1Manager : MonoBehaviour
     
     void Start()
     {
-        if (levelLoad.levelactuelle.SpawnPistol1side == true)
+        if (levelLoad.levelactuelle.SpawnPistolWithAmmo == true)
         {
-            Instantiate(pistolwithAmmo1side, spawnClonePistol,quaternion.identity);
-          
+            pistolwithAmmo.SetActive(true);
         }
-
-        else if (levelLoad.levelactuelle.SpawnPistol2side == true)
+        else if (levelLoad.levelactuelle.SpawnMirrorPistolWithAmmo == true)
         {
-            Instantiate(pistolwithAmmo2side, spawnPistol,quaternion.identity);
-            Instantiate(pistolwithAmmo1side, spawnClonePistol,quaternion.identity);
+            pistolwithAmmoMirror.SetActive(true);
+        }
+        else if (levelLoad.levelactuelle.SpawnTransparentPistol == true)
+        {
+           pistolTransparent.SetActive(true);
+        }
+        else if (levelLoad.levelactuelle.SpawnPistolWithoutAmmo == true)
+        {
+           pistolwithoutAmmo.SetActive(true); 
+        }
+        else if (levelLoad.levelactuelle.SpawnMirrorPistolWithoutAmmo == true)
+        {
+            pistolwithoutAmmoMirror.SetActive(true);
         }
         else if (levelLoad.levelactuelle.SpawnObstacle == true)
         {
-            Instantiate(obstacle, spawnobstacle,quaternion.identity);
+            obstacle.SetActive(true);
         }
-        else if (levelLoad.levelactuelle.SpawnObstacle == true)
+        else if (levelLoad.levelactuelle.SpawnMirrorObstacle == true)
         {
-            Instantiate(pistolwithAmmo1side, spawnClonePistol,quaternion.identity);
+            obstaclemirror.SetActive(true);
         }
+        else if (levelLoad.levelactuelle.SpawnFlashLight == true)
+        {
+            flashLight.SetActive(true);
+        }
+        else if (levelLoad.levelactuelle.SpawnMirrorFlashLight == true)
+        {
+            flashLightMirror.SetActive(true);
+        }
+        else if (levelLoad.levelactuelle.SpawnMirrorBattery == true)
+        {
+            batterytransparent.SetActive(true);
+            battery.SetActive(true);
+        }
+        else if (levelLoad.levelactuelle.Spawn1sideAmmo == true)
+        {
+            ammo.SetActive(true);
+            ammoTransparent.SetActive(true);
+            
+        }
+        else if (levelLoad.levelactuelle.Spawn2SideChest== true)
+        { 
+            chest.SetActive(true);
+            chestMirror.SetActive(true);
+        }
+        
         
         
     }
@@ -102,7 +141,7 @@ public class Lvl1Manager : MonoBehaviour
     }
     public void ChangeLvl ()
     {
-       levelLoad.levelactuelle = levelLoad.tableauLevel[1];
+       levelLoad.levelactuelle = levelLoad.tableauLevel[+1];
        SceneManager.LoadScene("Lvl_1_test");
     }
 }

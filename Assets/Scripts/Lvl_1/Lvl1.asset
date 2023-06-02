@@ -12,12 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a075126ddcad9b9429bfe1bd3c7c8ea0, type: 3}
   m_Name: Lvl1
   m_EditorClassIdentifier: 
-  SpawnPistolWithAmmo: 1
+  SpawnPistolWithAmmo: 0
+  SpawnMirrorPistolWithAmmo: 1
   SpawnPistolWithoutAmmo: 0
+  SpawnMirrorPistolWithoutAmmo: 0
+  SpawnTransparentPistol: 1
   SpawnFlashLight: 0
-  SpawnBattery: 0
-  SpawnChest: 0
-  SpawnPoster: 0
-  SpawnAmmo: 0
+  SpawnMirrorFlashLight: 0
+  SpawnMirrorBattery: 0
+  Spawn2SideChest: 0
+  Spawn1sideAmmo: 0
   SpawnObstacle: 0
+  SpawnMirrorObstacle: 0
   BoutonObstacle: 0
