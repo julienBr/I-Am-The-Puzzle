@@ -7,6 +7,8 @@ public class Transmitter : MonoBehaviour
     [Header("Sources References")]
     [SerializeField] private List<GameObject> _sources;
     [SerializeField] private List<GameObject> _lookAtSources;
+    private int _idSource;
+    private bool _sourceSelected;
 
     [Header("Tripods References")]
     [SerializeField] private List<GameObject> _tripods;
@@ -15,16 +17,15 @@ public class Transmitter : MonoBehaviour
     [Header("Receptors References")]
     [SerializeField] private List<GameObject> _receptors;
     [SerializeField] private List<GameObject> _lookAtReceptors;
-
+    
     [Header("Connected References")]
     public List<bool> _isSource;
     public bool _isConnectedSource;
     public bool _isConnectedTripod;
     public List<bool> _receptorTouched;
-    public bool _posDépart = true;
     public bool _isGrabbed;
     public bool _alreadyDone;
-    
+
     private List<LineRenderer> _laserSources = new();
     private List<LineRenderer> _laserTripods = new();
     private List<LineRenderer> _laserReceptors = new();
@@ -43,12 +44,37 @@ public class Transmitter : MonoBehaviour
             _laserReceptors.Add(lookAtReceptors.GetComponent<LineRenderer>());
     }
 
+    private void OnEnable()
+    {
+        UITripods.SelectSource += ChangeSource;
+    }
+
+    private void OnDisable()
+    {
+        UITripods.SelectSource -= ChangeSource;
+    }
+
+    private void ChangeSource(GameObject tripod, int id)
+    {
+        if (tripod == gameObject)
+        {
+            EraseLaser();
+            _idSource = id;
+            gameObject.GetComponent<Renderer>().material.color = id == 0 ? Color.blue : Color.red;
+            _sourceSelected = true;
+            LocateSource();
+            foreach (GameObject tripods in _tripods)
+                if (tripods.GetComponent<Transmitter>()._isConnectedSource)
+                    tripods.GetComponent<Transmitter>().LocateTargets();
+        }
+    }
+    
     private void OnCollisionStay(Collision other)
     {
-        if (other.gameObject.CompareTag("Ground") && !_isGrabbed && !_posDépart && !_alreadyDone)
+        if (other.gameObject.CompareTag("Ground") && !_isGrabbed && !_alreadyDone)
         {
             _alreadyDone = true;
-            LocateSources();
+            LocateSource();
             foreach (GameObject tripods in _tripods)
                 if (tripods.GetComponent<Transmitter>()._isConnectedSource)
                     tripods.GetComponent<Transmitter>().LocateTargets();
@@ -64,25 +90,24 @@ public class Transmitter : MonoBehaviour
 
     public void SelectExited()
     {
-        _posDépart = false;
         _isGrabbed = false;
     }
 
-    private void LocateSources()
+    private void LocateSource()
     {
-        for (int i = 0; i < _sources.Count; i++)
+        if (_sourceSelected)
         {
-            _lookAtSources[i].transform.LookAt(_sources[i].transform);
-            if (Physics.Raycast(_lookAtSources[i].transform.position, _lookAtSources[i].transform.forward,
+            _lookAtSources[_idSource].transform.LookAt(_sources[_idSource].transform);
+            if (Physics.Raycast(_lookAtSources[_idSource].transform.position, _lookAtSources[_idSource].transform.forward,
                     out RaycastHit hit))
             {
-                if (hit.collider.gameObject.CompareTag($"Source{i}"))
+                if (hit.collider.gameObject.CompareTag($"Source{_idSource}"))
                 {
-                    _isSource[i] = true;
-                    StartCoroutine(ShootLaser(_laserSources[i], _sources[i], gameObject, _isSource));
+                    _isSource[_idSource] = true;
+                    StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], gameObject, _isSource));
                     _isConnectedSource = true;
                 }
-                else _isSource[i] = false;
+                else _isSource[_idSource] = false;
             }
         }
     }
@@ -91,17 +116,22 @@ public class Transmitter : MonoBehaviour
     {
         for (int i = 0; i < _tripods.Count; i++)
         {
-            _lookAtTripods[i].transform.LookAt(_tripods[i].transform);
-            if (Physics.Raycast(_lookAtTripods[i].transform.position, _lookAtTripods[i].transform.forward,
-                    out RaycastHit hit))
+            if (_idSource == _tripods[i].GetComponent<Transmitter>()._idSource)
             {
-                if (hit.collider.gameObject.CompareTag("Target") && !_tripods[i].GetComponent<Transmitter>()._isSource[0]
-                                                                 && !_tripods[i].GetComponent<Transmitter>()._isSource[1])
+                _lookAtTripods[i].transform.LookAt(_tripods[i].transform);
+                if (Physics.Raycast(_lookAtTripods[i].transform.position, _lookAtTripods[i].transform.forward,
+                        out RaycastHit hit))
                 {
-                    _tripods[i].GetComponent<Transmitter>()._isSource[0] = _isSource[0];
-                    _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
-                    _tripods[i].GetComponent<Transmitter>()._isConnectedTripod = true;
-                    StartCoroutine(ShootLaser(_laserTripods[i], gameObject, _tripods[i], _isSource));
+                    if (hit.collider.gameObject.CompareTag("Target") && !_tripods[i].GetComponent<Transmitter>()
+                                                                         ._isSource[0]
+                                                                     && !_tripods[i].GetComponent<Transmitter>()
+                                                                         ._isSource[1])
+                    {
+                        _tripods[i].GetComponent<Transmitter>()._isSource[0] = _isSource[0];
+                        _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
+                        _tripods[i].GetComponent<Transmitter>()._isConnectedTripod = true;
+                        StartCoroutine(ShootLaser(_laserTripods[i], gameObject, _tripods[i], _isSource));
+                    }
                 }
             }
         }
@@ -168,10 +198,16 @@ public class Transmitter : MonoBehaviour
                 });
         laser.enabled = true;
         laser.colorGradient = gradient;
+        Vector3 milieu = new Vector3((end.transform.position.x + start.transform.position.x)/2, (end.transform.position.y + start.transform.position.y)/2, (end.transform.position.z + start.transform.position.z)/2);
         laser.SetPosition(0, start.transform.position);
         for (float t = 0f; t < time; t += Time.deltaTime)
         {
-            laser.SetPosition(1, Vector3.Lerp(start.transform.position, end.transform.position, t / time));
+            laser.SetPosition(1, Vector3.Lerp(start.transform.position, milieu, t / time));
+            yield return null;
+        }
+        for (float t = 0f; t < time; t += Time.deltaTime)
+        {
+            laser.SetPosition(2, Vector3.Lerp(milieu , end.transform.position, t / time));
             yield return null;
         }
         if (_isConnectedSource)
