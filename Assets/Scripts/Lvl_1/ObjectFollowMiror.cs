@@ -18,7 +18,7 @@ public class ObjectFollowMiror : MonoBehaviour
             Vector3 objectToFollowLocal = _mirror.InverseTransformPoint(_objectToFollow.position);
             transform.position =
                 _mirror.TransformPoint(new Vector3(objectToFollowLocal.x, objectToFollowLocal.y, -objectToFollowLocal.z));
-            transform.rotation = _objectToFollow.rotation;
+            transform.localRotation = _objectToFollow.localRotation;
 
         }
        

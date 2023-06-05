@@ -68,29 +68,7 @@ public class FollowMiror : MonoBehaviour
 
 
 
-            /*RaycastHit hit;
-             if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
-             {
-                 Debug.DrawRay(transform.position, transform.TransformDirection(Vector3.forward) * 10f, Color.yellow);
-                
-     
-     
-                 if (hit.collider.gameObject.name == "Obstacle1")
-                 {
-                     _raycastHitObstacle = true;
-                     Debug.Log("Did Hit" + hit.collider.gameObject.name);
-                 }
-                 else if (hit.collider.gameObject.name == "Obstacle2")
-                 {
-                     _raycastHitObstacle2 = true;
-                     Debug.Log("Did Hit" + hit.collider.gameObject.name);
-                 }
-                 else
-                 {
-                     _raycastHitObstacle = false;
-                     _raycastHitObstacle2 = false;
-                 }
-             }*/
+            
 
 
 
