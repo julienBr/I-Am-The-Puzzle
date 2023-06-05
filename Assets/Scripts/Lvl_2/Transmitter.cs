@@ -47,11 +47,13 @@ public class Transmitter : MonoBehaviour
     private void OnEnable()
     {
         UITripods.SelectSource += ChangeSource;
+        Doors.UpdateLaser += RecalculateLaser;
     }
 
     private void OnDisable()
     {
         UITripods.SelectSource -= ChangeSource;
+        Doors.UpdateLaser -= RecalculateLaser;
     }
 
     private void ChangeSource(GameObject tripod, int id)
@@ -67,6 +69,11 @@ public class Transmitter : MonoBehaviour
                 if (tripods.GetComponent<Transmitter>()._isConnectedSource)
                     tripods.GetComponent<Transmitter>().LocateTargets();
         }
+    }
+    
+    private void RecalculateLaser()
+    {
+        
     }
     
     private void OnCollisionStay(Collision other)
@@ -116,7 +123,7 @@ public class Transmitter : MonoBehaviour
     {
         for (int i = 0; i < _tripods.Count; i++)
         {
-            if (_idSource == _tripods[i].GetComponent<Transmitter>()._idSource)
+            if (_idSource == _tripods[i].GetComponent<Transmitter>()._idSource && _tripods[i].GetComponent<Transmitter>()._sourceSelected)
             {
                 _lookAtTripods[i].transform.LookAt(_tripods[i].transform);
                 if (Physics.Raycast(_lookAtTripods[i].transform.position, _lookAtTripods[i].transform.forward,
@@ -147,8 +154,9 @@ public class Transmitter : MonoBehaviour
                 if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
                         out RaycastHit hit))
                 {
-                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptorTouched[i])
+                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptorTouched[i] && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched)
                     {
+                        //_receptors[i].GetComponent<Receptor>()._isAlreadyTouched = true;
                         _receptorTouched[i] = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
                         OpenDoor?.Invoke(i);
@@ -164,7 +172,7 @@ public class Transmitter : MonoBehaviour
                 if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
                         out RaycastHit hit))
                 {
-                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptorTouched[i])
+                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptorTouched[i] && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched)
                     {
                         _receptorTouched[i] = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));

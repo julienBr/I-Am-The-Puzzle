@@ -4463,10 +4463,34 @@ MonoBehaviour:
         m_CallState: 2
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 155294905}
+        m_TargetAssemblyTypeName: UITripods, Assembly-CSharp
+        m_MethodName: DisplayUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 155294905}
+        m_TargetAssemblyTypeName: UITripods, Assembly-CSharp
+        m_MethodName: HideUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []
@@ -4742,6 +4766,7 @@ GameObject:
   - component: {fileID: 741353052}
   - component: {fileID: 741353051}
   - component: {fileID: 741353050}
+  - component: {fileID: 741353053}
   m_Layer: 0
   m_Name: Receptor1
   m_TagString: Receptor0
@@ -4827,6 +4852,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 741353048}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &741353053
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741353048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d2ed9ec4ba8746bcb8f68a0ef9818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 0
+  _isAlreadyTouched: 0
 --- !u!1 &751807051
 GameObject:
   m_ObjectHideFlags: 0
@@ -5782,6 +5821,7 @@ GameObject:
   - component: {fileID: 1068257687}
   - component: {fileID: 1068257686}
   - component: {fileID: 1068257685}
+  - component: {fileID: 1068257688}
   m_Layer: 0
   m_Name: Receptor2
   m_TagString: Receptor1
@@ -5867,6 +5907,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1068257683}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1068257688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1068257683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d2ed9ec4ba8746bcb8f68a0ef9818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 1
+  _isAlreadyTouched: 0
 --- !u!1 &1071216763
 GameObject:
   m_ObjectHideFlags: 0
@@ -8906,6 +8960,7 @@ GameObject:
   - component: {fileID: 1754179065}
   - component: {fileID: 1754179064}
   - component: {fileID: 1754179063}
+  - component: {fileID: 1754179066}
   m_Layer: 0
   m_Name: Receptor3
   m_TagString: Receptor2
@@ -8991,6 +9046,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1754179061}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1754179066
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1754179061}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d2ed9ec4ba8746bcb8f68a0ef9818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 2
+  _isAlreadyTouched: 0
 --- !u!1 &1852721517
 GameObject:
   m_ObjectHideFlags: 0
@@ -9231,6 +9300,7 @@ GameObject:
   - component: {fileID: 1860569260}
   - component: {fileID: 1860569259}
   - component: {fileID: 1860569258}
+  - component: {fileID: 1860569261}
   m_Layer: 0
   m_Name: Receptor4
   m_TagString: Receptor3
@@ -9316,6 +9386,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1860569256}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1860569261
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860569256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da4d2ed9ec4ba8746bcb8f68a0ef9818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _id: 3
+  _isAlreadyTouched: 0
 --- !u!1 &1877246131
 GameObject:
   m_ObjectHideFlags: 0
@@ -9711,7 +9795,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1914194604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1, y: 0.5, z: -1}
+  m_LocalPosition: {x: -0.73, y: 0.5, z: -1}
   m_LocalScale: {x: 0.25, y: 1, z: 0.25}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9823,10 +9907,34 @@ MonoBehaviour:
         m_CallState: 2
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2131339916}
+        m_TargetAssemblyTypeName: UITripods, Assembly-CSharp
+        m_MethodName: DisplayUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2131339916}
+        m_TargetAssemblyTypeName: UITripods, Assembly-CSharp
+        m_MethodName: HideUI
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_StartingHoverFilters: []
   m_StartingSelectFilters: []
   m_StartingInteractionStrengthFilters: []

@@ -30,7 +30,11 @@ public class Doors : MonoBehaviour
 
     private void Close(int receptorId)
     {
-        if (receptorId == _id) StartCoroutine(ThrowAnimationDoor(false));
+        if (receptorId == _id)
+        {
+            StartCoroutine(ThrowAnimationDoor(false));
+            UpdateLaser?.Invoke();
+        }
     }
     
     private IEnumerator ThrowAnimationDoor(bool connected)
