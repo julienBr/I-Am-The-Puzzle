@@ -131,10 +131,14 @@ public class Lvl1Manager : MonoBehaviour
     }
     public void ChangeLvl ()
     {
-       
-      
-       levelLoad.levelactuelle = levelLoad.tableauLevel[+2];
-       SceneManager.LoadScene("Lvl_1_test");
+        levelLoad.level++;
+        levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.level];
+
+        if (levelLoad.level == 2)
+        {
+            _gameManager.PressAnyKey();
+        }
+        SceneManager.LoadScene("Lvl_1_test");
     }
 
     public void LeaveLevel()
