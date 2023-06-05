@@ -1,13 +1,16 @@
 using System.Collections;
 using UnityEngine;
 
-public class Porte : MonoBehaviour
+public class Doors : MonoBehaviour
 {
     [SerializeField] private int _id;
     private Animator _animator;
 
     private void Awake() { _animator = GetComponent<Animator>(); }
 
+    public delegate void ReceptorDoor();
+    public static event ReceptorDoor UpdateLaser;
+    
     private void OnEnable()
     {
         Transmitter.OpenDoor += Open;

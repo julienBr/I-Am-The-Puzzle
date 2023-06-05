@@ -179,35 +179,15 @@ public class Transmitter : MonoBehaviour
     {
         Gradient gradient = new Gradient();
         float time = 0.75f;
-        gradient.SetKeys(
-            source[0]
-                ? new[]
-                {
-                    new GradientColorKey(Color.blue, 0f), new GradientColorKey(Color.cyan, 0.5f),
-                    new GradientColorKey(Color.blue, 1f)
-                }
-                : new[]
-                {
-                    new GradientColorKey(Color.red, 0f), new GradientColorKey(Color.yellow, 0.5f),
-                    new GradientColorKey(Color.red, 1f)
-                },
-            new[]
-                {
-                    new GradientAlphaKey(1f, 0f), new GradientAlphaKey(1f, 0.5f), new GradientAlphaKey(1f, 1f)
-                    
-                });
+        gradient.SetKeys(source[0]
+            ? new[] {new GradientColorKey(Color.blue, 0f)}
+            : new[] {new GradientColorKey(Color.red, 0f)}, new[] {new GradientAlphaKey(1f, 0f)});
         laser.enabled = true;
         laser.colorGradient = gradient;
-        Vector3 milieu = new Vector3((end.transform.position.x + start.transform.position.x)/2, (end.transform.position.y + start.transform.position.y)/2, (end.transform.position.z + start.transform.position.z)/2);
         laser.SetPosition(0, start.transform.position);
         for (float t = 0f; t < time; t += Time.deltaTime)
         {
-            laser.SetPosition(1, Vector3.Lerp(start.transform.position, milieu, t / time));
-            yield return null;
-        }
-        for (float t = 0f; t < time; t += Time.deltaTime)
-        {
-            laser.SetPosition(2, Vector3.Lerp(milieu , end.transform.position, t / time));
+            laser.SetPosition(1, Vector3.Lerp(start.transform.position, end.transform.position, t / time));
             yield return null;
         }
         if (_isConnectedSource)
@@ -248,8 +228,6 @@ public class Transmitter : MonoBehaviour
                     tripods.GetComponent<Transmitter>()._receptorTouched[2] = false;
                     tripods.GetComponent<Transmitter>()._receptorTouched[3] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
-                    CloseDoor?.Invoke(2);
-                    CloseDoor?.Invoke(3);
                     foreach (LineRenderer laserReceptor in tripods.GetComponent<Transmitter>()._laserReceptors)
                         if (laserReceptor.name is "LookAtReceptor3" or "LookAtReceptor4")
                             laserReceptor.enabled = false;
@@ -261,6 +239,13 @@ public class Transmitter : MonoBehaviour
         _isConnectedSource = false;
         _isConnectedTripod = false;
         for (int i = 0; i < _isSource.Count; i++) _isSource[i] = false;
-        for (int i = 0; i < _receptorTouched.Count; i++) _receptorTouched[i] = false;
+        for (int i = 0; i < _receptorTouched.Count; i++)
+        {
+            if (_receptorTouched[i])
+            {
+                CloseDoor?.Invoke(i);
+                _receptorTouched[i] = false;
+            }
+        }
     }
 }
