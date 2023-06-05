@@ -29,7 +29,7 @@ public class Transmitter : MonoBehaviour
     private List<LineRenderer> _laserSources = new();
     private List<LineRenderer> _laserTripods = new();
     private List<LineRenderer> _laserReceptors = new();
-
+    
     public delegate void ReceptorEvent(int receptorId);
     public static event ReceptorEvent OpenDoor;
     public static event ReceptorEvent CloseDoor;
@@ -73,7 +73,9 @@ public class Transmitter : MonoBehaviour
     
     private void RecalculateLaser()
     {
-        
+        //foreach (LineRenderer laserSources in _laserSources)
+        //foreach (LineRenderer laserTripods in _laserTripods)
+        //foreach (LineRenderer laserReceptors in _laserReceptors)
     }
     
     private void OnCollisionStay(Collision other)
@@ -156,7 +158,6 @@ public class Transmitter : MonoBehaviour
                 {
                     if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptorTouched[i] && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched)
                     {
-                        //_receptors[i].GetComponent<Receptor>()._isAlreadyTouched = true;
                         _receptorTouched[i] = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
                         OpenDoor?.Invoke(i);
@@ -224,8 +225,6 @@ public class Transmitter : MonoBehaviour
                     tripods.GetComponent<Transmitter>()._receptorTouched[0] = false;
                     tripods.GetComponent<Transmitter>()._receptorTouched[1] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
-                    CloseDoor?.Invoke(0);
-                    CloseDoor?.Invoke(1);
                     foreach (LineRenderer laserReceptor in tripods.GetComponent<Transmitter>()._laserReceptors)
                         if (laserReceptor.name is "LookAtReceptor1" or "LookAtReceptor2")
                             laserReceptor.enabled = false;
