@@ -8,5 +8,5 @@ public class AppData : ScriptableObject
    
     public LevelData levelactuelle;
     public LevelData[] tableauLevel;
-    public int level;
+    
 }

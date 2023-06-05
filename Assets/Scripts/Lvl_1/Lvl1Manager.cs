@@ -6,11 +6,16 @@ using UnityEngine.SceneManagement;
 public class Lvl1Manager : MonoBehaviour
 {
    
-    private int _enigmeNumberFinished = 0;
+    public int _enigmeNumberFinished = 0;
     private int _enigmeTotal = 3;
     [SerializeField] private AppData levelLoad;
     [SerializeField] private GameManager _gameManager;
-    private bool EnigmeIsFinished = false; 
+    private bool EnigmeIsFinished = false;
+    [SerializeField] private GameObject _light1;
+    [SerializeField] private GameObject _light2;
+    [SerializeField] private GameObject _light3;
+    [SerializeField] private Color _redLight;
+    [SerializeField] private Color _greenLight;
     
     //LVL 1 GAMEOBJECT
     [SerializeField] private GameObject pistolwithAmmoMirrorLvl1;
@@ -36,39 +41,7 @@ public class Lvl1Manager : MonoBehaviour
     [SerializeField] private GameObject flashLight;
     [SerializeField] private GameObject flashLightMirror;
     
-    public delegate void enigmeResult(int number, bool unlock);
-
-    public static event enigmeResult OnLampColorChange;
-    
-    
-    private void OnEnable()
-    {
-      FinishEnigme.OnActionFinished += EnigmeFinished;
-      
-    }
-    private void OnDisable()
-    {
-        FinishEnigme.OnActionFinished  -= EnigmeFinished;
-        
-    }
-   public void EnigmeFinished()
-    
-    {  
-       
-        _enigmeNumberFinished++;
-        OnLampColorChange?.Invoke(_enigmeNumberFinished, true);
-      
-        // vérifier si toutes les enigmes sont finies
-        
-        if (_enigmeNumberFinished >= _enigmeTotal)
-        {
-          
-         EnigmeIsFinished = true; 
-
-        }
-        
-       
-    }
+  
     
    
     void Start()
@@ -98,6 +71,7 @@ public class Lvl1Manager : MonoBehaviour
         pistolTransparent.SetActive(true);
         pistolwithAmmoMirrorLvl1.SetActive(true);
         
+        
       }
       else if (levelLoad.levelactuelle == levelLoad.tableauLevel[1])
       {
@@ -107,6 +81,7 @@ public class Lvl1Manager : MonoBehaviour
           obstaclemirror.SetActive(true);
         //  obstacleButton.SetActive(true);
         // obstacleButtonMirrorTransparent.SetActive(true);
+        _light1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
        
       }
       else if (levelLoad.levelactuelle == levelLoad.tableauLevel[2])
@@ -125,27 +100,23 @@ public class Lvl1Manager : MonoBehaviour
     }
 
     
-    void Update()
-    {
-        
-    }
+    
+    
     public void ChangeLvl ()
     {
-        levelLoad.level++;
-        levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.level];
-
-        if (levelLoad.level == 2)
+        _enigmeNumberFinished++;
+        if (_enigmeNumberFinished <= 2)
+        {
+            
+            levelLoad.levelactuelle = levelLoad.tableauLevel[_enigmeNumberFinished];
+            SceneManager.LoadScene("Lvl_1_test");
+        }
+        else if (_enigmeNumberFinished >= _enigmeTotal)
         {
             _gameManager.PressAnyKey();
+            _enigmeNumberFinished = 0;
         }
-        SceneManager.LoadScene("Lvl_1_test");
     }
 
-    public void LeaveLevel()
-    {
-        if (EnigmeIsFinished = true)
-        {
-            _gameManager.PressAnyKey();
-        }
-    }
+  
 }
