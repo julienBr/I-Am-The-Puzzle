@@ -23,19 +23,17 @@ public class UITripods : MonoBehaviour
 
     public void HideUI()
     {
-        //_uiObject.SetActive(false);
+        _uiObject.SetActive(false);
     }
     
     public void BlueButton()
     {
-        Debug.Log("Blue Button Activated");
         SelectSource?.Invoke(_tripod, 0);
         _uiObject.SetActive(false);
     }
 
     public void RedButton()
     {
-        Debug.Log("Red Button Activated");
         SelectSource?.Invoke(_tripod, 1);
         _uiObject.SetActive(false);
     }
