@@ -1,23 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ExitLight : MonoBehaviour
 {
     [SerializeField] private Color _redLight;
     [SerializeField] private Color _greenLight;
-    [SerializeField] private int _lampNumber = 0;
-   
-   
-    private void Start()
-    {
-        
-    }
-
-
-    private void ChangeColor()
-    {
-        
+    [SerializeField] private int _lampNumber;
+    
+    /*private void ChangeColor()
+    {       
         {
            if
             {
@@ -28,5 +18,5 @@ public class ExitLight : MonoBehaviour
                 GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _redLight);
             }
         }
-    }
+    }*/
 }
