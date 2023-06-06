@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 public class Lvl1Manager : MonoBehaviour
 {
    
-    public int _enigmeNumberFinished = 0;
+    
     private int _enigmeTotal = 3;
     [SerializeField] private AppData levelLoad;
     [SerializeField] private GameManager _gameManager;
@@ -45,8 +45,11 @@ public class Lvl1Manager : MonoBehaviour
     
    
     void Start()
-    
-    {
+
+    { 
+      levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.puzzle];
+      
+      
       pistolwithAmmo.SetActive(false);
       pistolwithAmmoMirrorLvl1.SetActive(false);
       pistolwithAmmoMirrorLvl2.SetActive(false);
@@ -104,19 +107,34 @@ public class Lvl1Manager : MonoBehaviour
     
     public void ChangeLvl ()
     {
-        _enigmeNumberFinished++;
-        if (_enigmeNumberFinished <= 2)
+        levelLoad.puzzle++;
+        if (levelLoad.puzzle <= 2)
         {
-            
-            levelLoad.levelactuelle = levelLoad.tableauLevel[_enigmeNumberFinished];
+            // levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.puzzle];
             SceneManager.LoadScene("Lvl_1_test");
         }
-        else if (_enigmeNumberFinished >= _enigmeTotal)
+        else if (levelLoad.puzzle >= _enigmeTotal)
         {
+            levelLoad.puzzle = 0;
             _gameManager.PressAnyKey();
-            _enigmeNumberFinished = 0;
+            
         }
     }
+    
+    
+ /*private void ChangeColor()
+{       
+    {
+       if
+        {
+            GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
+        }
+        else
+        {
+            GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _redLight);
+        }
+    }*/
 
-  
+
+
 }

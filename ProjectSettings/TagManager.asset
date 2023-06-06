@@ -27,10 +27,10 @@ TagManager:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Ignore Mirror Collider
   - Water
   - UI
-  - 
+  - Ignore Bullet
   - 
   - 
   - 

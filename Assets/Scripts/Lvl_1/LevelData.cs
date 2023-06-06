@@ -11,6 +11,7 @@ public struct LevelsData
 [CreateAssetMenu(menuName = "New level")] 
 public class LevelData : ScriptableObject
 {
+   
     /* public bool SpawnPistolWithAmmo;
      public bool SpawnMirrorPistolWithAmmo;
      public bool SpawnPistolWithoutAmmo;
