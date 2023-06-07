@@ -49,13 +49,13 @@ public class Transmitter : MonoBehaviour
     private void OnEnable()
     {
         UITripods.SelectSource += ChangeSource;
-        Doors.UpdateLaser += RecalculateLaser;
+        Receptor.UpdateLaser += RecalculateLaser;
     }
 
     private void OnDisable()
     {
         UITripods.SelectSource -= ChangeSource;
-        Doors.UpdateLaser -= RecalculateLaser;
+        Receptor.UpdateLaser -= RecalculateLaser;
     }
 
     private void ChangeSource(GameObject tripod, int id)
@@ -70,9 +70,30 @@ public class Transmitter : MonoBehaviour
     
     private void RecalculateLaser()
     {
-        
+        StartCoroutine(CheckLaser());
     }
 
+    private IEnumerator CheckLaser()
+    {
+        if (_isConnectedSource)
+        {
+            for (float t = 0f; t < 2f; t += Time.deltaTime)
+            {
+                if (Physics.Raycast(_lookAtSources[_idSource].transform.position,
+                        _lookAtSources[_idSource].transform.forward,
+                        out RaycastHit hit))
+                {
+                    if (hit.collider.gameObject.CompareTag("Door"))
+                    {
+                        EraseLaser();
+                        break;
+                    }
+                }
+                yield return new WaitForSeconds(0.1f);
+            }
+        }
+    }
+    
     private void OnCollisionStay(Collision other)
     {
         if (other.gameObject.CompareTag("Ground") && !_isGrabbed && !_alreadyDone)
@@ -106,7 +127,6 @@ public class Transmitter : MonoBehaviour
 
     private void LocateSource()
     {
-        Debug.Log($"{gameObject.name} : LocateSoure();");
         if (_sourceSelected)
         {
             _lookAtSources[_idSource].transform.LookAt(_sources[_idSource].transform);
@@ -132,7 +152,6 @@ public class Transmitter : MonoBehaviour
 
     private void LocateTargets()
     {
-        Debug.Log($"{gameObject.name} : LocateTargets();");
         _checkTargets = true;
         for (int i = 0; i < _tripods.Count; i++)
         {
@@ -159,7 +178,6 @@ public class Transmitter : MonoBehaviour
 
     private void LocateReceptors(List<bool> source)
     {
-        Debug.Log($"{gameObject.name} : LocateReceptors();");
         _checkReceptors = true;
         if (source[0])
         {
@@ -216,7 +234,7 @@ public class Transmitter : MonoBehaviour
         {
             if (!_checkTargets) LocateTargets();
             if (!_checkReceptors) LocateReceptors(_isSource);
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(time);
             foreach (GameObject tripods in _tripods)
                 if (tripods.GetComponent<Transmitter>()._isConnectedTripod)
                     if (!tripods.GetComponent<Transmitter>()._checkReceptors)
@@ -236,11 +254,17 @@ public class Transmitter : MonoBehaviour
                 if (_isSource[0] && !tripods.GetComponent<Transmitter>()._isConnectedSource)
                 {
                     tripods.GetComponent<Transmitter>()._isSource[0] = false;
-                    tripods.GetComponent<Transmitter>()._receptorTouched[0] = false;
-                    tripods.GetComponent<Transmitter>()._receptorTouched[1] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
-                    CloseDoor?.Invoke(0);
-                    CloseDoor?.Invoke(1);
+                    if (tripods.GetComponent<Transmitter>()._receptorTouched[0])
+                    {
+                        tripods.GetComponent<Transmitter>()._receptorTouched[0] = false;
+                        CloseDoor?.Invoke(0);
+                    }
+                    if (tripods.GetComponent<Transmitter>()._receptorTouched[1])
+                    {
+                        tripods.GetComponent<Transmitter>()._receptorTouched[1] = false;
+                        CloseDoor?.Invoke(1);
+                    }
                     foreach (LineRenderer laserReceptor in tripods.GetComponent<Transmitter>()._laserReceptors)
                         if (laserReceptor.name is "LookAtReceptor1" or "LookAtReceptor2")
                             laserReceptor.enabled = false;
@@ -248,11 +272,17 @@ public class Transmitter : MonoBehaviour
                 if (_isSource[1] && !tripods.GetComponent<Transmitter>()._isConnectedSource)
                 {
                     tripods.GetComponent<Transmitter>()._isSource[1] = false;
-                    tripods.GetComponent<Transmitter>()._receptorTouched[2] = false;
-                    tripods.GetComponent<Transmitter>()._receptorTouched[3] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
-                    CloseDoor?.Invoke(2);
-                    CloseDoor?.Invoke(3);
+                    if (tripods.GetComponent<Transmitter>()._receptorTouched[2])
+                    {
+                        tripods.GetComponent<Transmitter>()._receptorTouched[2] = false;
+                        CloseDoor?.Invoke(2);
+                    }
+                    if (tripods.GetComponent<Transmitter>()._receptorTouched[3])
+                    {
+                        tripods.GetComponent<Transmitter>()._receptorTouched[3] = false;
+                        CloseDoor?.Invoke(3);
+                    }
                     foreach (LineRenderer laserReceptor in tripods.GetComponent<Transmitter>()._laserReceptors)
                         if (laserReceptor.name is "LookAtReceptor3" or "LookAtReceptor4")
                             laserReceptor.enabled = false;

@@ -8,9 +8,6 @@ public class Doors : MonoBehaviour
 
     private void Awake() { _animator = GetComponent<Animator>(); }
 
-    public delegate void ReceptorDoor();
-    public static event ReceptorDoor UpdateLaser;
-    
     private void OnEnable()
     {
         Transmitter.OpenDoor += Open;
@@ -33,7 +30,6 @@ public class Doors : MonoBehaviour
         if (receptorId == _id)
         {
             StartCoroutine(ThrowAnimationDoor(false));
-            UpdateLaser?.Invoke();
         }
     }
     

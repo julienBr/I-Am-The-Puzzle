@@ -5,6 +5,9 @@ public class Receptor : MonoBehaviour
     [SerializeField] private int _id;
     public bool _isAlreadyTouched;
     
+    public delegate void ReceptorDoor();
+    public static event ReceptorDoor UpdateLaser;
+    
     private void OnEnable()
     {
         Transmitter.OpenDoor += Open;
@@ -24,6 +27,10 @@ public class Receptor : MonoBehaviour
 
     private void Close(int receptorId)
     {
-        if (receptorId == _id) _isAlreadyTouched = false;
+        if (receptorId == _id)
+        {
+            _isAlreadyTouched = false;
+            UpdateLaser?.Invoke();
+        }
     }
 }
