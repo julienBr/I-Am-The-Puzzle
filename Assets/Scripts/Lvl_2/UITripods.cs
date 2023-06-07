@@ -28,13 +28,15 @@ public class UITripods : MonoBehaviour
     
     public void BlueButton()
     {
+        Debug.Log("Activate Blue Source");
         SelectSource?.Invoke(_tripod, 0);
-        _uiObject.SetActive(false);
+        //_uiObject.SetActive(false);
     }
 
     public void RedButton()
     {
+        Debug.Log("Activate Red Source");
         SelectSource?.Invoke(_tripod, 1);
-        _uiObject.SetActive(false);
+        //_uiObject.SetActive(false);
     }
 }
