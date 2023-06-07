@@ -91,6 +91,11 @@ public class Transmitter : MonoBehaviour
         _isGrabbed = true;
         _checkTargets = false;
         _checkReceptors = false;
+        foreach (GameObject tripods in _tripods)
+        {
+            tripods.GetComponent<Transmitter>()._checkTargets = false;
+            tripods.GetComponent<Transmitter>()._checkReceptors = false;
+        }
         EraseLaser();
     }
 
@@ -114,7 +119,13 @@ public class Transmitter : MonoBehaviour
                     StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], gameObject, _isSource));
                     _isConnectedSource = true;
                 }
-                else _isSource[_idSource] = false;
+                else
+                {
+                    _isSource[_idSource] = false;
+                    foreach (GameObject tripods in _tripods)
+                        if (tripods.GetComponent<Transmitter>()._isConnectedSource) 
+                            tripods.GetComponent<Transmitter>().LocateTargets();
+                }
             }
         }
     }
@@ -189,7 +200,7 @@ public class Transmitter : MonoBehaviour
     private IEnumerator ShootLaser(LineRenderer laser, GameObject start, GameObject end, List<bool> source)
     {
         Gradient gradient = new Gradient();
-        float time = 0.75f;
+        float time = 0.5f;
         gradient.SetKeys(source[0]
             ? new[] {new GradientColorKey(Color.blue, 0f)}
             : new[] {new GradientColorKey(Color.red, 0f)}, new[] {new GradientAlphaKey(1f, 0f)});
@@ -205,7 +216,7 @@ public class Transmitter : MonoBehaviour
         {
             if (!_checkTargets) LocateTargets();
             if (!_checkReceptors) LocateReceptors(_isSource);
-            yield return new WaitForSeconds(time);
+            yield return new WaitForSeconds(0.25f);
             foreach (GameObject tripods in _tripods)
                 if (tripods.GetComponent<Transmitter>()._isConnectedTripod)
                     if (!tripods.GetComponent<Transmitter>()._checkReceptors)
