@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class FireLaser : MonoBehaviour
 {
@@ -13,13 +14,13 @@ public class FireLaser : MonoBehaviour
     [SerializeField] ParticleSystem ImpactHit;
     [SerializeField] Transform raycastOrigin;
     [SerializeField] private TrailRenderer _tracereffect;
+    public ObjectFollowMiror objectFollowMirorscript;
 
     private Ray _ray;
     private RaycastHit hitInfo;
     
     void Start()
     {
-        
     }
 
     
@@ -29,6 +30,7 @@ public class FireLaser : MonoBehaviour
         {
             //gameover
             //reload la scene
+            SceneManager.LoadScene("Lvl_1_test");
         }
         else if (cloneIsDead == true && playerIsDead == false)
         {
@@ -43,7 +45,15 @@ public class FireLaser : MonoBehaviour
        flashFire.Play();
 
        _ray.origin = raycastOrigin.position;
-       _ray.direction = raycastOrigin.forward;
+       if (objectFollowMirorscript.OnMirrorSide == true)
+       {
+           _ray.direction = -raycastOrigin.forward;
+       }
+       else
+       {
+           _ray.direction = raycastOrigin.forward;
+       }
+     
 
        var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
        tracer.AddPosition(_ray.origin);

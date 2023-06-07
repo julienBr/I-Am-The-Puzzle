@@ -7,7 +7,7 @@ public class ObjectFollowMiror : MonoBehaviour
 {
     public Transform _objectToFollow;
     public Transform _mirror;
-    [SerializeField] private bool OnMirrorSide;
+   public bool OnMirrorSide;
     public bool objectIsGrab = false;
     
 
@@ -39,7 +39,12 @@ public class ObjectFollowMiror : MonoBehaviour
         rigidbody.isKinematic = true;
         rigidbody.useGravity = false;
 
-        _objectToFollow.GetComponent<ObjectFollowMiror>().objectIsGrab = true;
+      
+       
+        
+            _objectToFollow.GetComponent<ObjectFollowMiror>().objectIsGrab = true;
+        
+    
 
     }
 
@@ -50,7 +55,11 @@ public class ObjectFollowMiror : MonoBehaviour
         rigidbody.isKinematic = false;
         rigidbody.useGravity = true;
         
-        _objectToFollow.GetComponent<ObjectFollowMiror>().objectIsGrab = false;
+        
+        
+            _objectToFollow.GetComponent<ObjectFollowMiror>().objectIsGrab = false;
+        
+        
     }
 
 
