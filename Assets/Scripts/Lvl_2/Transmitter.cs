@@ -127,25 +127,22 @@ public class Transmitter : MonoBehaviour
 
     private void LocateSource()
     {
-        if (_sourceSelected)
+        _lookAtSources[_idSource].transform.LookAt(_sources[_idSource].transform);
+        if (Physics.Raycast(_lookAtSources[_idSource].transform.position, _lookAtSources[_idSource].transform.forward,
+                out RaycastHit hit))
         {
-            _lookAtSources[_idSource].transform.LookAt(_sources[_idSource].transform);
-            if (Physics.Raycast(_lookAtSources[_idSource].transform.position, _lookAtSources[_idSource].transform.forward,
-                    out RaycastHit hit))
+            if (hit.collider.gameObject.CompareTag($"Source{_idSource}"))
             {
-                if (hit.collider.gameObject.CompareTag($"Source{_idSource}"))
-                {
-                    _isSource[_idSource] = true;
-                    StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], gameObject, _isSource));
-                    _isConnectedSource = true;
-                }
-                else
-                {
-                    _isSource[_idSource] = false;
-                    foreach (GameObject tripods in _tripods)
-                        if (tripods.GetComponent<Transmitter>()._isConnectedSource) 
-                            tripods.GetComponent<Transmitter>().LocateTargets();
-                }
+                _isSource[_idSource] = true;
+                StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], gameObject, _isSource));
+                _isConnectedSource = true;
+            }
+            else
+            {
+                _isSource[_idSource] = false;
+                foreach (GameObject tripods in _tripods)
+                    if (tripods.GetComponent<Transmitter>()._isConnectedSource) 
+                        tripods.GetComponent<Transmitter>().LocateTargets();
             }
         }
     }
@@ -204,7 +201,7 @@ public class Transmitter : MonoBehaviour
                 if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
                         out RaycastHit hit))
                 {
-                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptorTouched[i] && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched)
+                    if (hit.collider.gameObject.CompareTag($"Receptor{i}")/* && !_receptorTouched[i] && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched*/)
                     {
                         _receptorTouched[i] = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));

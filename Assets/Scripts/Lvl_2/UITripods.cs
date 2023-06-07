@@ -29,12 +29,12 @@ public class UITripods : MonoBehaviour
     public void BlueButton()
     {
         SelectSource?.Invoke(_tripod, 0);
-        //_uiObject.SetActive(false);
+        _uiObject.SetActive(false);
     }
 
     public void RedButton()
     {
         SelectSource?.Invoke(_tripod, 1);
-        //_uiObject.SetActive(false);
+        _uiObject.SetActive(false);
     }
 }
