@@ -23,6 +23,7 @@ TagManager:
   - Receptor2
   - Receptor3
   - Door
+  - Clone
   layers:
   - Default
   - TransparentFX

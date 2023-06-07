@@ -17,6 +17,7 @@ public class Lvl1Manager : MonoBehaviour
     [SerializeField] private Color _redLight;
     [SerializeField] private Color _greenLight;
     
+    
     //LVL 1 GAMEOBJECT
     [SerializeField] private GameObject pistolwithAmmoMirrorLvl1;
     [SerializeField] private GameObject pistolTransparent;

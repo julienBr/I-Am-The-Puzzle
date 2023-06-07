@@ -147,7 +147,7 @@ Material:
     - _TessellationEdgeLength: 0.25
     - _TessellationFactor: 4
     - _TessellationGrassDistance: 0.035
-    - _WindFrequency: 0.006
+    - _WindFrequency: 0
     - _WindStrength: 0.5
     - _WorkflowMode: 1
     - _ZWrite: 1

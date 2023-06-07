@@ -18,7 +18,7 @@ public class PrismeAnimation : MonoBehaviour
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
         
         if (_laserActivated == true)
