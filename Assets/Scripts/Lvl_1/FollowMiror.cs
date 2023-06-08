@@ -23,26 +23,7 @@ public class FollowMiror : MonoBehaviour
 
     public void FollowPlayer()
     {
-
-        /* Vector3 objectToFollowLocal = _mirror.InverseTransformPoint(_objectToFollow.position);
-         initialPosition = transform.position;
-         finalPosition = new Vector3(objectToFollowLocal.x, objectToFollowLocal.y, -objectToFollowLocal.z);
-         transform.position = _mirror.TransformPoint(finalPosition);
-         direction = finalPosition - initialPosition;
-   
-         RaycastHit hit;
-         if (Physics.Raycast(initialPosition, direction, out hit, Mathf.Infinity))
-   
-         {
-             Debug.DrawRay(initialPosition, direction*100f, Color.yellow,2f);
-   
-             if (hit.collider.gameObject.name == "Obstacle1")
-             {
-                 Debug.Log("OBSTACLE TOUCHERRRRR");
-             }
-         }*/
-
-
+        
     }
 
     private void Update()
@@ -63,16 +44,7 @@ public class FollowMiror : MonoBehaviour
             {
                 Debug.Log("OBSTACLE TOUCHERRRRR");
             }
-
-
-
-
-
             
-
-
-
-
         }
     }
 

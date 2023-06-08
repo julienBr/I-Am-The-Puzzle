@@ -5,8 +5,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Lvl1Manager : MonoBehaviour
 {
-   
-    
+
     private int _enigmeTotal = 3;
     [SerializeField] private AppData levelLoad;
     [SerializeField] private GameManager _gameManager;
@@ -14,6 +13,9 @@ public class Lvl1Manager : MonoBehaviour
     [SerializeField] private GameObject _light1;
     [SerializeField] private GameObject _light2;
     [SerializeField] private GameObject _light3;
+    [SerializeField] private GameObject _light1mirror;
+    [SerializeField] private GameObject _light2mirror;
+    [SerializeField] private GameObject _light3mirror;
     [SerializeField] private Color _redLight;
     [SerializeField] private Color _greenLight;
     
@@ -86,7 +88,7 @@ public class Lvl1Manager : MonoBehaviour
         //  obstacleButton.SetActive(true);
         // obstacleButtonMirrorTransparent.SetActive(true);
         _light1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
-       
+        _light1mirror.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
       }
       else if (levelLoad.levelactuelle == levelLoad.tableauLevel[2])
       { 
@@ -100,6 +102,11 @@ public class Lvl1Manager : MonoBehaviour
         //ammoTransparent.SetActive(true);
        // batterytransparent.SetActive(true);
         //batteryMirror.SetActive(true);
+        
+        _light1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
+        _light1mirror.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
+        _light2.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
+        _light2mirror.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
       }  
     }
 
@@ -121,6 +128,9 @@ public class Lvl1Manager : MonoBehaviour
             
         }
     }
+    
+  
+    
     
     
  /*private void ChangeColor()

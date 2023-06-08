@@ -15,6 +15,8 @@ public class FireLaser : MonoBehaviour
     [SerializeField] Transform raycastOrigin;
     [SerializeField] private TrailRenderer _tracereffect;
     public ObjectFollowMiror objectFollowMirorscript;
+    [SerializeField] private bool _canShoot = true;
+
 
     private Ray _ray;
     private RaycastHit hitInfo;
@@ -41,49 +43,59 @@ public class FireLaser : MonoBehaviour
 
     public void FiringBullet()
     {
-      
-       flashFire.Play();
+        StartCoroutine(FireDelay());
 
-       _ray.origin = raycastOrigin.position;
-       if (objectFollowMirorscript.OnMirrorSide == true)
-       {
-           _ray.direction = -raycastOrigin.forward;
-       }
-       else
-       {
-           _ray.direction = raycastOrigin.forward;
-       }
+    }
+
+    IEnumerator FireDelay()
+    {
+        if (_canShoot == true)
+        {
+            flashFire.Play();
+
+            _ray.origin = raycastOrigin.position;
+            if (gameObject.gameObject.name == "PistoletClone" )
+          
+            {
+                _ray.direction = -raycastOrigin.forward;
+            }
+            else if (  gameObject.gameObject.name == "Pistolet"  )
+            {
+                _ray.direction = raycastOrigin.forward;
+            }
+      
      
 
-       var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
-       tracer.AddPosition(_ray.origin);
-       if (Physics.Raycast(_ray,out hitInfo))
-       {
-          // Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,1.0f);
-          Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
-         targetHit = true;
-           ImpactHit.transform.position = hitInfo.point;
-           ImpactHit.transform.forward = hitInfo.normal;
-           ImpactHit.Play();
+            var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
+            tracer.AddPosition(_ray.origin);
+            if (Physics.Raycast(_ray,out hitInfo))
+            {
+                // Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,1.0f);
+                Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
+                targetHit = true;
+                ImpactHit.transform.position = hitInfo.point;
+                ImpactHit.transform.forward = hitInfo.normal;
+                ImpactHit.Play();
 
-           tracer.transform.position = hitInfo.point;
+                tracer.transform.position = hitInfo.point;
            
-           if (targetHit = true && hitInfo.collider.gameObject.tag == "Clone")
-           {
-               cloneIsDead = true;
-              Debug.Log("WIN");
+                if (targetHit = true && hitInfo.collider.gameObject.tag == "Clone")
+                {
+                    cloneIsDead = true;
+                    Debug.Log("WIN");
                
-           }
-           else if (targetHit = true && hitInfo.collider.gameObject.tag == "Player")
-           {
-               playerIsDead = true;
-               Debug.Log("lost");
-           }
-       }
-
-
-       
-
+                }
+                else if (targetHit = true && hitInfo.collider.gameObject.tag == "Player")
+                {
+                    playerIsDead = true;
+                    Debug.Log("lost");
+                } 
+            }
+            _canShoot = false;
+            yield return new WaitForSeconds(1.5f);
+            _canShoot = true;
+        }
+        
     }
 
         
