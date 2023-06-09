@@ -22,11 +22,13 @@ public class Transmitter : MonoBehaviour
     public List<bool> _isSource;
     public bool _isConnectedSource;
     public bool _isConnectedTripod;
+    public bool _isConnectedReceptor;
     public List<bool> _receptorTouched;
     public bool _isGrabbed;
     public bool _alreadyDone;
     public bool _checkTargets;
     public bool _checkReceptors;
+    public bool _checkLasers;
 
     private List<LineRenderer> _laserSources = new();
     private List<LineRenderer> _laserTripods = new();
@@ -70,10 +72,14 @@ public class Transmitter : MonoBehaviour
     
     private void RecalculateLaser()
     {
-        StartCoroutine(CheckLaser());
+        if(!_checkLasers)
+        {
+            _checkLasers = true;
+            StartCoroutine(CheckLasers());
+        }
     }
 
-    private IEnumerator CheckLaser()
+    private IEnumerator CheckLasers()
     {
         for (float t = 0f; t < 2f; t += Time.deltaTime)
         {
@@ -101,29 +107,56 @@ public class Transmitter : MonoBehaviour
                         {
                             _lookAtTripods[i].GetComponent<LineRenderer>().enabled = false;
                             _isConnectedTripod = false;
-                            break;
                         }
                     }
                 }
             }
-            for (int i = 0; i < _receptors.Count; i++)
+            if (_isConnectedReceptor)
             {
-                if (_receptorTouched[i])
+                if (_isSource[0])
                 {
-                    if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
-                            out RaycastHit hitReceptors))
+                    for (int i = 0; i < _receptors.Count - 2; i++)
                     {
-                        if (hitReceptors.collider.gameObject.CompareTag("Door"))
+                        if (_receptorTouched[i])
                         {
-                            _receptorTouched[i] = false;
-                            _lookAtReceptors[i].GetComponent<LineRenderer>().enabled = false;
-                            CloseDoor?.Invoke(i);
+                            if (Physics.Raycast(_lookAtReceptors[i].transform.position,
+                                    _lookAtReceptors[i].transform.forward,
+                                    out RaycastHit hitReceptors))
+                            {
+                                if (hitReceptors.collider.gameObject.CompareTag("Door"))
+                                {
+                                    _receptorTouched[i] = false;
+                                    _lookAtReceptors[i].GetComponent<LineRenderer>().enabled = false;
+                                    CloseDoor?.Invoke(i);
+                                }
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    for (int i = 2; i < _receptors.Count; i++)
+                    {
+                        if (_receptorTouched[i])
+                        {
+                            if (Physics.Raycast(_lookAtReceptors[i].transform.position,
+                                    _lookAtReceptors[i].transform.forward,
+                                    out RaycastHit hitReceptors))
+                            {
+                                if (hitReceptors.collider.gameObject.CompareTag("Door"))
+                                {
+                                    _receptorTouched[i] = false;
+                                    _lookAtReceptors[i].GetComponent<LineRenderer>().enabled = false;
+                                    CloseDoor?.Invoke(i);
+                                }
+                            }
                         }
                     }
                 }
             }
             yield return new WaitForSeconds(0.1f);
         }
+        yield return null;
     }
     
     private void OnCollisionStay(Collision other)
@@ -144,10 +177,12 @@ public class Transmitter : MonoBehaviour
         _isGrabbed = true;
         _checkTargets = false;
         _checkReceptors = false;
+        _checkLasers = false;
         foreach (GameObject tripods in _tripods)
         {
             tripods.GetComponent<Transmitter>()._checkTargets = false;
             tripods.GetComponent<Transmitter>()._checkReceptors = false;
+            tripods.GetComponent<Transmitter>()._checkLasers = false;
         }
         EraseLaser();
     }
@@ -216,9 +251,10 @@ public class Transmitter : MonoBehaviour
                 if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
                         out RaycastHit hit))
                 {
-                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched)
+                    if (hit.collider.gameObject.CompareTag($"Receptor{i}"))
                     {
                         _receptorTouched[i] = true;
+                        _isConnectedReceptor = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
                         OpenDoor?.Invoke(i);
                     }
@@ -236,6 +272,7 @@ public class Transmitter : MonoBehaviour
                     if (hit.collider.gameObject.CompareTag($"Receptor{i}"))
                     {
                         _receptorTouched[i] = true;
+                        _isConnectedReceptor = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
                         OpenDoor?.Invoke(i);
                     }
@@ -262,11 +299,11 @@ public class Transmitter : MonoBehaviour
         if (_isConnectedSource)
         {
             if (!_checkTargets) LocateTargets();
-            if (!_checkReceptors) LocateReceptors(_isSource);
+            if (!_checkReceptors && !_isConnectedReceptor) LocateReceptors(_isSource);
             yield return new WaitForSeconds(time);
             foreach (GameObject tripods in _tripods)
                 if (tripods.GetComponent<Transmitter>()._isConnectedTripod)
-                    if (!tripods.GetComponent<Transmitter>()._checkReceptors)
+                    if (!tripods.GetComponent<Transmitter>()._checkReceptors && !tripods.GetComponent<Transmitter>()._isConnectedReceptor)
                         tripods.GetComponent<Transmitter>().LocateReceptors(tripods.GetComponent<Transmitter>()._isSource);
         }
     }
@@ -278,6 +315,8 @@ public class Transmitter : MonoBehaviour
         foreach (LineRenderer laserReceptors in _laserReceptors) laserReceptors.enabled = false;
         foreach (GameObject tripods in _tripods)
         {
+            foreach (LineRenderer laser in tripods.GetComponentsInChildren<LineRenderer>())
+                if (laser.name == $"LookAt{gameObject.name}") laser.enabled = false;
             if (_isConnectedSource)
             {
                 if (_isSource[0] && !tripods.GetComponent<Transmitter>()._isConnectedSource)
@@ -287,11 +326,13 @@ public class Transmitter : MonoBehaviour
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[0])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[0] = false;
+                        tripods.GetComponent<Transmitter>()._isConnectedReceptor = false;
                         CloseDoor?.Invoke(0);
                     }
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[1])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[1] = false;
+                        tripods.GetComponent<Transmitter>()._isConnectedReceptor = false;
                         CloseDoor?.Invoke(1);
                     }
                     foreach (LineRenderer laserReceptor in tripods.GetComponent<Transmitter>()._laserReceptors)
@@ -305,11 +346,13 @@ public class Transmitter : MonoBehaviour
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[2])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[2] = false;
+                        tripods.GetComponent<Transmitter>()._isConnectedReceptor = false;
                         CloseDoor?.Invoke(2);
                     }
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[3])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[3] = false;
+                        tripods.GetComponent<Transmitter>()._isConnectedReceptor = false;
                         CloseDoor?.Invoke(3);
                     }
                     foreach (LineRenderer laserReceptor in tripods.GetComponent<Transmitter>()._laserReceptors)
@@ -317,16 +360,16 @@ public class Transmitter : MonoBehaviour
                             laserReceptor.enabled = false;
                 }
             }
-            foreach (LineRenderer laser in tripods.GetComponentsInChildren<LineRenderer>())
-                if (laser.name == $"LookAt{gameObject.name}") laser.enabled = false;
         }
         _isConnectedSource = false;
         _isConnectedTripod = false;
+        _isConnectedReceptor = false;
         for (int i = 0; i < _isSource.Count; i++) _isSource[i] = false;
         for (int i = 0; i < _receptorTouched.Count; i++)
         {
             if (_receptorTouched[i])
             {
+                Debug.Log($"T'es censé lancé l'évenement fermeture de porte {i}");
                 CloseDoor?.Invoke(i);
                 _receptorTouched[i] = false;
             }

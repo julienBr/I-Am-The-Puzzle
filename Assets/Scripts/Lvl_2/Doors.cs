@@ -4,6 +4,7 @@ using UnityEngine;
 public class Doors : MonoBehaviour
 {
     [SerializeField] private int _id;
+    [SerializeField] private GameObject _receptor;
     private Animator _animator;
 
     private void Awake() { _animator = GetComponent<Animator>(); }
@@ -28,9 +29,11 @@ public class Doors : MonoBehaviour
     private void Close(int receptorId)
     {
         if (receptorId == _id)
-        {
-            StartCoroutine(ThrowAnimationDoor(false));
-        }
+            if (_receptor.GetComponent<Receptor>()._isAlreadyTouched == 0)
+            {
+                Debug.Log($"ferme la porte {_id}");
+                StartCoroutine(ThrowAnimationDoor(false));
+            }
     }
     
     private IEnumerator ThrowAnimationDoor(bool connected)

@@ -3,7 +3,7 @@ using UnityEngine;
 public class Receptor : MonoBehaviour
 {
     [SerializeField] private int _id;
-    public bool _isAlreadyTouched;
+    public int _isAlreadyTouched;
     
     public delegate void ReceptorDoor();
     public static event ReceptorDoor UpdateLaser;
@@ -22,15 +22,15 @@ public class Receptor : MonoBehaviour
 
     private void Open(int receptorId)
     {
-        if (receptorId == _id) _isAlreadyTouched = true;
+        if (receptorId == _id) _isAlreadyTouched ++;
     }
 
     private void Close(int receptorId)
     {
         if (receptorId == _id)
         {
-            _isAlreadyTouched = false;
-            UpdateLaser?.Invoke();
+            _isAlreadyTouched --;
+            if (_isAlreadyTouched == 0) UpdateLaser?.Invoke();
         }
     }
 }
