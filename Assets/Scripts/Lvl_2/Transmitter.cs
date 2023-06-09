@@ -75,22 +75,54 @@ public class Transmitter : MonoBehaviour
 
     private IEnumerator CheckLaser()
     {
-        if (_isConnectedSource)
+        for (float t = 0f; t < 2f; t += Time.deltaTime)
         {
-            for (float t = 0f; t < 2f; t += Time.deltaTime)
+            if (_isConnectedSource)
             {
                 if (Physics.Raycast(_lookAtSources[_idSource].transform.position,
                         _lookAtSources[_idSource].transform.forward,
-                        out RaycastHit hit))
+                        out RaycastHit hitSource))
                 {
-                    if (hit.collider.gameObject.CompareTag("Door"))
+                    if (hitSource.collider.gameObject.CompareTag("Door"))
                     {
                         EraseLaser();
                         break;
                     }
                 }
-                yield return new WaitForSeconds(0.1f);
             }
+            if (_isConnectedTripod)
+            {
+                for (int i = 0; i < _tripods.Count; i++)
+                {
+                    if (Physics.Raycast(_lookAtTripods[i].transform.position, _lookAtTripods[i].transform.forward,
+                            out RaycastHit hitTargets))
+                    {
+                        if (hitTargets.collider.gameObject.CompareTag("Door"))
+                        {
+                            _lookAtTripods[i].GetComponent<LineRenderer>().enabled = false;
+                            _isConnectedTripod = false;
+                            break;
+                        }
+                    }
+                }
+            }
+            for (int i = 0; i < _receptors.Count; i++)
+            {
+                if (_receptorTouched[i])
+                {
+                    if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
+                            out RaycastHit hitReceptors))
+                    {
+                        if (hitReceptors.collider.gameObject.CompareTag("Door"))
+                        {
+                            _receptorTouched[i] = false;
+                            _lookAtReceptors[i].GetComponent<LineRenderer>().enabled = false;
+                            CloseDoor?.Invoke(i);
+                        }
+                    }
+                }
+            }
+            yield return new WaitForSeconds(0.1f);
         }
     }
     
@@ -184,7 +216,7 @@ public class Transmitter : MonoBehaviour
                 if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
                         out RaycastHit hit))
                 {
-                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptorTouched[i] && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched)
+                    if (hit.collider.gameObject.CompareTag($"Receptor{i}") && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched)
                     {
                         _receptorTouched[i] = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
@@ -201,7 +233,7 @@ public class Transmitter : MonoBehaviour
                 if (Physics.Raycast(_lookAtReceptors[i].transform.position, _lookAtReceptors[i].transform.forward,
                         out RaycastHit hit))
                 {
-                    if (hit.collider.gameObject.CompareTag($"Receptor{i}")/* && !_receptorTouched[i] && !_receptors[i].GetComponent<Receptor>()._isAlreadyTouched*/)
+                    if (hit.collider.gameObject.CompareTag($"Receptor{i}"))
                     {
                         _receptorTouched[i] = true;
                         StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
