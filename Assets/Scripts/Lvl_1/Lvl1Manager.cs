@@ -33,7 +33,7 @@ public class Lvl1Manager : MonoBehaviour
    // [SerializeField] private GameObject obstacleButtonMirrorTransparent;
     
     //LVL 3 GAMEOBJECT
-   // [SerializeField] private GameObject ammo;
+    public GameObject ammo;
     //[SerializeField] private GameObject ammoTransparent;
     [SerializeField] private GameObject chest;
     [SerializeField] private GameObject chestMirror;
@@ -129,23 +129,11 @@ public class Lvl1Manager : MonoBehaviour
         }
     }
     
-  
     
     
     
- /*private void ChangeColor()
-{       
-    {
-       if
-        {
-            GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
-        }
-        else
-        {
-            GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _redLight);
-        }
-    }*/
-
+    
+ 
 
 
 }

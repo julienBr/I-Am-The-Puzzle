@@ -5,6 +5,7 @@ using UnityEngine;
 public class OnFlashLight : MonoBehaviour
 {
     private bool FlashOn = false;
+    [SerializeField] private GameObject light;
     void Start()
     {
         
@@ -13,14 +14,14 @@ public class OnFlashLight : MonoBehaviour
     
    public void FlashLight()
     {
-        if (FlashOn = false)
+        if (FlashOn == false)
         {
-            gameObject.gameObject.GetComponent<Light>().enabled = true;
+           light.gameObject.GetComponent<Light>().enabled = true;
             FlashOn = true;
         }
-        else if (FlashOn = true)
+        else if (FlashOn == true)
         {
-            gameObject.gameObject.GetComponent<Light>().enabled = false;
+            light.gameObject.GetComponent<Light>().enabled = false;
             FlashOn = false;
         }
 

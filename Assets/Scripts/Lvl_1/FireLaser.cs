@@ -15,8 +15,10 @@ public class FireLaser : MonoBehaviour
     [SerializeField] Transform raycastOrigin;
     [SerializeField] private TrailRenderer _tracereffect;
     public ObjectFollowMiror objectFollowMirorscript;
-    [SerializeField] private bool _canShoot = true;
-
+    [SerializeField] private bool _canShoot = false;
+    
+   
+    
 
     private Ray _ray;
     private RaycastHit hitInfo;
@@ -39,6 +41,8 @@ public class FireLaser : MonoBehaviour
             //Win
             PuzzleResolved = true;
         }
+
+        
     }
 
     public void FiringBullet()
@@ -66,8 +70,8 @@ public class FireLaser : MonoBehaviour
       
      
 
-            var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
-            tracer.AddPosition(_ray.origin);
+            //var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
+           // tracer.AddPosition(_ray.origin);
             if (Physics.Raycast(_ray,out hitInfo))
             {
                 // Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,1.0f);
@@ -77,7 +81,7 @@ public class FireLaser : MonoBehaviour
                 ImpactHit.transform.forward = hitInfo.normal;
                 ImpactHit.Play();
 
-                tracer.transform.position = hitInfo.point;
+                //tracer.transform.position = hitInfo.point;
            
                 if (targetHit = true && hitInfo.collider.gameObject.tag == "Clone")
                 {
@@ -92,12 +96,16 @@ public class FireLaser : MonoBehaviour
                 } 
             }
             _canShoot = false;
-            yield return new WaitForSeconds(1.5f);
+            yield return new WaitForSeconds(0.7f);
             _canShoot = true;
         }
         
     }
 
+    public void SocketAmmo()
+    {
+        _canShoot = true;
         
-    
-}
+    }
+
+}   
