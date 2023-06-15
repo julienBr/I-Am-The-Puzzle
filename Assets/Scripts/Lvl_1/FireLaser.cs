@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Interaction.Toolkit;
 
 public class FireLaser : MonoBehaviour
 {
@@ -16,8 +17,10 @@ public class FireLaser : MonoBehaviour
     [SerializeField] private TrailRenderer _tracereffect;
     public ObjectFollowMiror objectFollowMirorscript;
     [SerializeField] private bool _canShoot = false;
+    public GameObject ammo;
+    [SerializeField] private XRSocketInteractor socket;
+    [SerializeField] private bool ammoIsTrue = false;
     
-   
     
 
     private Ray _ray;
@@ -30,17 +33,26 @@ public class FireLaser : MonoBehaviour
     
     void FixedUpdate()
     {
-        if (playerIsDead == true )
+        StartCoroutine(DeathRespawnDelay());
+
+        if (_canShoot == true )
         {
-            //gameover
-            //reload la scene
-            SceneManager.LoadScene("Lvl_1_test");
+            // ammo.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            //ammo.gameObject.GetComponent<Rigidbody>().useGravity = false;
+            ammo.transform.Rotate(0f,10f,0f);
+            ammo.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.green);
         }
-        else if (cloneIsDead == true && playerIsDead == false)
+        else if(_canShoot == false )
         {
-            //Win
-            PuzzleResolved = true;
+            
+            ammo.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.red);
+            ammo.transform.Rotate(0f,0f,0f);
+            //ammo.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            //  ammo.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
+        
+      
+        
 
         
     }
@@ -53,35 +65,35 @@ public class FireLaser : MonoBehaviour
 
     IEnumerator FireDelay()
     {
-        if (_canShoot == true)
+        if (_canShoot == true && ammoIsTrue == true)
         {
             flashFire.Play();
 
             _ray.origin = raycastOrigin.position;
-            if (gameObject.gameObject.name == "PistoletClone" )
+          /*  if (gameObject.gameObject.name == "PistolWithAmmoLVL2Mirror"  || gameObject.gameObject.name == "PistolWithAmmoLVL1" || gameObject.gameObject.name == "PistolWithoutAmmoMirror" )
           
             {
                 _ray.direction = -raycastOrigin.forward;
             }
-            else if (  gameObject.gameObject.name == "Pistolet"  )
+            else //if (  gameObject.gameObject.name == "PistolWithoutAmmo"  )
             {
                 _ray.direction = raycastOrigin.forward;
-            }
+            }*/
       
-     
+            _ray.direction = raycastOrigin.forward;
 
-            //var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
-           // tracer.AddPosition(_ray.origin);
+            var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
+            tracer.AddPosition(_ray.origin);
             if (Physics.Raycast(_ray,out hitInfo))
             {
-                // Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,1.0f);
+                Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,1.0f);
                 Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
                 targetHit = true;
                 ImpactHit.transform.position = hitInfo.point;
                 ImpactHit.transform.forward = hitInfo.normal;
                 ImpactHit.Play();
 
-                //tracer.transform.position = hitInfo.point;
+                tracer.transform.position = hitInfo.point;
            
                 if (targetHit = true && hitInfo.collider.gameObject.tag == "Clone")
                 {
@@ -95,17 +107,58 @@ public class FireLaser : MonoBehaviour
                     Debug.Log("lost");
                 } 
             }
+            
             _canShoot = false;
+            
             yield return new WaitForSeconds(0.7f);
             _canShoot = true;
+          
+        }
+
+    }
+    
+    
+    
+
+    public void SocketAmmoActivated()
+    {
+        GameObject ammoprism = socket.selectTarget.gameObject;
+        Debug.Log("le pile est la " + ammoprism.name);
+
+        if (ammoprism.name == "Ammo")
+        {
+            _canShoot = true;
+            ammoIsTrue= true;
+
+        }
+        else if (ammoprism.name == "AmmoTransparent")
+        {
+            _canShoot= false;
+           ammoIsTrue = false;
         }
         
     }
-
-    public void SocketAmmo()
+    
+    public void SocketAmmoDesactivated()
     {
-        _canShoot = true;
-        
+        _canShoot = false;
+       
+    }
+
+    IEnumerator DeathRespawnDelay()
+    {
+        if (playerIsDead == true )
+        {
+            //gameover
+            //reload la scene
+            yield return new WaitForSeconds(0.2f);
+            SceneManager.LoadScene("Lvl_1_test");
+        }
+        else if (cloneIsDead == true && playerIsDead == false)
+        {
+            //Win
+            PuzzleResolved = true;
+        }   
     }
 
 }   

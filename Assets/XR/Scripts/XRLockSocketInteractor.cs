@@ -39,6 +39,7 @@ namespace UnityEngine.XR.Content.Interaction
 
             var keyChain = interactable.transform.GetComponent<IKeychain>();
             return m_Lock.CanUnlock(keyChain);
+            
         }
     }
 }

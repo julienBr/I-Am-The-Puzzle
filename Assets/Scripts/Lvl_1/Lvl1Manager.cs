@@ -33,12 +33,12 @@ public class Lvl1Manager : MonoBehaviour
    // [SerializeField] private GameObject obstacleButtonMirrorTransparent;
     
     //LVL 3 GAMEOBJECT
-    public GameObject ammo;
-    //[SerializeField] private GameObject ammoTransparent;
+    [SerializeField] private GameObject ammo;
+    [SerializeField] private GameObject ammoTransparent;
     [SerializeField] private GameObject chest;
     [SerializeField] private GameObject chestMirror;
-   // [SerializeField] private GameObject batteryMirror;
-  //  [SerializeField] private GameObject batterytransparent;
+    [SerializeField] private GameObject batteryMirror;
+    [SerializeField] private GameObject batterytransparent;
     [SerializeField] private GameObject pistolwithoutAmmo;
     [SerializeField] private GameObject pistolwithoutAmmoMirror;
     [SerializeField] private GameObject flashLight;
@@ -53,24 +53,24 @@ public class Lvl1Manager : MonoBehaviour
       levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.puzzle];
       
       
-      pistolwithAmmo.SetActive(false);
-      pistolwithAmmoMirrorLvl1.SetActive(false);
-      pistolwithAmmoMirrorLvl2.SetActive(false);
-      pistolTransparent.SetActive(false);
+     pistolwithAmmo.SetActive(false);
+     pistolwithAmmoMirrorLvl1.SetActive(false);
+     pistolwithAmmoMirrorLvl2.SetActive(false);
+     pistolTransparent.SetActive(false);
       pistolwithoutAmmo.SetActive(false);
       pistolwithoutAmmoMirror.SetActive(false);
       flashLight.SetActive(false);
       flashLightMirror.SetActive(false);
       obstacle.SetActive(false);
-      obstaclemirror.SetActive(false);
+      obstaclemirror.SetActive(false); 
       //obstacleButton.SetActive(false);
-     // obstacleButtonMirrorTransparent.SetActive(false);
-     // ammo.SetActive(false);
-     // ammoTransparent.SetActive(false);
+     //obstacleButtonMirrorTransparent.SetActive(false);
+      ammo.SetActive(false);
+      ammoTransparent.SetActive(false);
       chest.SetActive(false);
       chestMirror.SetActive(false);
-      //batteryMirror.SetActive(false);
-      //batterytransparent.SetActive(false);
+      batteryMirror.SetActive(false);
+      batterytransparent.SetActive(false);
 
       if (levelLoad.levelactuelle == levelLoad.tableauLevel[0])
       { 
@@ -81,8 +81,8 @@ public class Lvl1Manager : MonoBehaviour
       }
       else if (levelLoad.levelactuelle == levelLoad.tableauLevel[1])
       {
-          pistolwithAmmo.SetActive(true); 
-          pistolwithAmmoMirrorLvl2.SetActive(true);
+         pistolwithAmmo.SetActive(true); 
+         pistolwithAmmoMirrorLvl2.SetActive(true);
           obstacle.SetActive(true);
           obstaclemirror.SetActive(true);
         //  obstacleButton.SetActive(true);
@@ -98,10 +98,10 @@ public class Lvl1Manager : MonoBehaviour
         pistolwithoutAmmoMirror.SetActive(true);
         flashLight.SetActive(true);
         flashLightMirror.SetActive(true);
-       // ammo.SetActive(true);
-        //ammoTransparent.SetActive(true);
-       // batterytransparent.SetActive(true);
-        //batteryMirror.SetActive(true);
+        ammo.SetActive(true);
+        ammoTransparent.SetActive(true);
+        batterytransparent.SetActive(true);
+        batteryMirror.SetActive(true);
         
         _light1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
         _light1mirror.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);

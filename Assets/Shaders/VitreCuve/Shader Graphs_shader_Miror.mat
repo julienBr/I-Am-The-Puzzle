@@ -55,7 +55,7 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     m_Colors:
-    - Color_0a8bc23ce2644fbf9e887b1975e13b04: {r: 0, g: 0.080479555, b: 0.084905684,
+    - Color_0a8bc23ce2644fbf9e887b1975e13b04: {r: 0.06852971, g: 0.3986888, b: 0.41509432,
         a: 1}
     - Vector2_16e5d85f2c464a3e8c3fc0d76c0dbc73: {r: 1.6, g: 0.31, b: 0, a: 0}
     - Vector2_cea9da7241bc4c7aaa4165b38ea2fe56: {r: 1, g: 1, b: 0, a: 0}
