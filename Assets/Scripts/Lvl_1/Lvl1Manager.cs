@@ -23,6 +23,8 @@ public class Lvl1Manager : MonoBehaviour
     [SerializeField] private GameObject _cloneplayer;
     public bool cloneIsDead = false;
     public bool playerIsDead = false;
+    [SerializeField] private bool _win = false;
+    [SerializeField] private bool _lost = false;
    
     
     [Header("puzzle 1 Objects")]
@@ -112,7 +114,7 @@ public class Lvl1Manager : MonoBehaviour
       }  
     }
 
-    
+   
     
     
     public void ChangeLvl ()
@@ -150,8 +152,31 @@ public class Lvl1Manager : MonoBehaviour
 
      }
     }
+
+    public IEnumerator ReloadScene()
+    {
+     yield return new WaitForSeconds(0.1f);
+     if (_win == false && playerIsDead) //Lost
+     {
+      //gameover
+      //reload la scene
+      _lost = true;
+      SceneManager.LoadScene("Lvl_1_test");
+      Debug.Log("lost");
+     }
+
+     if (!_lost && cloneIsDead && !playerIsDead) //Win
+     {
+      //WIN
+      _win = true;
+      EnigmeFinished();
+
+      Debug.Log("WIN");
+     }
+    }
+
+}
     
     
     
  
-}

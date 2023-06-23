@@ -21,8 +21,9 @@ public class ObjectFollowMiror : MonoBehaviour
             if (objectIsGrab == true )
             {
 
-                transform.rotation = Quaternion.Euler(-_objectToFollow.transform.localEulerAngles.x,
-                    -_objectToFollow.transform.localEulerAngles.y, -_objectToFollow.transform.localEulerAngles.z);
+              transform.rotation = Quaternion.Euler(-_objectToFollow.transform.localEulerAngles.x,
+                    -_objectToFollow.transform.localEulerAngles.y, _objectToFollow.transform.localEulerAngles.z);
+             
             }
             else if(objectIsGrab == false)
             {

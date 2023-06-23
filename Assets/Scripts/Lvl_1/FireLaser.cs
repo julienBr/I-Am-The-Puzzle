@@ -87,9 +87,9 @@ public class FireLaser : MonoBehaviour
             tracer.AddPosition(_ray.origin);
             if (Physics.Raycast(_ray, out hitInfo))
             {
-                Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,5f);
-                Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
-                targetHit = true;
+              //  Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,5f);
+             //   Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
+                
                 ImpactHit.transform.position = hitInfo.point;
                 ImpactHit.transform.forward = hitInfo.normal;
                 ImpactHit.Play();
@@ -101,21 +101,27 @@ public class FireLaser : MonoBehaviour
                 _canShoot = true;
 
               
-                if (targetHit = true && hitInfo.collider.gameObject.tag == "Player")
+                if ( hitInfo.collider.gameObject.tag == "Player")
                 {
                     //playerIsDead = true;
                     _lvl1Manager.playerIsDead = true;
-                    ReloadScene();
+                    Debug.Log("plauerdead");
+                   
                 }
-                else if (targetHit = true && hitInfo.collider.gameObject.tag == "Clone")
+                if ( hitInfo.collider.gameObject.tag == "Clone")
                 {
                    // cloneIsDead = true;
                    _lvl1Manager.cloneIsDead = true;
-                   ReloadScene();
+                   Debug.Log("clonedead");
+                   _canShoot = false;
+                   objectFollowMirorscript._objectToFollow.GetComponent<FireLaser>()._canShoot = false;
+                   
                 }
 
-              //  StartCoroutine(DeathRespawnDelay());
-              
+                StartCoroutine(_lvl1Manager.ReloadScene());
+
+                //  StartCoroutine(DeathRespawnDelay());
+
             }
 
           
@@ -199,28 +205,8 @@ public class FireLaser : MonoBehaviour
 
     */
 
-  public void ReloadScene()
-  {
-      
-      if (_lvl1Manager.playerIsDead == true && _lvl1Manager.cloneIsDead == true || _lvl1Manager.playerIsDead == true && _lvl1Manager.cloneIsDead == false)
-      {
-          //gameover
-          //reload la scene
-          SceneManager.LoadScene("Lvl_1_test");
-          Debug.Log("lost");
-      }
-      else if (_lvl1Manager.cloneIsDead == true && _lvl1Manager.playerIsDead == false )
-      {
-          //WIN
-       
-          _lvl1Manager.EnigmeFinished();
-          _canShoot = false;
-          objectFollowMirorscript._objectToFollow.GetComponent<FireLaser>()._canShoot = false;
-          
-          Debug.Log("WIN");
-      }
-  }
   
   
+
   
 }

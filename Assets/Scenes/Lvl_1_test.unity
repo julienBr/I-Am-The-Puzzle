@@ -4905,7 +4905,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 855531935}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d920476fea175f34dac90092aef48a8b, type: 3}
   m_Name: 
@@ -5012,7 +5012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   FlashOn: 0
   CanOn: 0
-  _light: {fileID: 0}
+  _light: {fileID: 1554654303}
   batteryIstranparent: 0
   socket: {fileID: 1403325661}
 --- !u!4 &908315584 stripped
@@ -5476,6 +5476,8 @@ MonoBehaviour:
   _cloneplayer: {fileID: 804880890}
   cloneIsDead: 0
   playerIsDead: 0
+  _win: 0
+  _lost: 0
   pistolwithAmmoMirrorLvl1: {fileID: 157079334}
   pistolTransparent: {fileID: 1730376565}
   pistolwithAmmo: {fileID: 1611078352}
@@ -7337,7 +7339,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
@@ -8495,7 +8497,7 @@ MonoBehaviour:
   m_Activated:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1611078353}
+      - m_Target: {fileID: 2006714096}
         m_TargetAssemblyTypeName: FireLaser, Assembly-CSharp
         m_MethodName: FiringBullet
         m_Mode: 1
@@ -8507,7 +8509,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 2006714096}
+      - m_Target: {fileID: 1611078353}
         m_TargetAssemblyTypeName: FireLaser, Assembly-CSharp
         m_MethodName: FiringBullet
         m_Mode: 1
