@@ -11,7 +11,7 @@ public class PrismeAnimation : MonoBehaviour
     public Color originalColor;
     public float RotationSpeed = 2f;
     public bool _laserActivated = false;
-   
+    
     void Start()
     {
         //GetComponent<MeshRenderer>().material.SetColor("Color_0a8bc23ce2644fbf9e887b1975e13b04", customColor);
@@ -25,9 +25,11 @@ public class PrismeAnimation : MonoBehaviour
         {
             transform.Rotate(0f,RotationSpeed,0f);
             gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", redColor);
+            
         }
 
-        
+      
+
     }
 
     public void PrismeActivated()

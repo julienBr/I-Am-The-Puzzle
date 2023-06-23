@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.XR.Interaction.Toolkit;
@@ -8,9 +9,8 @@ using UnityEngine.XR.Interaction.Toolkit;
 public class FireLaser : MonoBehaviour
 {
     private bool targetHit;
-    public bool cloneIsDead = false;
-    [SerializeField] bool playerIsDead = false;
-    [SerializeField]bool PuzzleResolved = false;
+  //  public bool cloneIsDead = false;
+  //[SerializeField] bool playerIsDead = false;
     [SerializeField] ParticleSystem flashFire;
     [SerializeField] ParticleSystem ImpactHit;
     [SerializeField] Transform raycastOrigin;
@@ -20,41 +20,42 @@ public class FireLaser : MonoBehaviour
     public GameObject ammo;
     [SerializeField] private XRSocketInteractor socket;
     [SerializeField] private bool ammoIsTrue = false;
+    [SerializeField] private Lvl1Manager _lvl1Manager;
     
-    
+
 
     private Ray _ray;
     private RaycastHit hitInfo;
-    
+
     void Start()
     {
     }
 
-    
+
     void FixedUpdate()
     {
-        StartCoroutine(DeathRespawnDelay());
+        //StartCoroutine(DeathRespawnDelay());
 
-        if (_canShoot == true )
+        if (_canShoot == true)
         {
             // ammo.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             //ammo.gameObject.GetComponent<Rigidbody>().useGravity = false;
-            ammo.transform.Rotate(0f,10f,0f);
+            ammo.transform.Rotate(0f, 10f, 0f);
             ammo.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.green);
         }
-        else if(_canShoot == false )
+        else if (_canShoot == false)
         {
-            
+
             ammo.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", Color.red);
-            ammo.transform.Rotate(0f,0f,0f);
+            ammo.transform.Rotate(0f, 0f, 0f);
             //ammo.gameObject.GetComponent<Rigidbody>().isKinematic = false;
             //  ammo.gameObject.GetComponent<Rigidbody>().useGravity = true;
         }
-        
-      
-        
 
-        
+
+
+
+
     }
 
     public void FiringBullet()
@@ -70,23 +71,23 @@ public class FireLaser : MonoBehaviour
             flashFire.Play();
 
             _ray.origin = raycastOrigin.position;
-          /*  if (gameObject.gameObject.name == "PistolWithAmmoLVL2Mirror"  || gameObject.gameObject.name == "PistolWithAmmoLVL1" || gameObject.gameObject.name == "PistolWithoutAmmoMirror" )
-          
-            {
-                _ray.direction = -raycastOrigin.forward;
-            }
-            else //if (  gameObject.gameObject.name == "PistolWithoutAmmo"  )
-            {
-                _ray.direction = raycastOrigin.forward;
-            }*/
-      
+            /*  if (gameObject.gameObject.name == "PistolWithAmmoLVL2Mirror"  || gameObject.gameObject.name == "PistolWithAmmoLVL1" || gameObject.gameObject.name == "PistolWithoutAmmoMirror" )
+            
+              {
+                  _ray.direction = -raycastOrigin.forward;
+              }
+              else //if (  gameObject.gameObject.name == "PistolWithoutAmmo"  )
+              {
+                  _ray.direction = raycastOrigin.forward;
+              }*/
+
             _ray.direction = raycastOrigin.forward;
 
             var tracer = Instantiate(_tracereffect, _ray.origin, Quaternion.identity);
             tracer.AddPosition(_ray.origin);
-            if (Physics.Raycast(_ray,out hitInfo))
+            if (Physics.Raycast(_ray, out hitInfo))
             {
-                Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,1.0f);
+                Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,5f);
                 Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
                 targetHit = true;
                 ImpactHit.transform.position = hitInfo.point;
@@ -94,31 +95,39 @@ public class FireLaser : MonoBehaviour
                 ImpactHit.Play();
 
                 tracer.transform.position = hitInfo.point;
-           
-                if (targetHit = true && hitInfo.collider.gameObject.tag == "Clone")
+                _canShoot = false;
+
+                yield return new WaitForSeconds(0.7f);
+                _canShoot = true;
+
+              
+                if (targetHit = true && hitInfo.collider.gameObject.tag == "Player")
                 {
-                    cloneIsDead = true;
-                    Debug.Log("WIN");
-               
+                    //playerIsDead = true;
+                    _lvl1Manager.playerIsDead = true;
+                    ReloadScene();
                 }
-                else if (targetHit = true && hitInfo.collider.gameObject.tag == "Player")
+                else if (targetHit = true && hitInfo.collider.gameObject.tag == "Clone")
                 {
-                    playerIsDead = true;
-                    Debug.Log("lost");
-                } 
+                   // cloneIsDead = true;
+                   _lvl1Manager.cloneIsDead = true;
+                   ReloadScene();
+                }
+
+              //  StartCoroutine(DeathRespawnDelay());
+              
             }
-            
-            _canShoot = false;
-            
-            yield return new WaitForSeconds(0.7f);
-            _canShoot = true;
+
           
+
+           
+
         }
 
     }
-    
-    
-    
+
+
+
 
     public void SocketAmmoActivated()
     {
@@ -128,37 +137,90 @@ public class FireLaser : MonoBehaviour
         if (ammoprism.name == "Ammo")
         {
             _canShoot = true;
-            ammoIsTrue= true;
+            ammoIsTrue = true;
 
         }
         else if (ammoprism.name == "AmmoTransparent")
         {
-            _canShoot= false;
-           ammoIsTrue = false;
+            _canShoot = false;
+            ammoIsTrue = false;
         }
-        
+
     }
-    
+
     public void SocketAmmoDesactivated()
     {
         _canShoot = false;
-       
+
     }
 
-    IEnumerator DeathRespawnDelay()
+  /*  IEnumerator DeathRespawnDelay()
     {
-        if (playerIsDead == true )
+        if (playerIsDead == true && cloneIsDead == true || playerIsDead == true && cloneIsDead == false)
         {
             //gameover
             //reload la scene
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(0f);
             SceneManager.LoadScene("Lvl_1_test");
+            Debug.Log("lost");
         }
         else if (cloneIsDead == true && playerIsDead == false)
         {
-            //Win
-            PuzzleResolved = true;
-        }   
-    }
+            //WIN
+            yield return new WaitForSeconds(0f);
+            _lvl1Manager.EnigmeFinished();
+            _canShoot = false;
+            objectFollowMirorscript._objectToFollow.GetComponent<FireLaser>()._canShoot = false;
+            Debug.Log("WIN");
+        }
 
-}   
+    }*/
+  
+  
+  /* IEnumerator DeathRespawnDelay()
+    {
+        if (_lvl1Manager.playerIsDead == true && _lvl1Manager.cloneIsDead == true || _lvl1Manager.playerIsDead == true && _lvl1Manager.cloneIsDead == false)
+        {
+            //gameover
+            //reload la scene
+            yield return new WaitForSeconds(1f);
+            SceneManager.LoadScene("Lvl_1_test");
+            Debug.Log("lost");
+        }
+        else if (_lvl1Manager.cloneIsDead == true && _lvl1Manager.playerIsDead == false)
+        {
+            //WIN
+            yield return new WaitForSeconds(1f);
+            _lvl1Manager.EnigmeFinished();
+            _canShoot = false;
+            objectFollowMirorscript._objectToFollow.GetComponent<FireLaser>()._canShoot = false;
+            Debug.Log("WIN");
+        }
+
+    */
+
+  public void ReloadScene()
+  {
+      
+      if (_lvl1Manager.playerIsDead == true && _lvl1Manager.cloneIsDead == true || _lvl1Manager.playerIsDead == true && _lvl1Manager.cloneIsDead == false)
+      {
+          //gameover
+          //reload la scene
+          SceneManager.LoadScene("Lvl_1_test");
+          Debug.Log("lost");
+      }
+      else if (_lvl1Manager.cloneIsDead == true && _lvl1Manager.playerIsDead == false )
+      {
+          //WIN
+       
+          _lvl1Manager.EnigmeFinished();
+          _canShoot = false;
+          objectFollowMirorscript._objectToFollow.GetComponent<FireLaser>()._canShoot = false;
+          
+          Debug.Log("WIN");
+      }
+  }
+  
+  
+  
+}

@@ -66,10 +66,10 @@ public class ObjectFollowMiror : MonoBehaviour
             rigidbody.isKinematic = false;
             rigidbody.useGravity = true;
         
-            //  Rigidbody rigidbodymirror = _objectToFollow.GetComponent<Rigidbody>();
+              Rigidbody rigidbodymirror = _objectToFollow.GetComponent<Rigidbody>();
         
-            //  rigidbodymirror.isKinematic = true;
-            //  rigidbodymirror.useGravity = false;
+              rigidbodymirror.isKinematic = true;
+              rigidbodymirror.useGravity = false;
         
         
             _objectToFollow.GetComponent<ObjectFollowMiror>().objectIsGrab = false;
@@ -85,7 +85,6 @@ public class ObjectFollowMiror : MonoBehaviour
         if (collider.gameObject.name == "MirrorZone")
         {
             OnMirrorSide = true;
-
         }
     }
     
@@ -94,8 +93,6 @@ public class ObjectFollowMiror : MonoBehaviour
         if (collider.gameObject.name == "MirrorZone")
         {
             OnMirrorSide = false;
-            
-
         }
     }
 

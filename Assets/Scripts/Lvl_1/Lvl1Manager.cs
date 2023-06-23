@@ -5,26 +5,31 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Lvl1Manager : MonoBehaviour
 {
+    public delegate void enigmeResult(int number, bool unlock);
 
+    public static event enigmeResult OnLampColorChange;
+    
+    
+    
+    
+    
+    
     private int _enigmeTotal = 3;
     [SerializeField] private AppData levelLoad;
     [SerializeField] private GameManager _gameManager;
-    private bool EnigmeIsFinished = false;
-    [SerializeField] private GameObject _light1;
-    [SerializeField] private GameObject _light2;
-    [SerializeField] private GameObject _light3;
-    [SerializeField] private GameObject _light1mirror;
-    [SerializeField] private GameObject _light2mirror;
-    [SerializeField] private GameObject _light3mirror;
-    [SerializeField] private Color _redLight;
-    [SerializeField] private Color _greenLight;
+    [SerializeField] private GameObject mirror;
+    [SerializeField] private GameObject warningUI;
+    [SerializeField] private Material _warningMirrorShader;
+    [SerializeField] private GameObject _cloneplayer;
+    public bool cloneIsDead = false;
+    public bool playerIsDead = false;
+   
     
-    
-    //LVL 1 GAMEOBJECT
+    [Header("puzzle 1 Objects")]
     [SerializeField] private GameObject pistolwithAmmoMirrorLvl1;
     [SerializeField] private GameObject pistolTransparent;
     
-    //LVL 2 GAMEOBJECT
+    [Header("puzzle 2 Objects")]
     [SerializeField] private GameObject pistolwithAmmo;
     [SerializeField] private GameObject pistolwithAmmoMirrorLvl2;
     [SerializeField] private GameObject obstacle;
@@ -32,7 +37,7 @@ public class Lvl1Manager : MonoBehaviour
    // [SerializeField] private GameObject obstacleButton;
    // [SerializeField] private GameObject obstacleButtonMirrorTransparent;
     
-    //LVL 3 GAMEOBJECT
+   [Header("puzzle 3 Objects")]
     [SerializeField] private GameObject ammo;
     [SerializeField] private GameObject ammoTransparent;
     [SerializeField] private GameObject chest;
@@ -51,6 +56,7 @@ public class Lvl1Manager : MonoBehaviour
 
     { 
       levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.puzzle];
+      OnLampColorChange?.Invoke(levelLoad.puzzle, true);
       
       
      pistolwithAmmo.SetActive(false);
@@ -83,12 +89,11 @@ public class Lvl1Manager : MonoBehaviour
       {
          pistolwithAmmo.SetActive(true); 
          pistolwithAmmoMirrorLvl2.SetActive(true);
-          obstacle.SetActive(true);
-          obstaclemirror.SetActive(true);
+         obstacle.SetActive(true);
+         obstaclemirror.SetActive(true);
         //  obstacleButton.SetActive(true);
         // obstacleButtonMirrorTransparent.SetActive(true);
-        _light1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
-        _light1mirror.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
+       
       }
       else if (levelLoad.levelactuelle == levelLoad.tableauLevel[2])
       { 
@@ -103,10 +108,7 @@ public class Lvl1Manager : MonoBehaviour
         batterytransparent.SetActive(true);
         batteryMirror.SetActive(true);
         
-        _light1.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
-        _light1mirror.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
-        _light2.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
-        _light2mirror.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", _greenLight);
+        
       }  
     }
 
@@ -115,10 +117,10 @@ public class Lvl1Manager : MonoBehaviour
     
     public void ChangeLvl ()
     {
-        levelLoad.puzzle++;
-        if (levelLoad.puzzle <= 2)
+       // levelLoad.puzzle++;
+        if (levelLoad.puzzle < _enigmeTotal)
         {
-            // levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.puzzle];
+            
             SceneManager.LoadScene("Lvl_1_test");
         }
         else if (levelLoad.puzzle >= _enigmeTotal)
@@ -128,12 +130,28 @@ public class Lvl1Manager : MonoBehaviour
             
         }
     }
-    
-    
+
+    public void EnigmeFinished()
+    {
+
+     levelLoad.puzzle++;
+     OnLampColorChange?.Invoke(levelLoad.puzzle, true);
+     Destroy(_cloneplayer);
+     
+     if (levelLoad.puzzle < _enigmeTotal)
+     {
+      mirror.GetComponent<MeshRenderer>().material = _warningMirrorShader;
+      warningUI.SetActive(true);
+     }
+     else if (levelLoad.puzzle >= _enigmeTotal)
+     {
+      mirror.GetComponent<MeshRenderer>().material = _warningMirrorShader;
+      //OpenDoor();
+
+     }
+    }
     
     
     
  
-
-
 }

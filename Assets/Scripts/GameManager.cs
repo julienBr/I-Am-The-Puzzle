@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject fade;
+    
 
     public void Quit () 
     {
@@ -47,7 +48,7 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         fade.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
-        SceneManager.LoadScene("1_Hub");
+        SceneManager.LoadScene("1_Hub 1");
     }
     public IEnumerator WaitLevel1()
     {
