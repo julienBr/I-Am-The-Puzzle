@@ -2,36 +2,42 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.XR.Content.Interaction;
 
 public class ObjectFollowMiror : MonoBehaviour
-{
-    public Transform _objectToFollow; 
-    public Transform _mirror;
+
+{  public Transform _objectToFollow; 
+   public Transform _mirror;
    public bool OnMirrorSide;
    public bool objectIsGrab = false;
+   
     
 
     private void Update()
     {
-        if (OnMirrorSide == true)
+        if (OnMirrorSide )
         {
             Vector3 objectToFollowLocal = _mirror.InverseTransformPoint(_objectToFollow.transform.position);
             transform.position = _mirror.TransformPoint(new Vector3(objectToFollowLocal.x, objectToFollowLocal.y, -objectToFollowLocal.z));
+            
+            
+                if (objectIsGrab == true )
+                {
 
-            if (objectIsGrab == true )
-            {
-
-              transform.rotation = Quaternion.Euler(-_objectToFollow.transform.localEulerAngles.x,
-                    -_objectToFollow.transform.localEulerAngles.y, _objectToFollow.transform.localEulerAngles.z);
+                    transform.rotation = Quaternion.Euler(-_objectToFollow.transform.localEulerAngles.x,
+                        -_objectToFollow.transform.localEulerAngles.y, _objectToFollow.transform.localEulerAngles.z);
              
-            }
-            else if(objectIsGrab == false)
-            {
+                }
+                else if(objectIsGrab == false)
+                {
                
-               //transform.rotation = _objectToFollow.rotation;
-             //transform.rotation = Quaternion.Euler(_objectToFollow.rotation.x,-_objectToFollow.rotation.y,_objectToFollow.rotation.z);
-             transform.localRotation = _objectToFollow.transform.localRotation;
-            }
+                    //transform.rotation = _objectToFollow.rotation;
+                    //transform.rotation = Quaternion.Euler(_objectToFollow.rotation.x,-_objectToFollow.rotation.y,_objectToFollow.rotation.z);
+                    transform.localRotation = _objectToFollow.transform.localRotation;
+                }
+            
+
+            
           
         }
     }
@@ -52,6 +58,21 @@ public class ObjectFollowMiror : MonoBehaviour
        
         
             _objectToFollow.GetComponent<ObjectFollowMiror>().objectIsGrab = true;
+
+           /* if (gameObject.name == "AmmoTransparent")
+            {
+                if (objectIsGrab == true)
+                {
+                    gameObject.GetComponent<Collider>().enabled = false;
+                    Debug.Log("smsms");
+                }
+                else if (objectIsGrab == false)
+                {
+                    gameObject.GetComponent<Collider>().enabled = true;
+                }
+                
+            }*/
+            
 
         }
       

@@ -156,7 +156,7 @@ public class Lvl1Manager : MonoBehaviour
     public IEnumerator ReloadScene()
     {
      yield return new WaitForSeconds(0.1f);
-     if (_win == false && playerIsDead) //Lost
+     if (!_win && playerIsDead) //Lost
      {
       //gameover
       //reload la scene
@@ -175,6 +175,8 @@ public class Lvl1Manager : MonoBehaviour
      }
     }
 
+
+   
 }
     
     

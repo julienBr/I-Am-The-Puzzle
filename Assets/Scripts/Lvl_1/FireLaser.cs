@@ -89,7 +89,7 @@ public class FireLaser : MonoBehaviour
             {
               //  Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,5f);
              //   Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
-                
+            Debug.Log(hitInfo.collider.name);
                 ImpactHit.transform.position = hitInfo.point;
                 ImpactHit.transform.forward = hitInfo.normal;
                 ImpactHit.Play();
@@ -101,12 +101,12 @@ public class FireLaser : MonoBehaviour
                 _canShoot = true;
 
               
-                if ( hitInfo.collider.gameObject.tag == "Player")
+                if ( hitInfo.collider.gameObject.tag == "Player" )
                 {
                     //playerIsDead = true;
                     _lvl1Manager.playerIsDead = true;
                     Debug.Log("plauerdead");
-                   
+                    StartCoroutine(_lvl1Manager.ReloadScene());
                 }
                 if ( hitInfo.collider.gameObject.tag == "Clone")
                 {
@@ -115,10 +115,11 @@ public class FireLaser : MonoBehaviour
                    Debug.Log("clonedead");
                    _canShoot = false;
                    objectFollowMirorscript._objectToFollow.GetComponent<FireLaser>()._canShoot = false;
+                   StartCoroutine(_lvl1Manager.ReloadScene());
                    
                 }
 
-                StartCoroutine(_lvl1Manager.ReloadScene());
+               // StartCoroutine(_lvl1Manager.ReloadScene());
 
                 //  StartCoroutine(DeathRespawnDelay());
 
@@ -140,6 +141,7 @@ public class FireLaser : MonoBehaviour
         GameObject ammoprism = socket.selectTarget.gameObject;
         Debug.Log("le pile est la " + ammoprism.name);
 
+       
         if (ammoprism.name == "Ammo")
         {
             _canShoot = true;
@@ -157,6 +159,26 @@ public class FireLaser : MonoBehaviour
     public void SocketAmmoDesactivated()
     {
         _canShoot = false;
+
+    }
+    
+    
+    public void SocketAmmoHover()
+    {
+       
+       // ammoprism1.GetComponent<Collider>().enabled = false;
+       
+       ammo.GetComponentInParent<XRGrabInteractable>().enabled = false;
+       
+
+    }
+    public void SocketAmmoHoverExited()
+    {
+       
+        // ammoprism1.GetComponent<Collider>().enabled = false;
+       
+        ammo.GetComponentInParent<XRGrabInteractable>().enabled = true;
+       
 
     }
 
