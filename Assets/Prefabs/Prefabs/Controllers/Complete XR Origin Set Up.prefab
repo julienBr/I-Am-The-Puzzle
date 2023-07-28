@@ -2345,7 +2345,7 @@ MonoBehaviour:
   m_TimeToAutoDeselect: 1
   m_EnableUIInteraction: 1
   m_AllowAnchorControl: 1
-  m_UseForceGrab: 1
+  m_UseForceGrab: 0
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
   m_AnchorRotateReferenceFrame: {fileID: 0}
@@ -2796,7 +2796,7 @@ MonoBehaviour:
   m_TimeToAutoDeselect: 1
   m_EnableUIInteraction: 1
   m_AllowAnchorControl: 1
-  m_UseForceGrab: 1
+  m_UseForceGrab: 0
   m_RotateSpeed: 180
   m_TranslateSpeed: 1
   m_AnchorRotateReferenceFrame: {fileID: 0}
@@ -4391,13 +4391,14 @@ GameObject:
   m_Component:
   - component: {fileID: 2146341530015916952}
   - component: {fileID: 2146341530015916958}
+  - component: {fileID: 2146341530015916944}
   - component: {fileID: 2146341530015916950}
   - component: {fileID: 2146341530015916959}
   - component: {fileID: 2146341530015916951}
+  - component: {fileID: 1988894209}
   - component: {fileID: 2146341530015916956}
   - component: {fileID: 2146341530015916947}
   - component: {fileID: 2146341530015916957}
-  - component: {fileID: 2146341530015916944}
   - component: {fileID: 2146341530015916945}
   - component: {fileID: 2146341530015916946}
   m_Layer: 30
@@ -4439,7 +4440,25 @@ MonoBehaviour:
   m_OriginBaseGameObject: {fileID: 2146341530015916953}
   m_CameraFloorOffsetObject: {fileID: 2146341528704079001}
   m_RequestedTrackingOriginMode: 2
-  m_CameraYOffset: 1
+  m_CameraYOffset: 0.5
+--- !u!143 &2146341530015916944
+CharacterController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146341530015916953}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Height: 1.7
+  m_Radius: 0.2
+  m_SlopeLimit: 45
+  m_StepOffset: 0.3
+  m_SkinWidth: 0.08
+  m_MinMoveDistance: 0.001
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &2146341530015916950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4512,6 +4531,51 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_System: {fileID: 2146341530015916959}
   m_DelayTime: 0
+--- !u!114 &1988894209
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2146341530015916953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0bf296fc962d7184ab14ad1841598d5f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_System: {fileID: 2146341530015916959}
+  m_MoveSpeed: 3
+  m_EnableStrafe: 1
+  m_EnableFly: 0
+  m_UseGravity: 1
+  m_GravityApplicationMode: 0
+  m_ForwardSource: {fileID: 2146341529464850457}
+  m_LeftHandMoveAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Left Hand Move
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 79d2ae36-3c3f-43f8-baa3-e753c87f0343
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: 6972639530819350904, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
+  m_RightHandMoveAction:
+    m_UseReference: 1
+    m_Action:
+      m_Name: Right Hand Move
+      m_Type: 0
+      m_ExpectedControlType: 
+      m_Id: 5fac02ff-a25e-46b1-bf61-54a695760809
+      m_Processors: 
+      m_Interactions: 
+      m_SingletonActionBindings: []
+      m_Flags: 0
+    m_Reference: {fileID: -8198699208435500284, guid: c348712bda248c246b8c49b3db54643f,
+      type: 3}
 --- !u!114 &2146341530015916956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4629,24 +4693,6 @@ MonoBehaviour:
   m_EnableScaling: 0
   m_MinimumScale: 0.2
   m_MaximumScale: 5
---- !u!143 &2146341530015916944
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2146341530015916953}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Height: 1.7
-  m_Radius: 0.25
-  m_SlopeLimit: 45
-  m_StepOffset: 0.5
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.85, z: 0}
 --- !u!114 &2146341530015916945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4659,7 +4705,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: af6bf904e410ee8479f9093d8830d1f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_LocomotionProvider: {fileID: 2146341530015916947}
+  m_LocomotionProvider: {fileID: 1988894209}
   m_MinHeight: 0
   m_MaxHeight: Infinity
 --- !u!114 &2146341530015916946
