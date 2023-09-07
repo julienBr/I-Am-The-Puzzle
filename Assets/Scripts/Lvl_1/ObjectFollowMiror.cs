@@ -17,6 +17,8 @@ public class ObjectFollowMiror : MonoBehaviour
     {
         if (OnMirrorSide )
         {
+
+           
             Vector3 objectToFollowLocal = _mirror.InverseTransformPoint(_objectToFollow.transform.position);
             transform.position = _mirror.TransformPoint(new Vector3(objectToFollowLocal.x, objectToFollowLocal.y, -objectToFollowLocal.z));
             
@@ -32,13 +34,17 @@ public class ObjectFollowMiror : MonoBehaviour
                 {
                
                     //transform.rotation = _objectToFollow.rotation;
-                    //transform.rotation = Quaternion.Euler(_objectToFollow.rotation.x,-_objectToFollow.rotation.y,_objectToFollow.rotation.z);
+                    //transform.rotation = Quaternion.Euler(_objectToFollow.rotation.x,-_objectToFollow.rotation.y,_objectToFollow.rotation.z)
                     transform.localRotation = _objectToFollow.transform.localRotation;
                 }
             
-
+                gameObject.GetComponent<XRLockSocketInteractor>().socketActive = false;
             
           
+        }
+        else if (OnMirrorSide == false)
+        {
+            gameObject.GetComponent<XRLockSocketInteractor>().socketActive = true;
         }
     }
 

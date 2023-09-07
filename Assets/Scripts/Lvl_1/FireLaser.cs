@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.XR.Content.Interaction;
 using UnityEngine.XR.Interaction.Toolkit;
 
 public class FireLaser : MonoBehaviour
@@ -168,7 +169,7 @@ public class FireLaser : MonoBehaviour
        
        // ammoprism1.GetComponent<Collider>().enabled = false;
        
-       ammo.GetComponentInParent<XRGrabInteractable>().enabled = false;
+     //  ammo.GetComponentInParent<XRGrabInteractable>().enabled = false;
        
 
     }
@@ -177,7 +178,7 @@ public class FireLaser : MonoBehaviour
        
         // ammoprism1.GetComponent<Collider>().enabled = false;
        
-        ammo.GetComponentInParent<XRGrabInteractable>().enabled = true;
+      //  ammo.GetComponentInParent<XRGrabInteractable>().enabled = true;
        
 
     }
@@ -227,8 +228,4 @@ public class FireLaser : MonoBehaviour
 
     */
 
-  
-  
-
-  
 }
