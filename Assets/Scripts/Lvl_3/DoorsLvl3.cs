@@ -23,5 +23,7 @@ public class DoorsLvl3 : MonoBehaviour
     private void AnimateDoor(int buttonId)
     {
         doorAnimator.SetBool("OpenDoor", buttonId == doorId);
+
+
     }
 }
