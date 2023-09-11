@@ -10,7 +10,7 @@ public class ObjectFollowMiror : MonoBehaviour
    public Transform _mirror;
    public bool OnMirrorSide;
    public bool objectIsGrab = false;
-   
+   public GameObject socket;
     
 
     private void Update()
@@ -38,13 +38,13 @@ public class ObjectFollowMiror : MonoBehaviour
                     transform.localRotation = _objectToFollow.transform.localRotation;
                 }
             
-                gameObject.GetComponent<XRLockSocketInteractor>().socketActive = false;
+                socket.GetComponent<XRLockSocketInteractor>().socketActive = false;
             
           
         }
-        else if (OnMirrorSide == false)
+        else if (OnMirrorSide == false && socket!= null)
         {
-            gameObject.GetComponent<XRLockSocketInteractor>().socketActive = true;
+            socket.GetComponent<XRLockSocketInteractor>().socketActive = true;
         }
     }
 
