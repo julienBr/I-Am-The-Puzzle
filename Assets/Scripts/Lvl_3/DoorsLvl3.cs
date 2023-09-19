@@ -4,6 +4,7 @@ public class DoorsLvl3 : MonoBehaviour
 {
     [SerializeField] private int doorId;
     private Animator doorAnimator;
+    
 
     private void Awake()
     {
@@ -22,6 +23,7 @@ public class DoorsLvl3 : MonoBehaviour
 
     private void AnimateDoor(int buttonId)
     {
+        
         doorAnimator.SetBool("OpenDoor", buttonId == doorId);
 
 
