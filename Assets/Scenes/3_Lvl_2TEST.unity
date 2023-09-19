@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.52386564, g: 0.56170434, b: 0.47704506, a: 1}
+  m_IndirectSpecularColor: {r: 0.52386224, g: 0.561672, b: 0.47704557, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1564,11 +1564,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: WALLLIGHT (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 1816587799246147097, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816587799246147097, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0133275315
+      objectReference: {fileID: 0}
+    - target: {fileID: 1816587799246147097, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01709
+      objectReference: {fileID: 0}
     - target: {fileID: 2541067673795094055, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: c5427c063b531fd4eb3ecad7aac571dc, type: 2}
+    - target: {fileID: 5633764478945275675, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633764478945275675, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.0133275315
+      objectReference: {fileID: 0}
+    - target: {fileID: 5633764478945275675, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.017089998
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c5f65d40fa5f614b9b0ad854f3e14c3, type: 3}
 --- !u!1 &821189240
@@ -3351,7 +3381,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1823391999}
   m_LocalRotation: {x: -6.123234e-17, y: 1, z: 6.123234e-17, w: -3.7493994e-33}
-  m_LocalPosition: {x: -4.1806207, y: 0.11706634, z: -9.468896}
+  m_LocalPosition: {x: -4.1806207, y: 0.637, z: -9.468896}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
