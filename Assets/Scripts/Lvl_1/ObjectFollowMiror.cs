@@ -37,8 +37,13 @@ public class ObjectFollowMiror : MonoBehaviour
                     //transform.rotation = Quaternion.Euler(_objectToFollow.rotation.x,-_objectToFollow.rotation.y,_objectToFollow.rotation.z)
                     transform.localRotation = _objectToFollow.transform.localRotation;
                 }
-            
-                socket.GetComponent<XRLockSocketInteractor>().socketActive = false;
+                
+                
+            if(socket!= null)
+            {
+              socket.GetComponent<XRLockSocketInteractor>().socketActive = false;
+            }
+              
             
           
         }
