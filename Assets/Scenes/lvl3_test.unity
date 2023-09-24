@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.050502054, g: 0.15053193, b: 0.4088912, a: 1}
+  m_IndirectSpecularColor: {r: 0.002349243, g: 0.0023239388, b: 0.0022975109, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -100,7 +100,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: 280358cef0b477e4fbb9fea317427219,
     type: 2}
-  m_LightingSettings: {fileID: 4890085278179872738, guid: 4b270148a4fc6ae40bbd4b983daa214a,
+  m_LightingSettings: {fileID: 4890085278179872738, guid: 7b5a68fec06d7b4429f8a1b764a1b2b1,
     type: 2}
 --- !u!196 &4
 NavMeshSettings:
@@ -14767,8 +14767,8 @@ Transform:
   - {fileID: 1485447958}
   - {fileID: 1128025047}
   - {fileID: 230133164}
-  - {fileID: 1421371460}
   - {fileID: 1986560153}
+  - {fileID: 1421371460}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
