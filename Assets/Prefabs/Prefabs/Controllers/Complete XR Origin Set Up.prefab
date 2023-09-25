@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 2146341528247060980}
   m_Layer: 28
   m_Name: Pusher
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3064,7 +3064,7 @@ GameObject:
   - component: {fileID: 2146341529016511558}
   m_Layer: 0
   m_Name: Complete XR Origin Set Up
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3515,7 +3515,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146341529464850470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0, y: -0.03, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4416,7 +4416,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146341530015916953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.814, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4749,7 +4749,7 @@ GameObject:
   - component: {fileID: 2146341530099323341}
   m_Layer: 28
   m_Name: Pusher
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5013,6 +5013,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c98766356fc38438107fcb418a1dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leftHand: {fileID: 2146341528636550358}
+  _rightHand: {fileID: 2146341529802347831}
   _collisionLayer:
     serializedVersion: 2
     m_Bits: 134217857

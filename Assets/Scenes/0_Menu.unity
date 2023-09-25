@@ -11389,6 +11389,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c5c98766356fc38438107fcb418a1dc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _leftHand: {fileID: 2146341528561946551}
+  _rightHand: {fileID: 2146341529879311958}
   _collisionLayer:
     serializedVersion: 2
     m_Bits: 134217857

@@ -2,6 +2,9 @@ using UnityEngine;
 
 public class BoundsControl : MonoBehaviour
 {
+    [Header("Controllers")]
+    [SerializeField] private GameObject _leftHand;
+    [SerializeField] private GameObject _rightHand;
     [SerializeField] private LayerMask _collisionLayer;
     [SerializeField] private float _fadeSpeed;
     [SerializeField] private float _sphereCheckSize = .15f;
@@ -17,11 +20,15 @@ public class BoundsControl : MonoBehaviour
         {
             CameraFade(1f);
             _isCameraFadeOut = true;
+            _leftHand.SetActive(false);
+            _rightHand.SetActive(false);
         }
         else
         {
             if (!_isCameraFadeOut) return;
             CameraFade(0f);
+            _leftHand.SetActive(true);
+            _rightHand.SetActive(true);
         }
     }
 
