@@ -11,6 +11,7 @@ public class Transmitter : MonoBehaviour
     public bool _sourceSelected;
 
     [Header("Tripods References")]
+    [SerializeField] private GameObject _prisme;
     [SerializeField] private List<GameObject> _tripods;
     [SerializeField] private List<GameObject> _lookAtTripods;
 
@@ -200,7 +201,7 @@ public class Transmitter : MonoBehaviour
             if (hit.collider.gameObject.CompareTag($"Source{_idSource}"))
             {
                 _isSource[_idSource] = true;
-                StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], gameObject, _isSource));
+                StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], _prisme, _isSource));
                 _isConnectedSource = true;
             }
             else
@@ -232,7 +233,7 @@ public class Transmitter : MonoBehaviour
                         _tripods[i].GetComponent<Transmitter>()._isSource[0] = _isSource[0];
                         _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
                         _tripods[i].GetComponent<Transmitter>()._isConnectedTripod = true;
-                        StartCoroutine(ShootLaser(_laserTripods[i], gameObject, _tripods[i], _isSource));
+                        StartCoroutine(ShootLaser(_laserTripods[i], _prisme, _tripods[i].GetComponent<Transmitter>()._prisme, _isSource));
                     }
                 }
             }
@@ -254,7 +255,7 @@ public class Transmitter : MonoBehaviour
                     {
                         _receptorTouched[i] = true;
                         _isConnectedReceptor = true;
-                        StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
+                        StartCoroutine(ShootLaser(_laserReceptors[i], _prisme, _receptors[i], _isSource));
                         OpenDoor?.Invoke(i);
                     }
                 }
@@ -272,7 +273,7 @@ public class Transmitter : MonoBehaviour
                     {
                         _receptorTouched[i] = true;
                         _isConnectedReceptor = true;
-                        StartCoroutine(ShootLaser(_laserReceptors[i], gameObject, _receptors[i], _isSource));
+                        StartCoroutine(ShootLaser(_laserReceptors[i], _prisme, _receptors[i], _isSource));
                         OpenDoor?.Invoke(i);
                     }
                 }
@@ -285,8 +286,8 @@ public class Transmitter : MonoBehaviour
         Gradient gradient = new Gradient();
         float time = 0.5f;
         gradient.SetKeys(source[0]
-            ? new[] {new GradientColorKey(Color.blue, 0f)}
-            : new[] {new GradientColorKey(Color.red, 0f)}, new[] {new GradientAlphaKey(1f, 0f)});
+            ? new[] {new GradientColorKey(new Color32(0, 20, 255, 255), 0f)}
+            : new[] {new GradientColorKey(new Color32(255, 0, 0, 255), 0f)}, new[] {new GradientAlphaKey(1f, 0f)});
         laser.enabled = true;
         laser.colorGradient = gradient;
         laser.SetPosition(0, start.transform.position);
