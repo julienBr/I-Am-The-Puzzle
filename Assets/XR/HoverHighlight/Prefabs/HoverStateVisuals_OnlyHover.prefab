@@ -19,6 +19,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 566179490935405791, guid: 7993ae71b53b408449cea86d791c878e,
         type: 3}
+      propertyPath: m_AudioHover
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 566179490935405791, guid: 7993ae71b53b408449cea86d791c878e,
+        type: 3}
       propertyPath: m_SelectionColor.b
       value: 0.9019608
       objectReference: {fileID: 0}
@@ -65,7 +70,7 @@ PrefabInstance:
     - target: {fileID: 566179490935405797, guid: 7993ae71b53b408449cea86d791c878e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 566179490935405797, guid: 7993ae71b53b408449cea86d791c878e,
         type: 3}
@@ -109,4 +114,5 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 566179490935405760, guid: 7993ae71b53b408449cea86d791c878e, type: 3}
+    - {fileID: 566179490935405790, guid: 7993ae71b53b408449cea86d791c878e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7993ae71b53b408449cea86d791c878e, type: 3}

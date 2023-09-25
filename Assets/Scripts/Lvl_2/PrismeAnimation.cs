@@ -1,39 +1,36 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class PrismeAnimation : MonoBehaviour
 {
     public Color redColor;
     public Color blueColor;
-    public Color originalColor;
     public float RotationSpeed = 2f;
-    public bool _laserActivated = false;
-    
-    void Start()
+    public bool _laserActivated;
+
+    private void OnEnable()
     {
-        //GetComponent<MeshRenderer>().material.SetColor("Color_0a8bc23ce2644fbf9e887b1975e13b04", customColor);
-        
+        UITripods.ChangeSphereColor += ChangeSource;
     }
 
-    private void FixedUpdate()
+    private void OnDisable()
     {
-        
-        if (_laserActivated == true)
+        UITripods.ChangeSphereColor -= ChangeSource;
+    }
+    
+    /*private void FixedUpdate()
+    {
+        if (_laserActivated)
         {
             transform.Rotate(0f,RotationSpeed,0f);
             gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", redColor);
-            
         }
+    }*/
 
-      
-
-    }
-
-    public void PrismeActivated()
+    private void ChangeSource(GameObject sphere, int id)
     {
-        _laserActivated = true;
+        if (sphere == gameObject)
+        {
+            gameObject.GetComponent<MeshRenderer>().material.SetColor("_EmissionColor", id == 0 ? blueColor : redColor);
+        }
     }
 }

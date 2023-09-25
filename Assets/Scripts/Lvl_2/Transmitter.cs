@@ -7,8 +7,8 @@ public class Transmitter : MonoBehaviour
     [Header("Sources References")]
     [SerializeField] private List<GameObject> _sources;
     [SerializeField] private List<GameObject> _lookAtSources;
-    private int _idSource;
-    private bool _sourceSelected;
+    public int _idSource;
+    public bool _sourceSelected;
 
     [Header("Tripods References")]
     [SerializeField] private List<GameObject> _tripods;
@@ -30,9 +30,9 @@ public class Transmitter : MonoBehaviour
     public bool _checkReceptors;
     public bool _checkLasers;
 
-    private List<LineRenderer> _laserSources = new();
-    private List<LineRenderer> _laserTripods = new();
-    private List<LineRenderer> _laserReceptors = new();
+    public List<LineRenderer> _laserSources = new();
+    public List<LineRenderer> _laserTripods = new();
+    public List<LineRenderer> _laserReceptors = new();
     
     public delegate void ReceptorEvent(int receptorId);
     public static event ReceptorEvent OpenDoor;
@@ -65,7 +65,6 @@ public class Transmitter : MonoBehaviour
         if (tripod == gameObject)
         {
             _idSource = id;
-            gameObject.GetComponent<Renderer>().material.color = id == 0 ? Color.blue : Color.red;
             _sourceSelected = true;
         }
     }
