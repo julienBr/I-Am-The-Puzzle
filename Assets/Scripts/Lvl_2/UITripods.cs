@@ -33,13 +33,11 @@ public class UITripods : MonoBehaviour
     {
         SelectSource?.Invoke(_tripod, 0);
         ChangeSphereColor?.Invoke(_sphere, 0);
-        _uiObject.SetActive(false);
     }
 
     public void RedButton()
     {
         SelectSource?.Invoke(_tripod, 1);
         ChangeSphereColor?.Invoke(_sphere, 1);
-        _uiObject.SetActive(false);
     }
 }
