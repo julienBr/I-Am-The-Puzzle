@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0869f4710c62ecd448bcc8f721206047, type: 3}
   m_Name: LevelData
   m_EditorClassIdentifier: 
-  levelactuelle: {fileID: 11400000, guid: 7396eafa09aa2c84cab6022c9b401ac4, type: 2}
+  levelactuelle: {fileID: 11400000, guid: 4457b01ce6a34664583b1cb3df09e710, type: 2}
   tableauLevel:
   - {fileID: 11400000, guid: 4457b01ce6a34664583b1cb3df09e710, type: 2}
   - {fileID: 11400000, guid: 4064c734e849e2c46b47bd4c83262756, type: 2}
   - {fileID: 11400000, guid: 7396eafa09aa2c84cab6022c9b401ac4, type: 2}
-  puzzle: 2
+  puzzle: 0
