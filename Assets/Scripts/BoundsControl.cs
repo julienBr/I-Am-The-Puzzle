@@ -1,13 +1,17 @@
 using UnityEngine;
+using UnityEngine.Serialization;
+using UnityEngine.XR.Interaction.Toolkit;
+using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 
 public class BoundsControl : MonoBehaviour
 {
     [Header("Controllers")]
-    [SerializeField] private GameObject _leftHand;
-    [SerializeField] private GameObject _rightHand;
+    [SerializeField] private SnapTurnProviderBase _xrOrigin; 
+    [SerializeField] private ActionBasedControllerManager _leftHand;
+    [SerializeField] private ActionBasedControllerManager _rightHand;
     [SerializeField] private LayerMask _collisionLayer;
-    [SerializeField] private float _fadeSpeed;
-    [SerializeField] private float _sphereCheckSize = .15f;
+    [SerializeField] private float _fadeSpeed = 5f;
+    [SerializeField] private float _sphereCheckSize = .03f;
 
     private Material _cameraFadeMat;
     private bool _isCameraFadeOut;
@@ -20,15 +24,17 @@ public class BoundsControl : MonoBehaviour
         {
             CameraFade(1f);
             _isCameraFadeOut = true;
-            _leftHand.SetActive(false);
-            _rightHand.SetActive(false);
+            _xrOrigin.enabled = false;
+            _leftHand.enabled = false;
+            _rightHand.enabled = false;
         }
         else
         {
             if (!_isCameraFadeOut) return;
             CameraFade(0f);
-            _leftHand.SetActive(true);
-            _rightHand.SetActive(true);
+            _xrOrigin.enabled = true;
+            _leftHand.enabled = true;
+            _rightHand.enabled = true;
         }
     }
 

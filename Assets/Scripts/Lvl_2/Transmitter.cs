@@ -203,6 +203,7 @@ public class Transmitter : MonoBehaviour
                 _isSource[_idSource] = true;
                 StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], _prisme, _isSource));
                 _isConnectedSource = true;
+                _prisme.GetComponent<Animator>().SetBool("ActivatePrisme", true);
             }
             else
             {
@@ -233,6 +234,7 @@ public class Transmitter : MonoBehaviour
                         _tripods[i].GetComponent<Transmitter>()._isSource[0] = _isSource[0];
                         _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
                         _tripods[i].GetComponent<Transmitter>()._isConnectedTripod = true;
+                        _tripods[i].GetComponent<Transmitter>()._prisme.GetComponent<Animator>().SetBool("ActivatePrisme", true);
                         StartCoroutine(ShootLaser(_laserTripods[i], _prisme, _tripods[i].GetComponent<Transmitter>()._prisme, _isSource));
                     }
                 }
@@ -323,6 +325,7 @@ public class Transmitter : MonoBehaviour
                 {
                     tripods.GetComponent<Transmitter>()._isSource[0] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
+                    tripods.GetComponent<Transmitter>()._prisme.GetComponent<Animator>().SetBool("ActivatePrisme", false);
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[0])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[0] = false;
@@ -343,6 +346,7 @@ public class Transmitter : MonoBehaviour
                 {
                     tripods.GetComponent<Transmitter>()._isSource[1] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
+                    tripods.GetComponent<Transmitter>()._prisme.GetComponent<Animator>().SetBool("ActivatePrisme", false);
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[2])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[2] = false;
@@ -364,12 +368,12 @@ public class Transmitter : MonoBehaviour
         _isConnectedSource = false;
         _isConnectedTripod = false;
         _isConnectedReceptor = false;
+        _prisme.GetComponent<Animator>().SetBool("ActivatePrisme", false);
         for (int i = 0; i < _isSource.Count; i++) _isSource[i] = false;
         for (int i = 0; i < _receptorTouched.Count; i++)
         {
             if (_receptorTouched[i])
             {
-                Debug.Log($"T'es censé lancé l'évenement fermeture de porte {i}");
                 CloseDoor?.Invoke(i);
                 _receptorTouched[i] = false;
             }

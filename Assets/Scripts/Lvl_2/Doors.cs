@@ -31,7 +31,6 @@ public class Doors : MonoBehaviour
         if (receptorId == _id)
             if (_receptor.GetComponent<Receptor>()._isAlreadyTouched == 0)
             {
-                Debug.Log($"ferme la porte {_id}");
                 StartCoroutine(ThrowAnimationDoor(false));
             }
     }
