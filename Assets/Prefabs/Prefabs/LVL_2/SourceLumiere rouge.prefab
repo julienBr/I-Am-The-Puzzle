@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 481571054831822541}
   - component: {fileID: 481571054831822539}
   - component: {fileID: 481571054831822540}
+  - component: {fileID: 2096972509}
   m_Layer: 0
   m_Name: Source2
-  m_TagString: Untagged
+  m_TagString: Source1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -83,6 +84,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2096972509
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 481571054831822542}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.0025201882
+  m_Height: 0.0050403723
+  m_Direction: 1
+  m_Center: {x: 0.0000000037252903, y: -2.3283064e-10, z: -0.000000007683411}
 --- !u!1 &751973059626863502
 GameObject:
   m_ObjectHideFlags: 0
@@ -94,6 +109,7 @@ GameObject:
   - component: {fileID: 82290954396586292}
   - component: {fileID: 3930376638965374609}
   - component: {fileID: 1256354707913747035}
+  - component: {fileID: 543450652457071910}
   m_Layer: 0
   m_Name: SourceLumiere rouge
   m_TagString: Untagged
@@ -167,3 +183,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &543450652457071910
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 751973059626863502}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.037044622, y: 0.03875946, z: 0.006139493}
+  m_Center: {x: -0.000000015378946, y: 0, z: 0.0016724921}

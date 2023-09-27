@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3411521184574293209}
   - component: {fileID: 1799174738754030460}
   - component: {fileID: 4544981592478236598}
+  - component: {fileID: 543450652671349613}
   m_Layer: 0
   m_Name: SourceLumiere Bleu
   m_TagString: Untagged
@@ -84,6 +85,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &543450652671349613
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2599695040761896547}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.037044633, y: 0.03875946, z: 0.006485332}
+  m_Center: {x: 0.000000015777696, y: 0, z: 0.0018454518}
 --- !u!1 &2941572987374816176
 GameObject:
   m_ObjectHideFlags: 0
@@ -95,9 +109,10 @@ GameObject:
   - component: {fileID: 2941572987374816183}
   - component: {fileID: 2941572987374816181}
   - component: {fileID: 2941572987374816182}
+  - component: {fileID: 2121735175}
   m_Layer: 0
   m_Name: Source1
-  m_TagString: Untagged
+  m_TagString: Source0
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -167,3 +182,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!136 &2121735175
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2941572987374816176}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 0.002520189
+  m_Height: 0.0050403723
+  m_Direction: 1
+  m_Center: {x: -0.000000014901161, y: -2.3283064e-10, z: -2.328308e-10}
