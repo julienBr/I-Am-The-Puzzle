@@ -6,7 +6,10 @@ public class Doors : MonoBehaviour
     [SerializeField] private int _id;
     [SerializeField] private GameObject _receptor;
     private Animator _animator;
-
+    
+    public delegate void ReceptorDoor();
+    public static event ReceptorDoor UpdateLaser;
+    
     private void Awake() { _animator = GetComponent<Animator>(); }
 
     private void OnEnable()
@@ -23,16 +26,24 @@ public class Doors : MonoBehaviour
 
     private void Open(int receptorId)
     {
-        if (receptorId == _id) StartCoroutine(ThrowAnimationDoor(true));
+        if (receptorId == _id)
+        {
+            _receptor.GetComponent<Receptor>()._isAlreadyTouched++;
+            StartCoroutine(ThrowAnimationDoor(true));
+        }
     }
 
     private void Close(int receptorId)
     {
         if (receptorId == _id)
+        {
+            _receptor.GetComponent<Receptor>()._isAlreadyTouched--;
             if (_receptor.GetComponent<Receptor>()._isAlreadyTouched == 0)
             {
                 StartCoroutine(ThrowAnimationDoor(false));
+                UpdateLaser?.Invoke();
             }
+        }
     }
     
     private IEnumerator ThrowAnimationDoor(bool connected)

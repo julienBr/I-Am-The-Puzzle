@@ -35,9 +35,9 @@ public class Transmitter : MonoBehaviour
     public List<LineRenderer> _laserTripods = new();
     public List<LineRenderer> _laserReceptors = new();
     
-    public delegate void ReceptorEvent(int receptorId);
-    public static event ReceptorEvent OpenDoor;
-    public static event ReceptorEvent CloseDoor;
+    public delegate void TransmitterEvent(int receptorId);
+    public static event TransmitterEvent OpenDoor;
+    public static event TransmitterEvent CloseDoor;
     
     private void Awake()
     {
@@ -52,13 +52,13 @@ public class Transmitter : MonoBehaviour
     private void OnEnable()
     {
         UITripods.SelectSource += ChangeSource;
-        Receptor.UpdateLaser += RecalculateLaser;
+        Doors.UpdateLaser += RecalculateLaser;
     }
 
     private void OnDisable()
     {
         UITripods.SelectSource -= ChangeSource;
-        Receptor.UpdateLaser -= RecalculateLaser;
+        Doors.UpdateLaser -= RecalculateLaser;
     }
 
     private void ChangeSource(GameObject tripod, int id)
@@ -81,7 +81,7 @@ public class Transmitter : MonoBehaviour
 
     private IEnumerator CheckLasers()
     {
-        for (float t = 0f; t < 2f; t += Time.deltaTime)
+        for (float t = 0f; t < 10f; t += Time.deltaTime)
         {
             if (_isConnectedSource)
             {

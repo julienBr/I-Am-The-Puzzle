@@ -262,6 +262,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoverStateVisuals_OnlyHover
       objectReference: {fileID: 0}
+    - target: {fileID: 2483318160498232355, guid: 82bfca775e5a52f4caa5cdb4a40e48e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82bfca775e5a52f4caa5cdb4a40e48e7, type: 3}
 --- !u!4 &4651007 stripped
@@ -281,7 +286,7 @@ GameObject:
   - component: {fileID: 25997740}
   - component: {fileID: 25997742}
   - component: {fileID: 25997741}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -377,7 +382,7 @@ GameObject:
   - component: {fileID: 41255680}
   - component: {fileID: 41255682}
   - component: {fileID: 41255681}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -459,7 +464,7 @@ GameObject:
   m_Component:
   - component: {fileID: 53998767}
   - component: {fileID: 53998768}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: TransformUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -508,7 +513,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 62072527}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -584,7 +589,7 @@ GameObject:
   - component: {fileID: 67049852}
   - component: {fileID: 67049854}
   - component: {fileID: 67049853}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +805,7 @@ GameObject:
   - component: {fileID: 83609885}
   - component: {fileID: 83609884}
   - component: {fileID: 83609887}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -918,7 +923,7 @@ GameObject:
   - component: {fileID: 86448426}
   - component: {fileID: 86448428}
   - component: {fileID: 86448427}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1056,7 +1061,7 @@ GameObject:
   - component: {fileID: 89885067}
   - component: {fileID: 89885066}
   - component: {fileID: 89885065}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BlueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1207,8 +1212,8 @@ GameObject:
   m_Component:
   - component: {fileID: 93318359}
   - component: {fileID: 93318360}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-2
+  m_Layer: 9
+  m_Name: LookAtReceptor2
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1505,7 +1510,7 @@ GameObject:
   - component: {fileID: 113557544}
   - component: {fileID: 113557546}
   - component: {fileID: 113557545}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1714,6 +1719,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoverStateVisuals_OnlyHover
       objectReference: {fileID: 0}
+    - target: {fileID: 2483318160498232355, guid: 82bfca775e5a52f4caa5cdb4a40e48e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82bfca775e5a52f4caa5cdb4a40e48e7, type: 3}
 --- !u!4 &126937169 stripped
@@ -1921,8 +1931,8 @@ GameObject:
   m_Component:
   - component: {fileID: 181711467}
   - component: {fileID: 181711468}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-1
+  m_Layer: 9
+  m_Name: LookAtReceptor3
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2141,7 +2151,7 @@ GameObject:
   m_Component:
   - component: {fileID: 208619258}
   - component: {fileID: 208619259}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3288,13 +3298,13 @@ CharacterController:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Height: 1.7
-  m_Radius: 0.2
+  m_Height: 1.6
+  m_Radius: 0.15
   m_SlopeLimit: 45
   m_StepOffset: 0.3
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0.9299999, z: 0}
+  m_Center: {x: 0, y: 0.93, z: 0}
 --- !u!1 &239106712
 GameObject:
   m_ObjectHideFlags: 0
@@ -3306,7 +3316,7 @@ GameObject:
   - component: {fileID: 239106713}
   - component: {fileID: 239106715}
   - component: {fileID: 239106714}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3472,9 +3482,9 @@ GameObject:
   - component: {fileID: 254161553}
   - component: {fileID: 254161556}
   - component: {fileID: 254161555}
-  - component: {fileID: 254161554}
   - component: {fileID: 254161557}
   - component: {fileID: 254161558}
+  - component: {fileID: 254161559}
   m_Layer: 0
   m_Name: Door4
   m_TagString: Door
@@ -3497,19 +3507,6 @@ Transform:
   m_Father: {fileID: 1712629572}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &254161554
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 254161552}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 19, y: 13.710484, z: 1}
-  m_Center: {x: 0, y: 6.35524, z: 0}
 --- !u!23 &254161555
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -3594,6 +3591,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 3
   _receptor: {fileID: 1954718081}
+--- !u!65 &254161559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254161552}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 8.694844, z: 1.0000002}
+  m_Center: {x: 0, y: 3.8474064, z: 0}
 --- !u!1 &262265368
 GameObject:
   m_ObjectHideFlags: 0
@@ -3605,7 +3615,7 @@ GameObject:
   - component: {fileID: 262265369}
   - component: {fileID: 262265371}
   - component: {fileID: 262265370}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3688,7 +3698,7 @@ GameObject:
   - component: {fileID: 262329459}
   - component: {fileID: 262329461}
   - component: {fileID: 262329460}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4371,7 +4381,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 286568361}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tripods
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4407,7 +4417,7 @@ GameObject:
   m_Component:
   - component: {fileID: 287076682}
   - component: {fileID: 287076683}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4538,8 +4548,8 @@ GameObject:
   m_Component:
   - component: {fileID: 288328230}
   - component: {fileID: 288328231}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-1
+  m_Layer: 9
+  m_Name: LookAtReceptor1
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4672,7 +4682,7 @@ GameObject:
   - component: {fileID: 289660498}
   - component: {fileID: 289660497}
   - component: {fileID: 289660496}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5104,7 +5114,7 @@ GameObject:
   - component: {fileID: 302695484}
   - component: {fileID: 302695483}
   - component: {fileID: 302695486}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5221,7 +5231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 305321739}
   - component: {fileID: 305321740}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5353,7 +5363,7 @@ GameObject:
   - component: {fileID: 321051147}
   - component: {fileID: 321051149}
   - component: {fileID: 321051148}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5654,7 +5664,7 @@ GameObject:
   - component: {fileID: 369804365}
   - component: {fileID: 369804367}
   - component: {fileID: 369804366}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5736,8 +5746,8 @@ GameObject:
   m_Component:
   - component: {fileID: 370780873}
   - component: {fileID: 370780874}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-1
+  m_Layer: 9
+  m_Name: LookAtReceptor1
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5868,7 +5878,7 @@ GameObject:
   - component: {fileID: 372422095}
   - component: {fileID: 372422097}
   - component: {fileID: 372422096}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6440,7 +6450,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 407250084}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e988983f96fe1dd48800bcdfc82f23e9, type: 3}
   m_Name: 
@@ -7216,7 +7226,7 @@ GameObject:
   - component: {fileID: 471789594}
   - component: {fileID: 471789593}
   - component: {fileID: 471789592}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7659,7 +7669,7 @@ GameObject:
   - component: {fileID: 499721161}
   - component: {fileID: 499721163}
   - component: {fileID: 499721162}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7825,7 +7835,7 @@ GameObject:
   - component: {fileID: 503049363}
   - component: {fileID: 503049366}
   - component: {fileID: 503049365}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -7972,7 +7982,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
@@ -7986,7 +7996,7 @@ GameObject:
   m_Component:
   - component: {fileID: 510333149}
   - component: {fileID: 510333150}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8120,7 +8130,7 @@ GameObject:
   - component: {fileID: 539115295}
   - component: {fileID: 539115294}
   - component: {fileID: 539115293}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BlueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8310,7 +8320,7 @@ GameObject:
   - component: {fileID: 561724067}
   - component: {fileID: 561724069}
   - component: {fileID: 561724068}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8393,7 +8403,7 @@ GameObject:
   - component: {fileID: 572058220}
   - component: {fileID: 572058223}
   - component: {fileID: 572058222}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8476,7 +8486,7 @@ GameObject:
   - component: {fileID: 599068031}
   - component: {fileID: 599068033}
   - component: {fileID: 599068032}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8693,7 +8703,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 630195729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attach Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -8725,8 +8735,8 @@ GameObject:
   m_Component:
   - component: {fileID: 644445367}
   - component: {fileID: 644445368}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-1
+  m_Layer: 9
+  m_Name: LookAtReceptor1
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8859,7 +8869,7 @@ GameObject:
   - component: {fileID: 651101747}
   - component: {fileID: 651101746}
   - component: {fileID: 651101745}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BlueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9226,7 +9236,7 @@ GameObject:
   - component: {fileID: 662169306}
   - component: {fileID: 662169305}
   - component: {fileID: 662169304}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9403,7 +9413,7 @@ GameObject:
   - component: {fileID: 666759011}
   - component: {fileID: 666759013}
   - component: {fileID: 666759012}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9678,7 +9688,7 @@ GameObject:
   m_Component:
   - component: {fileID: 707735219}
   - component: {fileID: 707735220}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9809,7 +9819,7 @@ GameObject:
   m_Component:
   - component: {fileID: 730129307}
   - component: {fileID: 730129308}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -9943,7 +9953,7 @@ GameObject:
   - component: {fileID: 737202359}
   - component: {fileID: 737202358}
   - component: {fileID: 737202357}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10183,7 +10193,7 @@ GameObject:
   - component: {fileID: 765079926}
   - component: {fileID: 765079928}
   - component: {fileID: 765079927}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10348,7 +10358,7 @@ GameObject:
   - component: {fileID: 798158857}
   - component: {fileID: 798158856}
   - component: {fileID: 798158860}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: BlueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10511,7 +10521,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 799160710}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attach Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10544,7 +10554,7 @@ GameObject:
   - component: {fileID: 838951753}
   - component: {fileID: 838951755}
   - component: {fileID: 838951754}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10633,7 +10643,7 @@ GameObject:
   - component: {fileID: 855757464}
   - component: {fileID: 855757466}
   - component: {fileID: 855757465}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10715,7 +10725,7 @@ GameObject:
   m_Component:
   - component: {fileID: 857030972}
   - component: {fileID: 857030973}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10848,7 +10858,7 @@ GameObject:
   - component: {fileID: 861357994}
   - component: {fileID: 861357993}
   - component: {fileID: 861357992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -10953,7 +10963,7 @@ GameObject:
   - component: {fileID: 863172117}
   - component: {fileID: 863172121}
   - component: {fileID: 863172119}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tripod1
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -10984,8 +10994,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 863172114}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 0.4039513, z: -1.5}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalPosition: {x: 14.5, y: 0.4029524, z: -1.5}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 53998767}
@@ -11252,7 +11262,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 1.21, z: 0.2}
+  m_Size: {x: 0.1, y: 1.21, z: 0.1}
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &873217046
 GameObject:
@@ -11264,8 +11274,8 @@ GameObject:
   m_Component:
   - component: {fileID: 873217047}
   - component: {fileID: 873217048}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-2
+  m_Layer: 9
+  m_Name: LookAtReceptor2
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11396,7 +11406,7 @@ GameObject:
   - component: {fileID: 886831336}
   - component: {fileID: 886831338}
   - component: {fileID: 886831337}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11481,7 +11491,7 @@ GameObject:
   - component: {fileID: 887064789}
   - component: {fileID: 887064788}
   - component: {fileID: 887064792}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11633,7 +11643,7 @@ GameObject:
   - component: {fileID: 932180728}
   - component: {fileID: 932180730}
   - component: {fileID: 932180729}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.009
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11798,7 +11808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 942134375}
   - component: {fileID: 942134376}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -11929,7 +11939,7 @@ GameObject:
   m_Component:
   - component: {fileID: 966182528}
   - component: {fileID: 966182529}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12117,8 +12127,8 @@ GameObject:
   m_Component:
   - component: {fileID: 988887083}
   - component: {fileID: 988887084}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-1
+  m_Layer: 9
+  m_Name: LookAtReceptor3
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12249,7 +12259,7 @@ GameObject:
   - component: {fileID: 990634355}
   - component: {fileID: 990634357}
   - component: {fileID: 990634356}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12384,7 +12394,7 @@ GameObject:
   m_Component:
   - component: {fileID: 995131937}
   - component: {fileID: 995131938}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: TransformUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12435,7 +12445,7 @@ GameObject:
   - component: {fileID: 997287113}
   - component: {fileID: 997287116}
   - component: {fileID: 997287115}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12551,9 +12561,9 @@ GameObject:
   - component: {fileID: 1011363214}
   - component: {fileID: 1011363217}
   - component: {fileID: 1011363216}
-  - component: {fileID: 1011363215}
   - component: {fileID: 1011363218}
   - component: {fileID: 1011363219}
+  - component: {fileID: 1011363220}
   m_Layer: 0
   m_Name: Door3
   m_TagString: Door
@@ -12576,19 +12586,6 @@ Transform:
   m_Father: {fileID: 1712629572}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &1011363215
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1011363213}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 19, y: 13.736738, z: 1}
-  m_Center: {x: 0, y: 6.368364, z: 0}
 --- !u!23 &1011363216
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -12673,6 +12670,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 2
   _receptor: {fileID: 340803480}
+--- !u!65 &1011363220
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1011363213}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 8.525216, z: 1}
+  m_Center: {x: 0, y: 3.7626083, z: -0.00000023841858}
 --- !u!1 &1047556854
 GameObject:
   m_ObjectHideFlags: 0
@@ -12684,7 +12694,7 @@ GameObject:
   - component: {fileID: 1047556855}
   - component: {fileID: 1047556857}
   - component: {fileID: 1047556856}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12767,7 +12777,7 @@ GameObject:
   - component: {fileID: 1050213223}
   - component: {fileID: 1050213225}
   - component: {fileID: 1050213224}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12849,7 +12859,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1056233187}
   - component: {fileID: 1056233188}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12981,7 +12991,7 @@ GameObject:
   - component: {fileID: 1063168891}
   - component: {fileID: 1063168893}
   - component: {fileID: 1063168892}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13063,7 +13073,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1064050487}
   - component: {fileID: 1064050488}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13194,7 +13204,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1065406976}
   - component: {fileID: 1065406977}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13326,7 +13336,7 @@ GameObject:
   - component: {fileID: 1066389819}
   - component: {fileID: 1066389821}
   - component: {fileID: 1066389820}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13461,7 +13471,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1072065979}
   - component: {fileID: 1072065980}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13591,7 +13601,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1101506363}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attach Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -13623,8 +13633,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1115362017}
   - component: {fileID: 1115362018}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-2
+  m_Layer: 9
+  m_Name: LookAtReceptor4
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13755,9 +13765,9 @@ GameObject:
   - component: {fileID: 1141827309}
   - component: {fileID: 1141827312}
   - component: {fileID: 1141827311}
-  - component: {fileID: 1141827310}
   - component: {fileID: 1141827313}
   - component: {fileID: 1141827314}
+  - component: {fileID: 1141827315}
   m_Layer: 0
   m_Name: Door1
   m_TagString: Door
@@ -13780,19 +13790,6 @@ Transform:
   m_Father: {fileID: 1712629572}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &1141827310
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1141827308}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 19, y: 13.698908, z: 1}
-  m_Center: {x: 0, y: 6.3494477, z: 0}
 --- !u!23 &1141827311
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -13877,6 +13874,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 0
   _receptor: {fileID: 8143820928315081533}
+--- !u!65 &1141827315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1141827308}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 1, z: 1.0000002}
+  m_Center: {x: 0.0000019073486, y: 0, z: 0.0000000018626451}
 --- !u!1 &1145254212
 GameObject:
   m_ObjectHideFlags: 0
@@ -14059,8 +14069,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1160522924}
   - component: {fileID: 1160522925}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-2
+  m_Layer: 9
+  m_Name: LookAtReceptor2
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -14190,7 +14200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1165995346}
   - component: {fileID: 1165995347}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14419,7 +14429,7 @@ GameObject:
   - component: {fileID: 1185341873}
   - component: {fileID: 1185341875}
   - component: {fileID: 1185341874}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14623,6 +14633,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoverStateVisuals_OnlyHover
       objectReference: {fileID: 0}
+    - target: {fileID: 2483318160498232355, guid: 82bfca775e5a52f4caa5cdb4a40e48e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82bfca775e5a52f4caa5cdb4a40e48e7, type: 3}
 --- !u!4 &1193775855 stripped
@@ -14642,7 +14657,7 @@ GameObject:
   - component: {fileID: 1198627154}
   - component: {fileID: 1198627156}
   - component: {fileID: 1198627155}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14725,7 +14740,7 @@ GameObject:
   - component: {fileID: 1200306834}
   - component: {fileID: 1200306837}
   - component: {fileID: 1200306836}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14808,7 +14823,7 @@ GameObject:
   - component: {fileID: 1231638991}
   - component: {fileID: 1231638993}
   - component: {fileID: 1231638992}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -14886,7 +14901,7 @@ GameObject:
   - component: {fileID: 1233770667}
   - component: {fileID: 1233770669}
   - component: {fileID: 1233770668}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15082,7 +15097,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1255103434}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15181,7 +15196,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1300421499}
   - component: {fileID: 1300421500}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15313,7 +15328,7 @@ GameObject:
   - component: {fileID: 1308915820}
   - component: {fileID: 1308915822}
   - component: {fileID: 1308915821}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15479,7 +15494,7 @@ GameObject:
   - component: {fileID: 1335173380}
   - component: {fileID: 1335173382}
   - component: {fileID: 1335173381}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15615,9 +15630,9 @@ GameObject:
   - component: {fileID: 1339478863}
   - component: {fileID: 1339478866}
   - component: {fileID: 1339478865}
-  - component: {fileID: 1339478864}
   - component: {fileID: 1339478867}
   - component: {fileID: 1339478868}
+  - component: {fileID: 1339478869}
   m_Layer: 0
   m_Name: Door2
   m_TagString: Door
@@ -15640,19 +15655,6 @@ Transform:
   m_Father: {fileID: 1712629572}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
---- !u!65 &1339478864
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1339478862}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 19, y: 13.75026, z: 1}
-  m_Center: {x: 0, y: 6.3751283, z: 0}
 --- !u!23 &1339478865
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -15737,6 +15739,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _id: 1
   _receptor: {fileID: 8329291302042485559}
+--- !u!65 &1339478869
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339478862}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0000002, y: 8.516407, z: 1.0000002}
+  m_Center: {x: 0, y: 3.7582042, z: 0}
 --- !u!1 &1345746739
 GameObject:
   m_ObjectHideFlags: 0
@@ -15831,7 +15846,7 @@ GameObject:
   - component: {fileID: 1400365715}
   - component: {fileID: 1400365717}
   - component: {fileID: 1400365716}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.008
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15913,7 +15928,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1401457996}
   - component: {fileID: 1401457997}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: TransformUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -15963,8 +15978,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1409618041}
   - component: {fileID: 1409618042}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-2
+  m_Layer: 9
+  m_Name: LookAtReceptor4
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16283,7 +16298,7 @@ GameObject:
   - component: {fileID: 1475994994}
   - component: {fileID: 1475994996}
   - component: {fileID: 1475994995}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16367,7 +16382,7 @@ GameObject:
   - component: {fileID: 1481800516}
   - component: {fileID: 1481800515}
   - component: {fileID: 1481800514}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16470,7 +16485,7 @@ GameObject:
   - component: {fileID: 1486913686}
   - component: {fileID: 1486913688}
   - component: {fileID: 1486913687}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16553,7 +16568,7 @@ GameObject:
   - component: {fileID: 1503791991}
   - component: {fileID: 1503791993}
   - component: {fileID: 1503791992}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16635,7 +16650,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1509824730}
   - component: {fileID: 1509824731}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16767,7 +16782,7 @@ GameObject:
   - component: {fileID: 1533887528}
   - component: {fileID: 1533887530}
   - component: {fileID: 1533887529}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -16849,8 +16864,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1562520863}
   - component: {fileID: 1562520864}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-2
+  m_Layer: 9
+  m_Name: LookAtReceptor2
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16980,7 +16995,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1584140624}
   - component: {fileID: 1584140625}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: TransformUI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17031,7 +17046,7 @@ GameObject:
   - component: {fileID: 1592382602}
   - component: {fileID: 1592382604}
   - component: {fileID: 1592382603}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17116,7 +17131,7 @@ GameObject:
   - component: {fileID: 1605695705}
   - component: {fileID: 1605695704}
   - component: {fileID: 1605695703}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17235,7 +17250,7 @@ GameObject:
   - component: {fileID: 1642408997}
   - component: {fileID: 1642408999}
   - component: {fileID: 1642408998}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17315,7 +17330,7 @@ GameObject:
   - component: {fileID: 1646146432}
   - component: {fileID: 1646146431}
   - component: {fileID: 1646146430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tripod4
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -17330,8 +17345,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1646146428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16, y: 0.4039513, z: -3}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalPosition: {x: 16, y: 0.4029524, z: -3}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 995131937}
@@ -17614,7 +17629,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 1.21, z: 0.2}
+  m_Size: {x: 0.1, y: 1.21, z: 0.1}
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &1657763617
 GameObject:
@@ -17627,7 +17642,7 @@ GameObject:
   - component: {fileID: 1657763618}
   - component: {fileID: 1657763620}
   - component: {fileID: 1657763619}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17712,7 +17727,7 @@ GameObject:
   - component: {fileID: 1659091658}
   - component: {fileID: 1659091657}
   - component: {fileID: 1659091656}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tripod2
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -17727,8 +17742,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1659091654}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 16, y: 0.4039513, z: -1.5}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalPosition: {x: 16, y: 0.4029524, z: -1.5}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1401457996}
@@ -18011,7 +18026,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 1.21, z: 0.2}
+  m_Size: {x: 0.1, y: 1.21, z: 0.1}
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &1680958744
 GameObject:
@@ -18026,7 +18041,7 @@ GameObject:
   - component: {fileID: 1680958748}
   - component: {fileID: 1680958747}
   - component: {fileID: 1680958746}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18144,8 +18159,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1683510844}
   - component: {fileID: 1683510845}
-  m_Layer: 0
-  m_Name: LookAtReceptor1-1
+  m_Layer: 9
+  m_Name: LookAtReceptor1
   m_TagString: Recepteur1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18275,8 +18290,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1696731764}
   - component: {fileID: 1696731765}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-2
+  m_Layer: 9
+  m_Name: LookAtReceptor4
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18444,7 +18459,7 @@ GameObject:
   - component: {fileID: 1724303432}
   - component: {fileID: 1724303431}
   - component: {fileID: 1724303430}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Tripod3
   m_TagString: Target
   m_Icon: {fileID: 0}
@@ -18459,8 +18474,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1724303428}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 14.5, y: 0.4039513, z: -3}
-  m_LocalScale: {x: 1, y: 1.5, z: 1}
+  m_LocalPosition: {x: 14.5, y: 0.4029524, z: -3}
+  m_LocalScale: {x: 1, y: 1.2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1584140624}
@@ -18743,7 +18758,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.2, y: 1.21, z: 0.2}
+  m_Size: {x: 0.1, y: 1.21, z: 0.1}
   m_Center: {x: 0, y: 0.6, z: 0}
 --- !u!1 &1749407078
 GameObject:
@@ -18755,7 +18770,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1749407079}
   - component: {fileID: 1749407080}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -18887,7 +18902,7 @@ GameObject:
   - component: {fileID: 1749548658}
   - component: {fileID: 1749548660}
   - component: {fileID: 1749548659}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.004
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19084,8 +19099,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1785515691}
   - component: {fileID: 1785515692}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-1
+  m_Layer: 9
+  m_Name: LookAtReceptor3
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19215,8 +19230,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1790863814}
   - component: {fileID: 1790863815}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-2
+  m_Layer: 9
+  m_Name: LookAtReceptor4
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -19346,7 +19361,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1800249767}
   - component: {fileID: 1800249768}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19478,7 +19493,7 @@ GameObject:
   - component: {fileID: 1806717411}
   - component: {fileID: 1806717413}
   - component: {fileID: 1806717412}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19560,7 +19575,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1815139084}
   - component: {fileID: 1815139085}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtSource1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -19692,7 +19707,7 @@ GameObject:
   - component: {fileID: 1816027403}
   - component: {fileID: 1816027405}
   - component: {fileID: 1816027404}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20045,7 +20060,7 @@ GameObject:
   - component: {fileID: 1851473916}
   - component: {fileID: 1851473915}
   - component: {fileID: 1851473914}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20166,7 +20181,7 @@ GameObject:
   - component: {fileID: 1868523005}
   - component: {fileID: 1868523004}
   - component: {fileID: 1868523007}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Icosphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20367,7 +20382,7 @@ GameObject:
   - component: {fileID: 1897492431}
   - component: {fileID: 1897492433}
   - component: {fileID: 1897492432}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20554,7 +20569,7 @@ GameObject:
   - component: {fileID: 1920498085}
   - component: {fileID: 1920498084}
   - component: {fileID: 1920498083}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20707,7 +20722,7 @@ GameObject:
   - component: {fileID: 1943946024}
   - component: {fileID: 1943946023}
   - component: {fileID: 1943946022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -20808,7 +20823,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1944672288}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21318,7 +21333,7 @@ GameObject:
   - component: {fileID: 1979393748}
   - component: {fileID: 1979393750}
   - component: {fileID: 1979393749}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21401,7 +21416,7 @@ GameObject:
   - component: {fileID: 1980112275}
   - component: {fileID: 1980112277}
   - component: {fileID: 1980112276}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.005
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21794,7 +21809,7 @@ GameObject:
   - component: {fileID: 1987986853}
   - component: {fileID: 1987986855}
   - component: {fileID: 1987986854}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.006
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -21877,7 +21892,7 @@ GameObject:
   - component: {fileID: 1997110021}
   - component: {fileID: 1997110023}
   - component: {fileID: 1997110022}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.003
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22060,7 +22075,7 @@ GameObject:
   - component: {fileID: 2063170813}
   - component: {fileID: 2063170815}
   - component: {fileID: 2063170814}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Cylinder.007
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22230,7 +22245,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2073435718}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.7, z: 0}
+  m_LocalPosition: {x: 0, y: 1.6, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -22271,8 +22286,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2098526164}
   - component: {fileID: 2098526165}
-  m_Layer: 0
-  m_Name: LookAtReceptor2-1
+  m_Layer: 9
+  m_Name: LookAtReceptor3
   m_TagString: Recepteur2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -22528,7 +22543,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2120245910}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: visuals
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22712,6 +22727,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: HoverStateVisuals_OnlyHover
       objectReference: {fileID: 0}
+    - target: {fileID: 2483318160498232355, guid: 82bfca775e5a52f4caa5cdb4a40e48e7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82bfca775e5a52f4caa5cdb4a40e48e7, type: 3}
 --- !u!1 &2132005018
@@ -22724,7 +22744,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2132005019}
   - component: {fileID: 2132005020}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: LookAtTripod1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22854,7 +22874,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2134125632}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Attach Transform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -22889,7 +22909,7 @@ GameObject:
   - component: {fileID: 2137315759}
   - component: {fileID: 2137315758}
   - component: {fileID: 2137315757}
-  m_Layer: 5
+  m_Layer: 9
   m_Name: RedButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -25866,7 +25886,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2146341528538040227}
   m_LocalRotation: {x: 0, y: -0.258819, z: 0, w: 0.9659259}
-  m_LocalPosition: {x: 14.16, y: 0, z: -9.21}
+  m_LocalPosition: {x: 14.16, y: -0.07, z: -9.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
