@@ -1,22 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class DelayAnimation : MonoBehaviour
 {
-    [SerializeField] private GameObject plateButton;
-    [SerializeField] private GameObject _PushButton;
+    [SerializeField] private GameObject cuveButton;
+    
 
 
 
    public IEnumerator delayDoorButton()
-    {
-        plateButton.GetComponent<Collider>().enabled = false;
-       _PushButton.GetComponent<Collider>().enabled = false;
-        yield return new WaitForSeconds(2.7f);
-        plateButton.GetComponent<Collider>().enabled = true;
-        _PushButton.GetComponent<Collider>().enabled = true;
-      
+   {
+       cuveButton.GetComponent<Button>().interactable = false;
+       yield return new WaitForSeconds(2.7f);
+       cuveButton.GetComponent<Button>().interactable = true;
+        
     }
 
 
