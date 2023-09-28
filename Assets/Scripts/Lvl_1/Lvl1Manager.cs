@@ -34,8 +34,8 @@ public class Lvl1Manager : MonoBehaviour
     [Header("puzzle 2 Objects")]
     [SerializeField] private GameObject pistolwithAmmo;
     [SerializeField] private GameObject pistolwithAmmoMirrorLvl2;
-    [SerializeField] private GameObject obstacle;
-    [SerializeField] private GameObject obstaclemirror;
+    //[SerializeField] private GameObject obstacle;
+   // [SerializeField] private GameObject obstaclemirror;
    // [SerializeField] private GameObject obstacleButton;
    // [SerializeField] private GameObject obstacleButtonMirrorTransparent;
     
@@ -69,8 +69,8 @@ public class Lvl1Manager : MonoBehaviour
       pistolwithoutAmmoMirror.SetActive(false);
       flashLight.SetActive(false);
       flashLightMirror.SetActive(false);
-      obstacle.SetActive(false);
-      obstaclemirror.SetActive(false); 
+     // obstacle.SetActive(false);
+     // obstaclemirror.SetActive(false); 
       //obstacleButton.SetActive(false);
      //obstacleButtonMirrorTransparent.SetActive(false);
       ammo.SetActive(false);
@@ -91,8 +91,8 @@ public class Lvl1Manager : MonoBehaviour
       {
          pistolwithAmmo.SetActive(true); 
          pistolwithAmmoMirrorLvl2.SetActive(true);
-         obstacle.SetActive(true);
-         obstaclemirror.SetActive(true);
+         //obstacle.SetActive(true);
+        // obstaclemirror.SetActive(true);
         //  obstacleButton.SetActive(true);
         // obstacleButtonMirrorTransparent.SetActive(true);
        
