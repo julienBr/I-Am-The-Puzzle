@@ -429,7 +429,7 @@ GameObject:
   - component: {fileID: 31771853}
   m_Layer: 0
   m_Name: pistol_sight-front_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -558,7 +558,7 @@ GameObject:
   - component: {fileID: 44390556}
   m_Layer: 0
   m_Name: pistol_circle-piece_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -707,6 +707,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1596644701}
+  - {fileID: 1865127822}
   - {fileID: 1347227449}
   - {fileID: 1639282120}
   - {fileID: 2006714100}
@@ -1010,7 +1012,7 @@ GameObject:
   - component: {fileID: 123407662}
   m_Layer: 0
   m_Name: pistol_cross_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1212,7 +1214,7 @@ GameObject:
   - component: {fileID: 138826057}
   m_Layer: 0
   m_Name: pistol_cannon_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1614,7 +1616,7 @@ Transform:
   - {fileID: 1492210467}
   - {fileID: 2134675564}
   m_Father: {fileID: 86565018}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!54 &157079336
 Rigidbody:
@@ -2071,7 +2073,7 @@ GameObject:
   - component: {fileID: 158596990}
   m_Layer: 0
   m_Name: pistol_grip_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3231,7 +3233,7 @@ GameObject:
   - component: {fileID: 283771305}
   m_Layer: 0
   m_Name: pistol_block_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3329,7 +3331,7 @@ GameObject:
   - component: {fileID: 285339696}
   m_Layer: 0
   m_Name: pistol_sight-front_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3427,7 +3429,7 @@ GameObject:
   - component: {fileID: 287545426}
   m_Layer: 0
   m_Name: pistol_circle-piece_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4595,7 +4597,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &376458343
 MeshRenderer:
@@ -5168,7 +5170,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &443610056
 MeshRenderer:
@@ -5248,7 +5250,7 @@ GameObject:
   - component: {fileID: 456404377}
   m_Layer: 0
   m_Name: pistol_grip_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5435,7 +5437,7 @@ GameObject:
   - component: {fileID: 468133926}
   m_Layer: 0
   m_Name: pistol_circle-piece_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6898,7 +6900,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 86565018}
-  m_RootOrder: 8
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &543797854
 BoxCollider:
@@ -6911,8 +6913,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.918988, y: 4.346859, z: 34.03419}
-  m_Center: {x: -1.8053808, y: -0.28605264, z: -6.4876575}
+  m_Size: {x: 10.918988, y: 4.346859, z: 34.077003}
+  m_Center: {x: -1.8053808, y: -0.2860527, z: -6.466252}
 --- !u!1001 &544686349
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7080,6 +7082,174 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1605621480}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &594184590
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 594184591}
+  - component: {fileID: 594184598}
+  - component: {fileID: 594184597}
+  - component: {fileID: 594184596}
+  - component: {fileID: 594184595}
+  - component: {fileID: 594184594}
+  - component: {fileID: 594184593}
+  - component: {fileID: 594184592}
+  - component: {fileID: 594184599}
+  m_Layer: 0
+  m_Name: VerreTeleporte
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &594184591
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.0015429687, y: 0.42470387, z: 0.003375244}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596644701}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &594184592
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1303182, y: 0.5509383, z: 0.050894737}
+  m_Center: {x: -0.0000030398369, y: 0.07568428, z: 0.5446429}
+--- !u!65 &594184593
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.039041042, y: 0.5532763, z: 1.1303182}
+  m_Center: {x: -0.54564166, y: 0.07451528, z: -0.0000030398369}
+--- !u!65 &594184594
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1303182, y: 0.5547821, z: 0.046486378}
+  m_Center: {x: -0.0000030398369, y: 0.07376239, z: -0.541919}
+--- !u!65 &594184595
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.1303182, y: 0, z: 1.1303182}
+  m_Center: {x: -0.0000030398369, y: -0.19669157, z: -0.0000030398369}
+--- !u!65 &594184596
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.04414463, y: 0.54737103, z: 1.1303182}
+  m_Center: {x: 0.54308367, y: 0.07746792, z: -0.0000030398369}
+--- !u!23 &594184597
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: fcf7eb17a51743f45bb7794879ef96f6, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &594184598
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Mesh: {fileID: -2945405396025144201, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
+--- !u!114 &594184599
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 594184590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d692e9cf4ff020044a38a460b7072201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zonetoTeleport: {fileID: 1617320506}
+  _objectOn: 1
 --- !u!1 &607468434
 GameObject:
   m_ObjectHideFlags: 0
@@ -7142,7 +7312,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &617418391
 MeshRenderer:
@@ -7208,7 +7378,7 @@ GameObject:
   - component: {fileID: 620060694}
   m_Layer: 0
   m_Name: pistol_cross_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7338,7 +7508,7 @@ Transform:
   - {fileID: 1405445025}
   - {fileID: 1203903578}
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!23 &624221960
 MeshRenderer:
@@ -7418,7 +7588,7 @@ GameObject:
   - component: {fileID: 632567171}
   m_Layer: 0
   m_Name: pistol_sight-back_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7682,7 +7852,7 @@ GameObject:
   - component: {fileID: 662556603}
   m_Layer: 0
   m_Name: pistol_block_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7766,6 +7936,104 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 662556601}
   m_Mesh: {fileID: -43348777003708013, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
+--- !u!1 &687544116
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 687544117}
+  - component: {fileID: 687544120}
+  - component: {fileID: 687544119}
+  - component: {fileID: 687544118}
+  m_Layer: 0
+  m_Name: FilTeleporteDeux
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &687544117
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687544116}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2151757, y: 0.053264808, z: 0.34043822}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596644701}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &687544118
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687544116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3027075429608707359, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
+--- !u!23 &687544119
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687544116}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d8ef973089c596d45a848146b3274e7a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &687544120
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 687544116}
+  m_Mesh: {fileID: -3027075429608707359, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
 --- !u!1 &702020873
 GameObject:
   m_ObjectHideFlags: 0
@@ -8078,7 +8346,7 @@ GameObject:
   - component: {fileID: 708463311}
   m_Layer: 0
   m_Name: pistol_sight-front_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8279,7 +8547,7 @@ GameObject:
   - component: {fileID: 722347594}
   m_Layer: 0
   m_Name: pistol_cannon_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8513,7 +8781,7 @@ GameObject:
   - component: {fileID: 728300325}
   m_Layer: 0
   m_Name: pistol_cross_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8643,7 +8911,7 @@ GameObject:
   - component: {fileID: 747965418}
   m_Layer: 0
   m_Name: pistol_cross_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -8970,7 +9238,7 @@ GameObject:
   - component: {fileID: 808743129}
   m_Layer: 0
   m_Name: pistol_sight-front_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9080,7 +9348,7 @@ GameObject:
   - component: {fileID: 845934908}
   m_Layer: 0
   m_Name: pistol_sight-back_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10187,7 +10455,7 @@ GameObject:
   - component: {fileID: 855816479}
   m_Layer: 0
   m_Name: pistol_sight-back_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10363,8 +10631,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 860143715}
-  - component: {fileID: 860143716}
-  - component: {fileID: 860143717}
   m_Layer: 0
   m_Name: telportZone
   m_TagString: Untagged
@@ -10380,40 +10646,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 860143714}
   m_LocalRotation: {x: 0.50000185, y: 0.49999815, z: 0.49999815, w: -0.50000185}
-  m_LocalPosition: {x: 0.007, y: 0.714, z: -0.966}
+  m_LocalPosition: {x: 0.004012846, y: 0.71299994, z: -0.099998474}
   m_LocalScale: {x: 55.062485, y: 55.0625, z: 55.062508}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4272885275275971195}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &860143716
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860143714}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.019475939, y: 0.014883431, z: 0.020330176}
-  m_Center: {x: 0.017435031, y: -0.00020523056, z: -0.0005009044}
---- !u!114 &860143717
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 860143714}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d692e9cf4ff020044a38a460b7072201, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _zonetoTeleport: {fileID: 0}
-  _objectOn: 0
 --- !u!1 &863613198
 GameObject:
   m_ObjectHideFlags: 0
@@ -10449,6 +10688,103 @@ Transform:
   m_Father: {fileID: 172250679}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &885066601
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 885066602}
+  - component: {fileID: 885066605}
+  - component: {fileID: 885066604}
+  - component: {fileID: 885066603}
+  m_Layer: 0
+  m_Name: PriseMurTeleporteur
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &885066602
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885066601}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.6521606, y: 0.1345277, z: 0.86512876}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596644701}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &885066603
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885066601}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.17070222, y: 0.17070192, z: 0.06532192}
+  m_Center: {x: 0.0005177446, y: 0.0035336018, z: 0.01559037}
+--- !u!23 &885066604
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885066601}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d8ef973089c596d45a848146b3274e7a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &885066605
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 885066601}
+  m_Mesh: {fileID: 4541745688544315001, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
 --- !u!1 &889607716
 GameObject:
   m_ObjectHideFlags: 0
@@ -10546,7 +10882,7 @@ GameObject:
   - component: {fileID: 890249286}
   m_Layer: 0
   m_Name: pistol_circle-piece_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -10727,7 +11063,7 @@ GameObject:
   - component: {fileID: 906398765}
   m_Layer: 0
   m_Name: pistol_cannon_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -11010,7 +11346,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1c45bbcd44c6a9d4e84d2e90fa2e5a64,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c45bbcd44c6a9d4e84d2e90fa2e5a64,
         type: 3}
@@ -12203,6 +12539,104 @@ MonoBehaviour:
   m_TranslateSpeed: 0.1
   m_AnchorRotateReferenceFrame: {fileID: 0}
   m_AnchorRotationMode: 1
+--- !u!1 &1005240489
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1005240490}
+  - component: {fileID: 1005240493}
+  - component: {fileID: 1005240492}
+  - component: {fileID: 1005240491}
+  m_Layer: 0
+  m_Name: FilTeleporteurUn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1005240490
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005240489}
+  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.2418921, y: 0.04766674, z: 0.2500226}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596644701}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1005240491
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005240489}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2076033804085430129, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
+--- !u!23 &1005240492
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005240489}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d8ef973089c596d45a848146b3274e7a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1005240493
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1005240489}
+  m_Mesh: {fileID: 2076033804085430129, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
 --- !u!1 &1015205133
 GameObject:
   m_ObjectHideFlags: 0
@@ -13098,7 +13532,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 86565018}
-  m_RootOrder: 6
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &1137580409
 BoxCollider:
@@ -13300,7 +13734,7 @@ Transform:
   m_Children:
   - {fileID: 1302355674}
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1181869184
 MeshRenderer:
@@ -13379,7 +13813,7 @@ GameObject:
   - component: {fileID: 1182920756}
   m_Layer: 0
   m_Name: pistol_block_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -13839,7 +14273,7 @@ GameObject:
   - component: {fileID: 1241242936}
   m_Layer: 0
   m_Name: pistol_grip_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -14800,7 +15234,7 @@ Transform:
   - {fileID: 155751135}
   - {fileID: 386600435}
   m_Father: {fileID: 86565018}
-  m_RootOrder: 4
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!114 &1329986965
 MonoBehaviour:
@@ -15180,7 +15614,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330363761}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.000003, y: -0.000009, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15572,7 +16006,6 @@ Transform:
   m_LocalScale: {x: -0.8232199, y: 0.82322, z: -0.8232199}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1865127822}
   - {fileID: 852240311}
   - {fileID: 551817903}
   - {fileID: 1692555899}
@@ -15587,7 +16020,7 @@ Transform:
   - {fileID: 1181869183}
   - {fileID: 617418390}
   m_Father: {fileID: 86565018}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
 --- !u!1 &1362706465
 GameObject:
@@ -16093,7 +16526,7 @@ Transform:
   m_Children:
   - {fileID: 503753981}
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1391702033
 MeshRenderer:
@@ -16340,7 +16773,7 @@ PrefabInstance:
     - target: {fileID: 1234548526602716714, guid: a59299be8de8bf34db7db95e3f0d9ad2,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 1234548526602716714, guid: a59299be8de8bf34db7db95e3f0d9ad2,
         type: 3}
@@ -16437,7 +16870,7 @@ Transform:
   m_Children:
   - {fileID: 501905951}
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1416708043
 MeshRenderer:
@@ -16554,7 +16987,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1428372662
 MeshRenderer:
@@ -16885,7 +17318,7 @@ GameObject:
   - component: {fileID: 1453239024}
   m_Layer: 0
   m_Name: pistol_block_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16979,7 +17412,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: a96d69f3c45dfda4b9cdacd88223719f,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: a96d69f3c45dfda4b9cdacd88223719f,
         type: 3}
@@ -17596,7 +18029,7 @@ GameObject:
   - component: {fileID: 1512084703}
   m_Layer: 0
   m_Name: pistol_sight-back_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18258,6 +18691,109 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1596644700
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1596644701}
+  - component: {fileID: 1596644704}
+  - component: {fileID: 1596644703}
+  - component: {fileID: 1596644702}
+  m_Layer: 0
+  m_Name: BaseTeleporteur Mirror
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1596644701
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596644700}
+  m_LocalRotation: {x: -0, y: 0.0000036954875, z: -0, w: -1}
+  m_LocalPosition: {x: 1.9077723, y: -1.5334764, z: 9.903222}
+  m_LocalScale: {x: 0.82322025, y: 0.82322, z: 0.82322025}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 687544117}
+  - {fileID: 1005240490}
+  - {fileID: 885066602}
+  - {fileID: 594184591}
+  - {fileID: 1617320509}
+  m_Father: {fileID: 86565018}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &1596644702
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596644700}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7624680544916058835, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
+--- !u!23 &1596644703
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596644700}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RayTraceProcedural: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: d8ef973089c596d45a848146b3274e7a, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &1596644704
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1596644700}
+  m_Mesh: {fileID: 7624680544916058835, guid: 93cd097a97c692d47b2a1a8efc1a838f, type: 3}
 --- !u!1001 &1605621480
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18271,7 +18807,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4117342110908656, guid: bbe8bcd4bf9bb4d4e946e63968b8531d, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4117342110908656, guid: bbe8bcd4bf9bb4d4e946e63968b8531d, type: 3}
       propertyPath: m_LocalScale.x
@@ -18677,6 +19213,66 @@ Transform:
   m_Father: {fileID: 1798088848}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 90}
+--- !u!1 &1617320506
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1617320509}
+  - component: {fileID: 1617320508}
+  - component: {fileID: 1617320507}
+  m_Layer: 0
+  m_Name: telportZone (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1617320507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617320506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d692e9cf4ff020044a38a460b7072201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zonetoTeleport: {fileID: 860143714}
+  _objectOn: 0
+--- !u!65 &1617320508
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617320506}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017808415, y: 0.017730704, z: 0.0114978915}
+  m_Center: {x: 0.0017099432, y: -0.00024183842, z: -0.0083212955}
+--- !u!4 &1617320509
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1617320506}
+  m_LocalRotation: {x: -0.50000185, y: 0.49999815, z: -0.49999815, w: -0.50000185}
+  m_LocalPosition: {x: -0.021, y: 0.713, z: -0.1}
+  m_LocalScale: {x: 55.062458, y: 55.062466, z: -55.062508}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1596644701}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1626047442
 GameObject:
   m_ObjectHideFlags: 0
@@ -18691,7 +19287,7 @@ GameObject:
   - component: {fileID: 1626047444}
   m_Layer: 0
   m_Name: pistol_cross_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18805,7 +19401,7 @@ Transform:
   m_Children:
   - {fileID: 172250679}
   m_Father: {fileID: 86565018}
-  m_RootOrder: 1
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 135, z: 0}
 --- !u!4 &1640092499 stripped
 Transform:
@@ -19841,7 +20437,7 @@ Transform:
   - {fileID: 335159495}
   - {fileID: 702020874}
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1692555900
 MeshRenderer:
@@ -19981,7 +20577,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 1347227449}
+    m_TransformParent: {fileID: 86565018}
     m_Modifications:
     - target: {fileID: 302049258569021182, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
@@ -20032,42 +20628,42 @@ PrefabInstance:
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_RootOrder
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: -121.47428
+      value: 100.00005
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 121.474205
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: -121.47428
+      value: 100.00005
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.359005
+      value: -1.6580043
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.052307
+      value: -0.3705001
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.20620823
+      value: 2.6450002
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.0000036954875
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
@@ -20077,7 +20673,7 @@ PrefabInstance:
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
         type: 3}
@@ -20451,7 +21047,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c43f5ddbfa2d242498ec75c35928935c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c43f5ddbfa2d242498ec75c35928935c,
         type: 3}
@@ -25911,7 +26507,7 @@ GameObject:
   - component: {fileID: 1781808813}
   m_Layer: 0
   m_Name: pistol_sight-back_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26005,7 +26601,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 1c45bbcd44c6a9d4e84d2e90fa2e5a64,
         type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1c45bbcd44c6a9d4e84d2e90fa2e5a64,
         type: 3}
@@ -26307,7 +26903,7 @@ Transform:
   - {fileID: 1918770831}
   - {fileID: 1276994908}
   m_Father: {fileID: 1347227449}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!23 &1801423614
 MeshRenderer:
@@ -26373,7 +26969,7 @@ GameObject:
   - component: {fileID: 1819768316}
   m_Layer: 0
   m_Name: pistol_cannon_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -26725,7 +27321,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 860143717}
+      objectReference: {fileID: 6885221216905504247}
     - target: {fileID: 1149807557931382556, guid: 39f31034a21d2564a8ee60f613236100,
         type: 3}
       propertyPath: m_SelectEntered.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
@@ -27040,7 +27636,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f7742c6e405904a409f4e423558e2c92,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f7742c6e405904a409f4e423558e2c92,
         type: 3}
@@ -27221,7 +27817,7 @@ GameObject:
   - component: {fileID: 1939625210}
   m_Layer: 0
   m_Name: pistol_sight-front_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -32444,7 +33040,7 @@ Transform:
   - {fileID: 765271649}
   - {fileID: 708166294}
   m_Father: {fileID: 86565018}
-  m_RootOrder: 2
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 90}
 --- !u!1 &2015778704
 GameObject:
@@ -32738,7 +33334,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 86565018}
-  m_RootOrder: 7
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2036398737
 BoxCollider:
@@ -37622,7 +38218,7 @@ GameObject:
   - component: {fileID: 2053375483}
   m_Layer: 0
   m_Name: pistol_grip_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37726,7 +38322,7 @@ GameObject:
   - component: {fileID: 2058429977}
   m_Layer: 0
   m_Name: pistol_cannon_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -37918,7 +38514,7 @@ GameObject:
   - component: {fileID: 2083996028}
   m_Layer: 0
   m_Name: pistol_grip_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38078,7 +38674,7 @@ GameObject:
   - component: {fileID: 2103297343}
   m_Layer: 0
   m_Name: pistol_circle-piece_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38208,7 +38804,7 @@ GameObject:
   - component: {fileID: 2125134837}
   m_Layer: 0
   m_Name: pistol_block_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -38329,7 +38925,7 @@ Transform:
   m_Children:
   - {fileID: 156315242}
   m_Father: {fileID: 86565018}
-  m_RootOrder: 5
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2127564250
 MonoBehaviour:
@@ -43702,9 +44298,10 @@ GameObject:
   - component: {fileID: 1452825061708956403}
   - component: {fileID: 3195033848580394720}
   - component: {fileID: 3373052726493105364}
+  - component: {fileID: 3373052726493105365}
   m_Layer: 0
   m_Name: pistol_circle-piece_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44618,9 +45215,10 @@ GameObject:
   - component: {fileID: 80914229637751538}
   - component: {fileID: 1401869767129886371}
   - component: {fileID: 2378732042767344082}
+  - component: {fileID: 2378732042767344083}
   m_Layer: 0
   m_Name: pistol_grip_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44637,6 +45235,20 @@ MeshCollider:
   m_Enabled: 1
   serializedVersion: 4
   m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1826496692072408144, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
+--- !u!64 &2378732042767344083
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2378732042767344081}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -1826496692072408144, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
 --- !u!1 &2484614305944078712
@@ -44782,9 +45394,10 @@ GameObject:
   - component: {fileID: 1155502479575640417}
   - component: {fileID: 7464092104549687014}
   - component: {fileID: 6879771071140038634}
+  - component: {fileID: 7464092104549687015}
   m_Layer: 0
   m_Name: pistol_cannon_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44869,9 +45482,10 @@ GameObject:
   - component: {fileID: 1490116327161335453}
   - component: {fileID: 4224514803413052414}
   - component: {fileID: 8404596131462921682}
+  - component: {fileID: 8404596131462921683}
   m_Layer: 0
   m_Name: pistol_block_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -44994,6 +45608,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3373052726493105365
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 431313324774241345}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -1952638348660139900, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
 --- !u!4 &3404000133705681356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1234548526602716714, guid: a59299be8de8bf34db7db95e3f0d9ad2,
@@ -45028,9 +45656,10 @@ GameObject:
   - component: {fileID: 1865135019302642255}
   - component: {fileID: 3086354292755522573}
   - component: {fileID: 5034936194655406452}
+  - component: {fileID: 5034936194655406453}
   m_Layer: 0
   m_Name: pistol_sight-front_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -64602,6 +65231,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5034936194655406453
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580342795657900283}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2632747876056692349, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
 --- !u!33 &5071469575070650820
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -64668,6 +65311,7 @@ GameObject:
   - component: {fileID: 6885221216905504244}
   - component: {fileID: 6885221216905504243}
   - component: {fileID: 6885221216905504242}
+  - component: {fileID: 6885221216905504247}
   m_Layer: 0
   m_Name: VerreTeleporte
   m_TagString: Untagged
@@ -64906,13 +65550,28 @@ GameObject:
   - component: {fileID: 4348216493684497682}
   - component: {fileID: 4107519287875850870}
   - component: {fileID: 992109306128515582}
+  - component: {fileID: 5663031139688155935}
   m_Layer: 0
   m_Name: pistol_cross_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &5663031139688155935
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5663031139688155934}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2808545015998454958, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
 --- !u!23 &5674654469215869370
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65322,6 +65981,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.04414463, y: 0.54737103, z: 1.1303182}
   m_Center: {x: 0.54308367, y: 0.07746792, z: -0.0000030398369}
+--- !u!114 &6885221216905504247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5080657712109790610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d692e9cf4ff020044a38a460b7072201, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _zonetoTeleport: {fileID: 1617320506}
+  _objectOn: 0
 --- !u!33 &7068777200261378826
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -65379,6 +66052,20 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2889082790509145408}
+  m_Mesh: {fileID: -7091883206789206364, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
+--- !u!64 &7464092104549687015
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2889082790509145408}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
   m_Mesh: {fileID: -7091883206789206364, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
 --- !u!1 &7662950662215889752
 GameObject:
@@ -65519,13 +66206,28 @@ GameObject:
   - component: {fileID: 4175398404264677424}
   - component: {fileID: 2102287751570632995}
   - component: {fileID: 4690407522199949513}
+  - component: {fileID: 8378987704744363448}
   m_Layer: 0
   m_Name: pistol_sight-back_low
-  m_TagString: Untagged
+  m_TagString: ObjectToTeleport
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!64 &8378987704744363448
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8378987704744363447}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7969689293134491302, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
 --- !u!23 &8404596131462921682
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -65568,6 +66270,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8404596131462921683
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3077212725254483108}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -43348777003708013, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
 --- !u!4 &8425451828489080999 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7287985255353814567, guid: dae97275039ebb64083162c86ed53363,
@@ -66006,7 +66722,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2484614305944078712}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.000007, y: -0.000007, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

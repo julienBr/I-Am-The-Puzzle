@@ -34,21 +34,23 @@ public class TeleportObjects : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider collider)
+    private void OnCollisionEnter(Collision collision)
     {
-        if (collider.gameObject.tag =="ObjectToTeleport" )
+        if (collision.gameObject.tag =="ObjectToTeleport" )
         {
             _objectOn = true;
-            _objectToTeleport = collider.gameObject.gameObject;
+            _objectToTeleport = collision.gameObject.gameObject;
         }
     }
 
-    private void OnTriggerExit(Collider collider)
+    private void OnCollisionExit(Collision collision)
     {
-        if (collider.gameObject.tag =="ObjectToTeleport" )
+        if (collision.gameObject.tag =="ObjectToTeleport" )
         {
             _objectOn = false;
             _objectToTeleport = null;
         }
     }
+    
+    
 }
