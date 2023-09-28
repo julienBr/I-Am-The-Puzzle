@@ -22,11 +22,12 @@ public class FireLaser : MonoBehaviour
     [SerializeField] private XRSocketInteractor socket;
     [SerializeField] private bool ammoIsTrue = false;
     [SerializeField] private Lvl1Manager _lvl1Manager;
-    
 
+    //[SerializeField] private AudioSource gunsound;
+   //[SerializeField] private AudioSource impactsound;
 
     private Ray _ray;
-    private RaycastHit hitInfo;
+   private RaycastHit hitInfo;
 
     void Start()
     {
@@ -70,7 +71,6 @@ public class FireLaser : MonoBehaviour
         if (_canShoot == true && ammoIsTrue == true)
         {
             flashFire.Play();
-
             _ray.origin = raycastOrigin.position;
             /*  if (gameObject.gameObject.name == "PistolWithAmmoLVL2Mirror"  || gameObject.gameObject.name == "PistolWithAmmoLVL1" || gameObject.gameObject.name == "PistolWithoutAmmoMirror" )
             
