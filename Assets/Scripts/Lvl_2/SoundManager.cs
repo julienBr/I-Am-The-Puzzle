@@ -1,27 +1,43 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] private AudioSource _sourceStart;
-    [SerializeField] private AudioSource _sourceLoop;
-    [SerializeField] private AudioSource _sourceEnd;
+    [SerializeField] private List<AudioSource> _laserLoops;
+    /*[SerializeField] private AudioSource _laserLoop1;
+    [SerializeField] private AudioSource _laserLoop2;*/
+    [SerializeField] private AudioClip _loopSound;
 
-    private double _startTime;
-    private double _durationClip0;
-    private double _durationClip1;
-    
+    private double _playTime;
+    private double _clipDuration;
+    private int _audioToggle;
+
     private void Awake()
     {
-        _startTime = AudioSettings.dspTime + 2;
-        _durationClip0 = _sourceStart.clip.samples / _sourceStart.clip.frequency;
-        _durationClip1 = _sourceLoop.clip.samples / _sourceLoop.clip.frequency;
-        
+        foreach (AudioSource source in _laserLoops)
+            source.clip = _loopSound;
+        _clipDuration = (double)_loopSound.samples / _loopSound.frequency;
     }
 
     private void Start()
     {
-        _sourceStart.PlayScheduled(_startTime);
-        _sourceLoop.PlayScheduled(_startTime + _durationClip0);
-        _sourceEnd.PlayScheduled(_startTime + _durationClip1);
+        _playTime = AudioSettings.dspTime + .5d;
+        _laserLoops[_audioToggle].PlayScheduled(_playTime);
+        _playTime += _clipDuration;
+    }
+
+    private void Update()
+    {
+        if (AudioSettings.dspTime > _playTime - 1)
+        {
+            PlayScheduledClip();
+        }
+    }
+
+    private void PlayScheduledClip()
+    {
+        _laserLoops[_audioToggle].PlayScheduled(_playTime);
+        _playTime += _clipDuration;
+        _audioToggle = 1 - _audioToggle;
     }
 }
