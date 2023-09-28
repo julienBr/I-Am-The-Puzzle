@@ -11,9 +11,13 @@ public class OnFlashLight : MonoBehaviour
     [SerializeField] private bool batteryIstranparent = false;
     [SerializeField] private XRSocketInteractor socket;
     [SerializeField] private GameObject emissiveLamp;
-
+    [SerializeField] private GameObject flashlightmiddle;
     [SerializeField] private Material emissiveRed;
     [SerializeField] private Material emissiveblue;
+    
+     [SerializeField] private Material emissivepurple;
+     [SerializeField] private Material glassLight;
+    
     void Start()
     {
        
@@ -28,13 +32,13 @@ public class OnFlashLight : MonoBehaviour
         {
             if (FlashOn == false)
             {
-               
+                flashlightmiddle.GetComponent<MeshRenderer>().material = emissivepurple;
                 _light.gameObject.GetComponent<Light>().enabled = true;
                 FlashOn = true;
             }
             else if (FlashOn == true)
             {
-               
+                flashlightmiddle.GetComponent<MeshRenderer>().material = glassLight;
                _light.gameObject.GetComponent<Light>().enabled = false;
                 FlashOn = false;
             }
@@ -69,5 +73,6 @@ public class OnFlashLight : MonoBehaviour
        CanOn = false;
        _light.gameObject.GetComponent<Light>().enabled = false;
        emissiveLamp.GetComponent<MeshRenderer>().material = emissiveRed;
+       flashlightmiddle.GetComponent<MeshRenderer>().material = glassLight;
    }
 }
