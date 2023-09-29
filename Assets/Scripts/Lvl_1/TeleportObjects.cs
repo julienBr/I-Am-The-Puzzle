@@ -36,7 +36,7 @@ public class TeleportObjects : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag =="ObjectToTeleport" )
+        if(collision.gameObject.CompareTag("ObjectToTeleport"))
         {
             _objectOn = true;
             _objectToTeleport = collision.gameObject.gameObject;
@@ -45,9 +45,9 @@ public class TeleportObjects : MonoBehaviour
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag =="ObjectToTeleport" )
+        if (collision.gameObject.CompareTag("ObjectToTeleport"))
         {
-            _objectOn = false;
+            _objectOn = false;                      
             _objectToTeleport = null;
         }
     }
