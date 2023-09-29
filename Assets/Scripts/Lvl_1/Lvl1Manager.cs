@@ -128,7 +128,7 @@ public class Lvl1Manager : MonoBehaviour
         else if (levelLoad.puzzle >= _enigmeTotal)
         {
             levelLoad.puzzle = 0;
-            _gameManager.PressAnyKey();
+            //_gameManager.PressAnyKey();
             
         }
     }

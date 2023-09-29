@@ -30,15 +30,15 @@ public class ChangeTrialsScreen : MonoBehaviour
             _timer += Time.deltaTime;
             if (_timer >= 4f && gameObject.name == "Screen1")
             {
-                _gameManager.Level1();
+                //_gameManager.Level1();
             }
             else if (_timer >= 4f && gameObject.name == "Screen2")
             {
-                _gameManager.Level2();
+                //_gameManager.Level2();
             }
             else if (_timer >= 4f && gameObject.name == "Screen3")
             {
-                _gameManager.Level3();
+                //_gameManager.Level3();
             }
         }
 
