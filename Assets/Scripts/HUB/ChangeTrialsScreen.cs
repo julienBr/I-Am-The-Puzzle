@@ -1,31 +1,29 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Video;
 
 public class ChangeTrialsScreen : MonoBehaviour
 {
     [SerializeField] private GameManager _gameManager;
-    [SerializeField] private VideoClip _screenTrials1;
-    [SerializeField] private VideoClip _screenTrials2;
-    
+    [SerializeField] private List<VideoClip> _listTrials;
+
+    private VideoPlayer _screen;
     private bool _timeIsRunning;
     private float _timer;
     private bool _checkCollider;
-    
-     private void ChangeScreen ()
-     {
-         GetComponent<VideoPlayer>().clip = _screenTrials2;
-     }
 
-     private void ReturnScreen()
-     {
-         GetComponent<VideoPlayer>().clip = _screenTrials1;
-     }
+    private void Awake() { _screen = GetComponent<VideoPlayer>(); }
+
+    private void ChangeScreen(bool toggle)
+    {
+        _screen.clip = toggle ? _listTrials[1] : _listTrials[0];
+    }
 
     private void Update()
     {
         if (_timeIsRunning)
         {
-            ChangeScreen();
+            ChangeScreen(true);
             _timer += Time.deltaTime;
             if (!_checkCollider && _timer >= 4f && gameObject.name == "Screen1")
             {
@@ -44,9 +42,9 @@ public class ChangeTrialsScreen : MonoBehaviour
             }
         }
 
-        if (_timeIsRunning == false)
+        if (!_timeIsRunning)
         {
-            ReturnScreen();
+            ChangeScreen(false);
             _timer = 0f;
             _checkCollider = false;
         }
@@ -54,19 +52,13 @@ public class ChangeTrialsScreen : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.CompareTag("Player"))
-        {
+        if (other.gameObject.CompareTag("Player")) 
             _timeIsRunning = true;
-
-        }
     }
     
     private void OnCollisionExit(Collision other)
     {
         if (other.gameObject.CompareTag("Player"))
-        {
             _timeIsRunning = false;
-
-        }
     }
 }

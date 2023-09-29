@@ -3495,8 +3495,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 24148388}
-  _screenTrials1: {fileID: 32900000, guid: 6031a1e2cac2c334e9fed8a29076595f, type: 3}
-  _screenTrials2: {fileID: 32900000, guid: 8fef86b9a618c8f419b54f128f531b56, type: 3}
+  _listTrials:
+  - {fileID: 32900000, guid: 6031a1e2cac2c334e9fed8a29076595f, type: 3}
+  - {fileID: 32900000, guid: 8fef86b9a618c8f419b54f128f531b56, type: 3}
 --- !u!328 &357955726
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -6709,8 +6710,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 24148388}
-  _screenTrials1: {fileID: 32900000, guid: 6031a1e2cac2c334e9fed8a29076595f, type: 3}
-  _screenTrials2: {fileID: 32900000, guid: 8fef86b9a618c8f419b54f128f531b56, type: 3}
+  _listTrials:
+  - {fileID: 32900000, guid: 6031a1e2cac2c334e9fed8a29076595f, type: 3}
+  - {fileID: 32900000, guid: 8fef86b9a618c8f419b54f128f531b56, type: 3}
 --- !u!65 &666304220
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -12015,8 +12017,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 24148388}
-  _screenTrials1: {fileID: 32900000, guid: 6031a1e2cac2c334e9fed8a29076595f, type: 3}
-  _screenTrials2: {fileID: 32900000, guid: 8fef86b9a618c8f419b54f128f531b56, type: 3}
+  _listTrials:
+  - {fileID: 32900000, guid: 6031a1e2cac2c334e9fed8a29076595f, type: 3}
+  - {fileID: 32900000, guid: 8fef86b9a618c8f419b54f128f531b56, type: 3}
 --- !u!328 &1307163436
 VideoPlayer:
   m_ObjectHideFlags: 0
@@ -12967,7 +12970,7 @@ PrefabInstance:
     - target: {fileID: 6598815579406187037, guid: 18ddb545287c546e19cc77dc9fbb2189,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 18ddb545287c546e19cc77dc9fbb2189, type: 3}
