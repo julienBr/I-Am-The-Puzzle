@@ -1,6 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
-using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 public class Lvl1Manager : MonoBehaviour
@@ -15,7 +13,7 @@ public class Lvl1Manager : MonoBehaviour
     
     
     private int _enigmeTotal = 3;
-    [SerializeField] private AppData levelLoad;
+    [SerializeField] private DataLvl1 levelLoad;
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject mirror;
     [SerializeField] private GameObject warningUI;
