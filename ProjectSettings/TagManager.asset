@@ -24,6 +24,7 @@ TagManager:
   - Receptor3
   - Door
   - Clone
+  - WinCondition
   layers:
   - Default
   - TransparentFX
