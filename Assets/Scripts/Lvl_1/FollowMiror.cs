@@ -18,9 +18,10 @@ public class FollowMiror : MonoBehaviour
             _mirror.TransformPoint(new Vector3(objectToFollowLocal.x, objectToFollowLocal.y, -objectToFollowLocal.z));
 
         transform.localRotation = _objectToFollow.localRotation;
+        // transform.rotation = _objectToFollow.rotation * Quaternion.Euler(1, -_objectToFollow.transform.eulerAngles.y, 1);
+      // transform.rotation = _objectToFollow.rotation * Quaternion.Euler(1, -1, 1);
 
-
-
+     
     }
 
 }

@@ -17,6 +17,8 @@ public class OnFlashLight : MonoBehaviour
     
      [SerializeField] private Material emissivepurple;
      [SerializeField] private Material glassLight;
+     
+     [SerializeField] private AudioSource buttonSound;
     
     void Start()
     {
@@ -32,6 +34,7 @@ public class OnFlashLight : MonoBehaviour
         {
             if (FlashOn == false)
             {
+                buttonSound.Play();
                 flashlightmiddle.GetComponent<MeshRenderer>().material = emissivepurple;
                 _light.gameObject.GetComponent<Light>().enabled = true;
                 FlashOn = true;
@@ -52,6 +55,11 @@ public class OnFlashLight : MonoBehaviour
    {
        GameObject battery = socket.selectTarget.gameObject;
        Debug.Log("le pile est la " + battery.name);
+       //battery.GetComponent<Rigidbody>().mass = 0.01f;
+       
+       
+      
+      
 
        if (battery.name == "BatteryMirror")
        {
@@ -70,6 +78,11 @@ public class OnFlashLight : MonoBehaviour
    
    public void SocketDesacctivated()
    {
+      // GameObject battery = socket.selectTarget.gameObject;
+       //Rigidbody rigidbody = battery.GetComponent<Rigidbody>();
+     // battery.GetComponent<Rigidbody>().mass = 2f;
+      
+     
        CanOn = false;
        _light.gameObject.GetComponent<Light>().enabled = false;
        emissiveLamp.GetComponent<MeshRenderer>().material = emissiveRed;

@@ -23,8 +23,8 @@ public class FireLaser : MonoBehaviour
     [SerializeField] private bool ammoIsTrue = false;
     [SerializeField] private Lvl1Manager _lvl1Manager;
 
-    //[SerializeField] private AudioSource gunsound;
-   //[SerializeField] private AudioSource impactsound;
+    [SerializeField] private AudioSource gunsound;
+   [SerializeField] private AudioSource impactsound;
 
     private Ray _ray;
    private RaycastHit hitInfo;
@@ -71,6 +71,7 @@ public class FireLaser : MonoBehaviour
         if (_canShoot == true && ammoIsTrue == true)
         {
             flashFire.Play();
+            gunsound.Play();
             _ray.origin = raycastOrigin.position;
             /*  if (gameObject.gameObject.name == "PistolWithAmmoLVL2Mirror"  || gameObject.gameObject.name == "PistolWithAmmoLVL1" || gameObject.gameObject.name == "PistolWithoutAmmoMirror" )
             
@@ -151,6 +152,8 @@ public class FireLaser : MonoBehaviour
         }
         else if (ammoprism.name == "AmmoTransparent")
         {
+            objectFollowMirorscript.GetComponent<FireLaser>()._canShoot = true;
+            objectFollowMirorscript.GetComponent<FireLaser>().ammoIsTrue = true;
             _canShoot = false;
             ammoIsTrue = false;
         }
@@ -159,8 +162,16 @@ public class FireLaser : MonoBehaviour
 
     public void SocketAmmoDesactivated()
     {
+        
         _canShoot = false;
-
+        if (objectFollowMirorscript != null)
+        {
+            objectFollowMirorscript.GetComponent<FireLaser>()._canShoot = false;
+            objectFollowMirorscript.GetComponent<FireLaser>().ammoIsTrue = false;
+        }
+       
+        
+     
     }
     
     

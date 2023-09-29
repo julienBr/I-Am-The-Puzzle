@@ -32,11 +32,9 @@ public class Lvl1Manager : MonoBehaviour
     [Header("puzzle 2 Objects")]
     [SerializeField] private GameObject pistolwithAmmo;
     [SerializeField] private GameObject pistolwithAmmoMirrorLvl2;
-    //[SerializeField] private GameObject obstacle;
-   // [SerializeField] private GameObject obstaclemirror;
-   // [SerializeField] private GameObject obstacleButton;
-   // [SerializeField] private GameObject obstacleButtonMirrorTransparent;
-    
+   [SerializeField] private GameObject obstacle;
+  [SerializeField] private GameObject obstaclemirror;
+  
    [Header("puzzle 3 Objects")]
     [SerializeField] private GameObject ammo;
     [SerializeField] private GameObject ammoTransparent;
@@ -67,11 +65,9 @@ public class Lvl1Manager : MonoBehaviour
       pistolwithoutAmmoMirror.SetActive(false);
       flashLight.SetActive(false);
       flashLightMirror.SetActive(false);
-     // obstacle.SetActive(false);
-     // obstaclemirror.SetActive(false); 
-      //obstacleButton.SetActive(false);
-     //obstacleButtonMirrorTransparent.SetActive(false);
-      ammo.SetActive(false);
+     obstacle.SetActive(false);
+     obstaclemirror.SetActive(false); 
+     ammo.SetActive(false);
       ammoTransparent.SetActive(false);
       chest.SetActive(false);
       chestMirror.SetActive(false);
@@ -89,10 +85,9 @@ public class Lvl1Manager : MonoBehaviour
       {
          pistolwithAmmo.SetActive(true); 
          pistolwithAmmoMirrorLvl2.SetActive(true);
-         //obstacle.SetActive(true);
-        // obstaclemirror.SetActive(true);
-        //  obstacleButton.SetActive(true);
-        // obstacleButtonMirrorTransparent.SetActive(true);
+         obstacle.SetActive(true);
+         obstaclemirror.SetActive(true);
+        
        
       }
       else if (levelLoad.levelactuelle == levelLoad.tableauLevel[2])
@@ -121,7 +116,7 @@ public class Lvl1Manager : MonoBehaviour
         if (levelLoad.puzzle < _enigmeTotal)
         {
             
-            SceneManager.LoadScene("Lvl_1_test");
+            SceneManager.LoadScene("2_Lvl_1");
         }
         else if (levelLoad.puzzle >= _enigmeTotal)
         {
@@ -159,7 +154,7 @@ public class Lvl1Manager : MonoBehaviour
       //gameover
       //reload la scene
       _lost = true;
-      SceneManager.LoadScene("Lvl_1_test");
+      SceneManager.LoadScene("2_Lvl_1");
       Debug.Log("lost");
      }
 
