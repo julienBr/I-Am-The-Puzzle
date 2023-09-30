@@ -677,7 +677,7 @@ MeshCollider:
   m_GameObject: {fileID: 44390552}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -2655,7 +2655,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &204178028
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3339,7 +3339,7 @@ MeshCollider:
   m_GameObject: {fileID: 287545424}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -7261,20 +7261,56 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
-  m_SelectExited:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Activated:
-    m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
+      - m_Target: {fileID: 590986695}
+        m_TargetAssemblyTypeName: ObjectFollowMiror, Assembly-CSharp
+        m_MethodName: Objectgrab
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_SelectExited:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 590986695}
+        m_TargetAssemblyTypeName: ObjectFollowMiror, Assembly-CSharp
+        m_MethodName: ObjectNotGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  m_Activated:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 590986694}
+        m_TargetAssemblyTypeName: ShieldOn, Assembly-CSharp
+        m_MethodName: OpenShield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1894095897}
+        m_TargetAssemblyTypeName: ShieldOn, Assembly-CSharp
+        m_MethodName: OpenShield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -7381,6 +7417,39 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1998883321}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &590986694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590986690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407cd68f3b0466d4b853419b872335ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldOn: 0
+  CanOn: 0
+  buttonSound: {fileID: 1102425803}
+  shieldPlasma: {fileID: 1692500795}
+--- !u!114 &590986695
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 590986690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02171560c6c7a3e46a0935b6a4e807f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToFollow: {fileID: 1894095894}
+  _mirror: {fileID: 1592124180}
+  OnMirrorSide: 0
+  objectIsGrab: 0
+  socket: {fileID: 0}
 --- !u!1 &594184590
 GameObject:
   m_ObjectHideFlags: 0
@@ -7675,6 +7744,7 @@ GameObject:
   - component: {fileID: 620060696}
   - component: {fileID: 620060695}
   - component: {fileID: 620060694}
+  - component: {fileID: 620060697}
   m_Layer: 0
   m_Name: pistol_cross_low
   m_TagString: ObjectToTeleport
@@ -7706,7 +7776,7 @@ MeshCollider:
   m_GameObject: {fileID: 620060692}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -7761,6 +7831,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 620060692}
   m_Mesh: {fileID: -2808545015998454958, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
+--- !u!65 &620060697
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 620060692}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0013426373, y: 0.0050473134, z: 0.0013859259}
+  m_Center: {x: 0.00000018765189, y: 0.0026349237, z: 0.000016539054}
 --- !u!1 &624221958
 GameObject:
   m_ObjectHideFlags: 0
@@ -9098,6 +9181,7 @@ GameObject:
   - component: {fileID: 728300327}
   - component: {fileID: 728300326}
   - component: {fileID: 728300325}
+  - component: {fileID: 728300328}
   m_Layer: 0
   m_Name: pistol_cross_low
   m_TagString: ObjectToTeleport
@@ -9129,7 +9213,7 @@ MeshCollider:
   m_GameObject: {fileID: 728300323}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -9184,6 +9268,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 728300323}
   m_Mesh: {fileID: -2808545015998454958, guid: 433f32749b5ff7d44b251bd1c19e22ab, type: 3}
+--- !u!65 &728300328
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728300323}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.0013426377, y: 0.0050692447, z: 0.0013859262}
+  m_Center: {x: 0.00000018902647, y: 0.002623938, z: 0.000016547947}
 --- !u!1 &737624190
 GameObject:
   m_ObjectHideFlags: 0
@@ -11372,7 +11469,7 @@ MeshCollider:
   m_GameObject: {fileID: 890249284}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
@@ -13521,14 +13618,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1039865103}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 0.109, z: -0}
+  m_LocalRotation: {x: -0.00000015646218, y: 0.7071068, z: -0.7071068, w: 0.0000001490116}
+  m_LocalPosition: {x: 0, y: -0.15, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1894095894}
   m_RootOrder: 16
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: -180}
 --- !u!1001 &1041923157
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16833,7 +16930,7 @@ PrefabInstance:
     - target: {fileID: 9094329260281299331, guid: b7ee10ba487867d47a2942e352102583,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9094329260281299331, guid: b7ee10ba487867d47a2942e352102583,
         type: 3}
@@ -27614,6 +27711,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shield (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6bd7be88664e8264eb2dd1e1b5b9958f,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObjectToTeleport
+      objectReference: {fileID: 0}
     - target: {fileID: 1700060388383991489, guid: 6bd7be88664e8264eb2dd1e1b5b9958f,
         type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -28251,13 +28353,61 @@ MonoBehaviour:
       m_Calls: []
   m_SelectEntered:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1894095898}
+        m_TargetAssemblyTypeName: ObjectFollowMiror, Assembly-CSharp
+        m_MethodName: Objectgrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_SelectExited:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1894095898}
+        m_TargetAssemblyTypeName: ObjectFollowMiror, Assembly-CSharp
+        m_MethodName: ObjectNotGrab
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Activated:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1894095897}
+        m_TargetAssemblyTypeName: ShieldOn, Assembly-CSharp
+        m_MethodName: OpenShield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 590986694}
+        m_TargetAssemblyTypeName: ShieldOn, Assembly-CSharp
+        m_MethodName: OpenShield
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   m_Deactivated:
     m_PersistentCalls:
       m_Calls: []
@@ -28353,6 +28503,39 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 3
+--- !u!114 &1894095897
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894095893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 407cd68f3b0466d4b853419b872335ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shieldOn: 0
+  CanOn: 1
+  buttonSound: {fileID: 1102425803}
+  shieldPlasma: {fileID: 1415660671}
+--- !u!114 &1894095898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1894095893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02171560c6c7a3e46a0935b6a4e807f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _objectToFollow: {fileID: 590986693}
+  _mirror: {fileID: 1592124180}
+  OnMirrorSide: 0
+  objectIsGrab: 0
+  socket: {fileID: 0}
 --- !u!1 &1902846559
 GameObject:
   m_ObjectHideFlags: 0
@@ -33848,6 +34031,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Shield
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6bd7be88664e8264eb2dd1e1b5b9958f,
+        type: 3}
+      propertyPath: m_TagString
+      value: ObjectToTeleport
       objectReference: {fileID: 0}
     - target: {fileID: 1700060388383991489, guid: 6bd7be88664e8264eb2dd1e1b5b9958f,
         type: 3}
@@ -46746,7 +46934,7 @@ MeshCollider:
   m_GameObject: {fileID: 431313324774241345}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   m_Convex: 1
   m_CookingOptions: 30
