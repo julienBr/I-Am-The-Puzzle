@@ -53,7 +53,8 @@ public class GameManager : MonoBehaviour
         LoadLevel("0_Menu");
     }
     
-    private void Update() { if(_data._finishGame) FinishGame?.Invoke(); }
+    private void Update()
+    { if(_data._finishGame) FinishGame?.Invoke(); }
 
     public void LoadLevel(string levelToLoad)
     {
