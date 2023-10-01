@@ -8397,6 +8397,7 @@ GameObject:
   - component: {fileID: 813471316}
   - component: {fileID: 813471315}
   - component: {fileID: 813471317}
+  - component: {fileID: 813471318}
   m_Layer: 0
   m_Name: TP Emissive
   m_TagString: Untagged
@@ -8439,7 +8440,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e40a46d561ff3104e85bbb7c1a484aa5, type: 2}
+  - {fileID: 2100000, guid: b09d67204b0fc864696945f1e71091bb, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -8483,6 +8484,19 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -5654348017137280629, guid: 59874891f2e8b2141898c68d48ff37cd, type: 3}
+--- !u!114 &813471318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 813471313}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a542cced352edf4bb7096b12cd92767, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvasButtonHub: {fileID: 1317280234}
 --- !u!1 &829187294
 GameObject:
   m_ObjectHideFlags: 0
@@ -25879,7 +25893,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 0cc5577bf8c6f334faa40bcd749a82e9, type: 3}
 --- !u!1 &7008767389467950702 stripped
 GameObject:
-  m_CorrespondingSourceObject: {fileID: 7902839925469727173, guid: 0cc5577bf8c6f334faa40bcd749a82e9,
+  m_CorrespondingSourceObject: {fileID: 7902839925602706569, guid: 0cc5577bf8c6f334faa40bcd749a82e9,
     type: 3}
   m_PrefabInstance: {fileID: 7008767389467950701}
   m_PrefabAsset: {fileID: 0}

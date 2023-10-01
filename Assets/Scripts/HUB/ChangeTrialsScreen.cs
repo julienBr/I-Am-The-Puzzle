@@ -25,20 +25,20 @@ public class ChangeTrialsScreen : MonoBehaviour
         {
             ChangeScreen(true);
             _timer += Time.deltaTime;
-            if (!_checkCollider && _timer >= 4f && gameObject.name == "Screen1")
+            switch (_checkCollider)
             {
-                _gameManager.LoadLevel("2_Lvl_1");
-                _checkCollider = true;
-            }
-            else if (!_checkCollider && _timer >= 4f && gameObject.name == "Screen2")
-            {
-                _gameManager.LoadLevel("3_Lvl_2");
-                _checkCollider = true;
-            }
-            else if (!_checkCollider && _timer >= 4f && gameObject.name == "Screen3")
-            {
-                _gameManager.LoadLevel("4_Lvl_3");
-                _checkCollider = true;
+                case false when _timer >= 4f && gameObject.name == "Screen1":
+                    _gameManager.LoadLevel("2_Lvl_1");
+                    _checkCollider = true;
+                    break;
+                case false when _timer >= 4f && gameObject.name == "Screen2":
+                    _gameManager.LoadLevel("3_Lvl_2");
+                    _checkCollider = true;
+                    break;
+                case false when _timer >= 4f && gameObject.name == "Screen3":
+                    _gameManager.LoadLevel("4_Lvl_3");
+                    _checkCollider = true;
+                    break;
             }
         }
 

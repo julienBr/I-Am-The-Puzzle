@@ -8,5 +8,6 @@ public class AppData : ScriptableObject
     [Header("WinCondition")]
     public bool _lvl_1_succeeded;
     public bool _lvl_2_succeeded;
-    public bool _lvl_3succeeded;
+    public bool _lvl_3_succeeded;
+    public bool _finishGame;
 }

@@ -11,7 +11,10 @@ public class GameManager : MonoBehaviour
     [SerializeField] private AppData _data;
     
     private string _currentScene;
-
+    
+    public delegate void FinishGameEvent();
+    public static event FinishGameEvent FinishGame;
+    
     private void OnEnable()
     {
         WinCondition.TriggerWinEvent += SuccedTrial;
@@ -21,12 +24,13 @@ public class GameManager : MonoBehaviour
     {
         WinCondition.TriggerWinEvent -= SuccedTrial;
     }
-
+    
     private void SuccedTrial(int level)
     {
         if (level == 1) _data._lvl_1_succeeded = true;
-        else if (level == 2) _data._lvl_2_succeeded = true;
-        else _data._lvl_3succeeded = true;
+        if (level == 2) _data._lvl_2_succeeded = true;
+        if (level == 3) _data._lvl_3_succeeded = true;
+        if (_data._lvl_1_succeeded && _data._lvl_2_succeeded && _data._lvl_3_succeeded) _data._finishGame = true;
         LoadLevel("1_Hub");
     }
 
@@ -37,9 +41,19 @@ public class GameManager : MonoBehaviour
         {
             _data._lvl_1_succeeded = false;
             _data._lvl_2_succeeded = false;
-            _data._lvl_3succeeded = false;
+            _data._lvl_3_succeeded = false;
+            _data._finishGame = false;
         }
+        if (_currentScene == "5_Credits") StartCoroutine(ReturnToHUB());
     }
+
+    private IEnumerator ReturnToHUB()
+    {
+        yield return new WaitForSeconds(75f);
+        LoadLevel("0_Menu");
+    }
+    
+    private void Update() { if(_data._finishGame) FinishGame?.Invoke(); }
 
     public void LoadLevel(string levelToLoad)
     {
@@ -48,7 +62,9 @@ public class GameManager : MonoBehaviour
     
     private IEnumerator ThrowLoadScene(string levelToLoad)
     {
-        yield return new WaitForSeconds(1f);
+        if ((_data._lvl_1_succeeded || _data._lvl_2_succeeded || _data._lvl_3_succeeded) && _currentScene != "1_Hub")
+            yield return new WaitForSeconds(10f);
+        else yield return new WaitForSeconds(1f);
         fade.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
         AsyncOperation loadOperation = SceneManager.LoadSceneAsync(levelToLoad);

@@ -14,7 +14,6 @@ public class WinCondition : MonoBehaviour
         {
             _alreadyChecked = true;
             TriggerWinEvent?.Invoke(_idLevel);
-            Debug.Log($"Vous venez de réussir le niveau {gameObject.scene.name}, soit le niveau {_idLevel}.");
         }
     }
 }

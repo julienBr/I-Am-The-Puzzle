@@ -15,7 +15,7 @@ public class SpawnManager : MonoBehaviour
 
     private void Awake()
     {
-        if (_data._lvl_1_succeeded || _data._lvl_2_succeeded || _data._lvl_3succeeded)
+        if (_data._lvl_1_succeeded || _data._lvl_2_succeeded || _data._lvl_3_succeeded)
         {
             _player.position = _data.posPlayer;
             _soundAlarm.SetActive(false);
