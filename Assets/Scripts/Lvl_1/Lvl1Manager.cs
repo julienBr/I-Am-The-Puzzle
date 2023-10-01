@@ -17,13 +17,18 @@ public class Lvl1Manager : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject mirror;
     [SerializeField] private GameObject warningUI;
+    [SerializeField] private GameObject finalwarningUI;
     [SerializeField] private Material _warningMirrorShader;
     [SerializeField] private GameObject _cloneplayer;
     public bool cloneIsDead = false;
     public bool playerIsDead = false;
     [SerializeField] private bool _win = false;
     [SerializeField] private bool _lost = false;
-   
+
+    [SerializeField] private Animator leftDoor;
+    [SerializeField] private Animator rightDoor;
+
+    [SerializeField] private AudioSource doorSound;
     
     [Header("puzzle 1 Objects")]
     [SerializeField] private GameObject pistolwithAmmoMirrorLvl1;
@@ -55,7 +60,6 @@ public class Lvl1Manager : MonoBehaviour
     { 
       levelLoad.levelactuelle = levelLoad.tableauLevel[levelLoad.puzzle];
       OnLampColorChange?.Invoke(levelLoad.puzzle, true);
-      
       
      pistolwithAmmo.SetActive(false);
      pistolwithAmmoMirrorLvl1.SetActive(false);
@@ -141,7 +145,9 @@ public class Lvl1Manager : MonoBehaviour
      else if (levelLoad.puzzle >= _enigmeTotal)
      {
       mirror.GetComponent<MeshRenderer>().material = _warningMirrorShader;
-      //OpenDoor();
+      finalwarningUI.SetActive(true);
+      OpenDoor();
+      
 
      }
     }
@@ -168,6 +174,12 @@ public class Lvl1Manager : MonoBehaviour
      }
     }
 
+    void OpenDoor()
+    {
+     leftDoor.SetTrigger("OpenDoor");
+     rightDoor.SetTrigger("OpenDoor");
+     doorSound.Play();
+    }
 
    
 }

@@ -25,6 +25,7 @@ TagManager:
   - Door
   - Clone
   - WinCondition
+  - Code
   layers:
   - Default
   - TransparentFX

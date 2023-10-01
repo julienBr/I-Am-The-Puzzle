@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -14,19 +15,91 @@ public class OnFlashLight : MonoBehaviour
     [SerializeField] private GameObject flashlightmiddle;
     [SerializeField] private Material emissiveRed;
     [SerializeField] private Material emissiveblue;
-    
-     [SerializeField] private Material emissivepurple;
+     private GameObject codeCoffre;
+    //[SerializeField] private GameObject codeCoffremirror;  
+    public ObjectFollowMiror objectFollowMirorscript;
+    [SerializeField] private Material emissivepurple;
      [SerializeField] private Material glassLight;
      
      [SerializeField] private AudioSource buttonSound;
-    
-    void Start()
-    {
-       
-    }
+     
+     
+     private Ray _ray;
+     [SerializeField] Transform raycastOrigin;
+     [SerializeField] private bool showCode;
 
-    
-   public void FlashLight()
+     private void Update()
+     {
+
+         if (FlashOn == true && batteryIstranparent == false)
+         {
+             _ray.origin = raycastOrigin.position;
+             _ray.direction = raycastOrigin.forward;
+
+             RaycastHit hit;
+
+             if  (Physics.Raycast(_ray, out hit, 1f))
+             {
+                // Debug.DrawRay(_ray.origin,_ray.direction,Color.red);
+                // Debug.Log(hit.collider.name);
+                    
+                 if ( hit.collider.gameObject.tag == "Code" )
+                 {
+                    //codeCoffre.GetComponent<SpriteRenderer>().enabled = true;
+                   // codeCoffremirror.GetComponent<SpriteRenderer>().enabled = true;
+                   // Debug.Log("CODE AFFICHE");
+                   codeCoffre = hit.collider.gameObject;
+                   codeCoffre.GetComponent<SpriteRenderer>().enabled = true; 
+                 }
+
+                 else
+                 {
+                     if (codeCoffre != null)
+                     {
+                         codeCoffre.GetComponent<SpriteRenderer>().enabled = false; 
+                     }
+                    
+                 }
+                 
+                
+             }
+
+         }
+         else
+         {
+             {
+                 _ray.origin = raycastOrigin.position;
+                 _ray.direction = raycastOrigin.forward;
+
+                 RaycastHit hit;
+
+                 if  (Physics.Raycast(_ray, out hit, 1f))
+                 {
+                    // Debug.DrawRay(_ray.origin,_ray.direction,Color.red);
+                   //  Debug.Log(hit.collider.name);
+                    
+                     if ( hit.collider.gameObject.tag == "Code" )
+                     {
+                        // codeCoffre.GetComponent<SpriteRenderer>().enabled = true;
+                         // codeCoffremirror.GetComponent<SpriteRenderer>().enabled = true;
+                        // Debug.Log("CODE AFFICHE");
+                         hit.collider.gameObject.GetComponent<SpriteRenderer>().enabled = false; 
+                         
+                     }
+                
+                 }
+             }
+
+            
+             
+         }
+        
+        
+         
+     }
+
+
+     public void FlashLight()
    {
        
         
@@ -38,9 +111,15 @@ public class OnFlashLight : MonoBehaviour
                 flashlightmiddle.GetComponent<MeshRenderer>().material = emissivepurple;
                 _light.gameObject.GetComponent<Light>().enabled = true;
                 FlashOn = true;
+                
+                
+                
+                
+                
             }
             else if (FlashOn == true)
             {
+                buttonSound.Play();
                 flashlightmiddle.GetComponent<MeshRenderer>().material = glassLight;
                _light.gameObject.GetComponent<Light>().enabled = false;
                 FlashOn = false;
@@ -70,8 +149,14 @@ public class OnFlashLight : MonoBehaviour
        }
        else if (battery.name == "BatteryTransparent")
        {
+           objectFollowMirorscript.GetComponent<OnFlashLight>().CanOn = true;
+           objectFollowMirorscript.GetComponent<OnFlashLight>().batteryIstranparent = false;
+           objectFollowMirorscript.GetComponent<OnFlashLight>().emissiveLamp.GetComponent<MeshRenderer>().material = emissiveblue;
+           
            CanOn = false;
            batteryIstranparent = true;
+           
+          
        }
        
    }
@@ -87,5 +172,16 @@ public class OnFlashLight : MonoBehaviour
        _light.gameObject.GetComponent<Light>().enabled = false;
        emissiveLamp.GetComponent<MeshRenderer>().material = emissiveRed;
        flashlightmiddle.GetComponent<MeshRenderer>().material = glassLight;
+       
+       
+       if (objectFollowMirorscript != null)
+       {
+           objectFollowMirorscript.GetComponent<OnFlashLight>().emissiveLamp.GetComponent<MeshRenderer>().material = emissiveRed;
+           objectFollowMirorscript.GetComponent<OnFlashLight>().CanOn = false;
+           objectFollowMirorscript.GetComponent<OnFlashLight>().batteryIstranparent = true;
+       }
+       
+       
+       
    }
 }
