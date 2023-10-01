@@ -376,7 +376,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fade: {fileID: 7008767389467950702}
   _data: {fileID: 11400000, guid: 5583df428b4409448a8e50dfb88191bc, type: 2}
-  _player: {fileID: 0}
 --- !u!4 &24148389
 Transform:
   m_ObjectHideFlags: 0
@@ -4522,6 +4521,8 @@ MonoBehaviour:
   _data: {fileID: 11400000, guid: 5583df428b4409448a8e50dfb88191bc, type: 2}
   _player: {fileID: 1074942240}
   _vitreCuve: {fileID: 1081339208}
+  _newAnimator: {fileID: 9100000, guid: 3bc63260e334df64fa955531f1026a98, type: 2}
+  _soundAlarm: {fileID: 2069404977}
 --- !u!4 &447920791
 Transform:
   m_ObjectHideFlags: 0
@@ -16629,6 +16630,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 3574555207572926379, guid: 12ac1ce9233dec84b8fab6eb67ce4210,
         type: 3}
+    - target: {fileID: 2934710432213320471, guid: 5399c20a79116594f858047356fb85db,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2934710432213320471, guid: 5399c20a79116594f858047356fb85db,
         type: 3}
       propertyPath: m_Materials.Array.data[0]

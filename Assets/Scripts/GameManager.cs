@@ -9,12 +9,8 @@ public class GameManager : MonoBehaviour
     
     [Header("Data")]
     [SerializeField] private AppData _data;
-
-    [Header("Player")]
-    [SerializeField] private Transform _player;
     
     private string _currentScene;
-    private string _previousScene;
 
     private void OnEnable()
     {
@@ -33,8 +29,6 @@ public class GameManager : MonoBehaviour
         else _data._lvl_3succeeded = true;
         LoadLevel("1_Hub");
     }
-    
-    private void OnDestroy() { _previousScene = gameObject.scene.name; }
 
     private void Awake()
     {
