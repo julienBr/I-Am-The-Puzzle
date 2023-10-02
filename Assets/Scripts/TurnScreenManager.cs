@@ -3,6 +3,9 @@ using UnityEngine;
 
 public class TurnScreenManager : MonoBehaviour
 {
+    [Header("Data")]
+    [SerializeField] private AppData _data;
+    
     [Header("Screen Off Material")]
     [SerializeField] private Material _screenOffMat;
     
@@ -13,14 +16,11 @@ public class TurnScreenManager : MonoBehaviour
     [Header("Colliders")]
     [SerializeField] private List<Collider> _listColliders;
 
-    private void OnEnable()
+    private void Awake()
     {
-        GameManager.TurnScreen += TurnScreenOf;
-    }
-
-    private void OnDisable()
-    {
-        GameManager.TurnScreen -= TurnScreenOf;
+        if(_data._lvl_1_succeeded) TurnScreenOf(0);
+        if(_data._lvl_2_succeeded) TurnScreenOf(1);
+        if(_data._lvl_3_succeeded) TurnScreenOf(2);
     }
 
     private void TurnScreenOf(int idLevel)

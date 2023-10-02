@@ -18,9 +18,6 @@ public class GameManager : MonoBehaviour
     
     public delegate void FinishGameEvent();
     public static event FinishGameEvent FinishGame;
-
-    public delegate void ScreenManagerEvent(int idLevel);
-    public static event ScreenManagerEvent TurnScreen;
     
     private void OnEnable()
     {
@@ -64,12 +61,6 @@ public class GameManager : MonoBehaviour
             _data._lvl_3_succeeded = false;
             _data._finishGame = false;
         }
-        if (_currentScene == "1_Hub")
-        {
-            if (_data._lvl_1_succeeded) TurnScreen?.Invoke(0);
-            if (_data._lvl_2_succeeded) TurnScreen?.Invoke(1);
-            if (_data._lvl_3_succeeded) TurnScreen?.Invoke(2);
-        }
         if (_currentScene == "5_Credits") StartCoroutine(ReturnToHUB());
     }
 
@@ -85,7 +76,6 @@ public class GameManager : MonoBehaviour
         if (_data._finishGame && _currentScene == "1_Hub" && !_alreadyCheck)
         {
             _alreadyCheck = true;
-            Debug.Log("GG");
             _winCondition.SetActive(true);
             FinishGame?.Invoke();
         }
