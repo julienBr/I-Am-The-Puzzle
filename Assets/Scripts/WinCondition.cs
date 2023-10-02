@@ -7,7 +7,7 @@ public class WinCondition : MonoBehaviour
     
     public delegate void WinEvent(int level);
     public static event WinEvent TriggerWinEvent;
-    
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("Player") && !_alreadyChecked)

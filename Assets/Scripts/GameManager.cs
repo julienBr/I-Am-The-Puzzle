@@ -9,8 +9,12 @@ public class GameManager : MonoBehaviour
     
     [Header("Data")]
     [SerializeField] private AppData _data;
+
+    [Header("Condition")]
+    [SerializeField] private GameObject _winCondition;
     
     private string _currentScene;
+    private bool _alreadyCheck;
     
     public delegate void FinishGameEvent();
     public static event FinishGameEvent FinishGame;
@@ -27,11 +31,24 @@ public class GameManager : MonoBehaviour
     
     private void SuccedTrial(int level)
     {
-        if (level == 1) _data._lvl_1_succeeded = true;
-        if (level == 2) _data._lvl_2_succeeded = true;
-        if (level == 3) _data._lvl_3_succeeded = true;
-        if (_data._lvl_1_succeeded && _data._lvl_2_succeeded && _data._lvl_3_succeeded) _data._finishGame = true;
-        LoadLevel("1_Hub");
+        if (level == 1)
+        {
+            _data._lvl_1_succeeded = true;
+            LoadLevel("1_Hub");
+        }
+
+        if (level == 2)
+        {
+            _data._lvl_2_succeeded = true;
+            LoadLevel("1_Hub");
+        }
+
+        if (level == 3)
+        {
+            _data._lvl_3_succeeded = true;
+            LoadLevel("1_Hub");
+        }
+        if (level == 4) LoadLevel("5_Credits");
     }
 
     private void Awake()
@@ -52,14 +69,20 @@ public class GameManager : MonoBehaviour
         yield return new WaitForSeconds(75f);
         LoadLevel("0_Menu");
     }
-    
-    private void Update()
-    { if(_data._finishGame) FinishGame?.Invoke(); }
 
-    public void LoadLevel(string levelToLoad)
+    private void Update()
     {
-        StartCoroutine(ThrowLoadScene(levelToLoad));
+        if (_data._lvl_1_succeeded && _data._lvl_2_succeeded && _data._lvl_3_succeeded) _data._finishGame = true;
+        if (_data._finishGame && _currentScene == "1_Hub" && !_alreadyCheck)
+        {
+            _alreadyCheck = true;
+            Debug.Log("GG");
+            _winCondition.SetActive(true);
+            FinishGame?.Invoke();
+        }
     }
+
+    public void LoadLevel(string levelToLoad) { StartCoroutine(ThrowLoadScene(levelToLoad)); }
     
     private IEnumerator ThrowLoadScene(string levelToLoad)
     {
