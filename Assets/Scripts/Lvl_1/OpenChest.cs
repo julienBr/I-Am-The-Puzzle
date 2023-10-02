@@ -20,10 +20,10 @@ public class OpenChest : MonoBehaviour
 
         if (codeTexteValue == SafeCode)
         { 
+            chestOpenSound.Play();
             chestAnimator.SetTrigger("Open");
             chestAnimatorMirror.SetTrigger("Open");
-
-            chestOpenSound.Play();
+            
         }
 
         if (codeTexteValue.Length >= 7)
