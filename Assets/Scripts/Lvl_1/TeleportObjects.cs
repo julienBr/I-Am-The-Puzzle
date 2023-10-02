@@ -1,40 +1,31 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TeleportObjects : MonoBehaviour
 {
     [SerializeField] private GameObject _zonetoTeleport;
-    [SerializeField] private bool _objectOn = false;
+    [SerializeField] private bool _objectOn;
     private GameObject _objectToTeleport;
-   
-    
-    
-    void Start()
-    {
-        
-    }
-
-   
-    void Update()
-    {
-        
-    }
-
 
     public void TeleportObject()
     {
-        if (_objectOn == true )
+        if (_objectOn)
         {
             _objectToTeleport.transform.position = _zonetoTeleport.transform.position;
           //  _objectToTeleport.GetComponent<ObjectFollowMiror>().enabled = true;
         }
-        
     }
 
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("ObjectToTeleport"))
+        {
+            _objectOn = true;
+            _objectToTeleport = other.gameObject.gameObject;
+        }
+        else _objectOn = false;
+    }
 
-    private void OnCollisionEnter(Collision collision)
+    /*private void OnCollisionEnter(Collision collision)
     {
         if(collision.gameObject.CompareTag("ObjectToTeleport"))
         {
@@ -50,7 +41,5 @@ public class TeleportObjects : MonoBehaviour
             _objectOn = false;                      
             _objectToTeleport = null;
         }
-    }
-    
-    
+    }*/
 }

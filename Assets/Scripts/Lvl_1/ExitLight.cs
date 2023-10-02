@@ -1,31 +1,15 @@
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class ExitLight : MonoBehaviour
 {
     [SerializeField] private Material _redLight;
     [SerializeField] private Material _greenLight;
-    [SerializeField] private int _lampNumber = 0;
-   
+    [SerializeField] private int _lampNumber;
     
-    private void OnEnable()
-    {
-       Lvl1Manager.OnLampColorChange += ChangeColor;
-    }
-    private void OnDisable()
-    {
-       Lvl1Manager.OnLampColorChange -= ChangeColor;
-    }
-
-    private void Start()
-    {
-        ChangeColor(_lampNumber);
-
-
-    }
-
+    private void OnEnable() { Lvl1Manager.OnLampColorChange += ChangeColor; }
+    
+    private void OnDisable() { Lvl1Manager.OnLampColorChange -= ChangeColor; }
+    
     private void ChangeColor(int lampNumber, bool unlock = false)
     {
         if (lampNumber >= _lampNumber)
