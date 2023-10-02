@@ -91,7 +91,7 @@ public class FireLaser : MonoBehaviour
             {
               //  Debug.DrawLine(_ray.origin,hitInfo.point,Color.red,5f);
              //   Debug.Log("A TOUCHE" + hitInfo.collider.gameObject.name);
-            Debug.Log(hitInfo.collider.name);
+            Debug.Log(gameObject.name + " - " + hitInfo.collider.name);
                 ImpactHit.transform.position = hitInfo.point;
                 ImpactHit.transform.forward = hitInfo.normal;
                 ImpactHit.Play();
