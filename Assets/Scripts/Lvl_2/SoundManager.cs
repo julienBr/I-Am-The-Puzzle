@@ -4,8 +4,6 @@ using UnityEngine;
 public class SoundManager : MonoBehaviour
 {
     [SerializeField] private List<AudioSource> _laserLoops;
-    /*[SerializeField] private AudioSource _laserLoop1;
-    [SerializeField] private AudioSource _laserLoop2;*/
     [SerializeField] private AudioClip _loopSound;
 
     private double _playTime;

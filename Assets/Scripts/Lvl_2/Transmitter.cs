@@ -7,8 +7,8 @@ public class Transmitter : MonoBehaviour
     [Header("Sources References")]
     [SerializeField] private List<GameObject> _sources;
     [SerializeField] private List<GameObject> _lookAtSources;
-    public int _idSource;
-    public bool _sourceSelected;
+    private int _idSource;
+    private bool _sourceSelected;
 
     [Header("Tripods References")]
     [SerializeField] private GameObject _prisme;
@@ -18,22 +18,25 @@ public class Transmitter : MonoBehaviour
     [Header("Receptors References")]
     [SerializeField] private List<GameObject> _receptors;
     [SerializeField] private List<GameObject> _lookAtReceptors;
-    
-    [Header("Connected References")]
-    public List<bool> _isSource;
-    public bool _isConnectedSource;
-    public bool _isConnectedTripod;
-    public bool _isConnectedReceptor;
-    public List<bool> _receptorTouched;
-    public bool _isGrabbed;
-    public bool _alreadyDone;
-    public bool _checkTargets;
-    public bool _checkReceptors;
-    public bool _checkLasers;
 
-    public List<LineRenderer> _laserSources = new();
-    public List<LineRenderer> _laserTripods = new();
-    public List<LineRenderer> _laserReceptors = new();
+    [Header("AudioSource References")]
+    [SerializeField] private List<AudioSource> _listLoopAudio;
+    private double _clipDuration;
+    
+    private List<bool> _isSource;
+    private bool _isConnectedSource;
+    private bool _isConnectedTripod;
+    private bool _isConnectedReceptor;
+    private List<bool> _receptorTouched;
+    private bool _isGrabbed;
+    private bool _alreadyDone;
+    private bool _checkTargets;
+    private bool _checkReceptors;
+    private bool _checkLasers;
+
+    private List<LineRenderer> _laserSources = new();
+    private List<LineRenderer> _laserTripods = new();
+    private List<LineRenderer> _laserReceptors = new();
     
     public delegate void TransmitterEvent(int receptorId);
     public static event TransmitterEvent OpenDoor;
@@ -47,6 +50,7 @@ public class Transmitter : MonoBehaviour
             _laserTripods.Add(lookAtTargets.GetComponent<LineRenderer>());
         foreach (GameObject lookAtReceptors in _lookAtReceptors)
             _laserReceptors.Add(lookAtReceptors.GetComponent<LineRenderer>());
+        _clipDuration = (double)_listLoopAudio[0].clip.samples / _listLoopAudio[0].clip.frequency;
     }
 
     private void OnEnable()
