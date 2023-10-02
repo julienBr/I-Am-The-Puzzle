@@ -390,7 +390,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &28500707
 GameObject:
@@ -3853,7 +3853,7 @@ PrefabInstance:
     - target: {fileID: 3838308770272850866, guid: 09f27fe6d76349e438ac0d150edf9701,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3838308770272850866, guid: 09f27fe6d76349e438ac0d150edf9701,
         type: 3}
@@ -9016,6 +9016,63 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 834024291}
   m_Mesh: {fileID: -8302102485596996044, guid: d10da25bb1fd3d54ca6eecce3878ae98, type: 3}
+--- !u!1 &837673635
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 837673637}
+  - component: {fileID: 837673636}
+  m_Layer: 0
+  m_Name: TurnScreenManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &837673636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837673635}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93ffa92cb08c1714b9206624be5a08ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _screenOffMat: {fileID: 2100000, guid: 21616ec5257adf34aaaba5375cb103e2, type: 2}
+  _listScreensPanel:
+  - {fileID: 357955727}
+  - {fileID: 666304222}
+  - {fileID: 1307163437}
+  _listTutosPanel:
+  - {fileID: 1856910370}
+  - {fileID: 1970254426}
+  - {fileID: 550096302}
+  _listColliders:
+  - {fileID: 357955724}
+  - {fileID: 666304220}
+  - {fileID: 1307163434}
+--- !u!4 &837673637
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 837673635}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842794544
 GameObject:
   m_ObjectHideFlags: 0

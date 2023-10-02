@@ -4,9 +4,12 @@ using UnityEngine.Video;
 
 public class ChangeTrialsScreen : MonoBehaviour
 {
+    [Header("Manager")]
     [SerializeField] private GameManager _gameManager;
+    
+    [Header("Videos")]
     [SerializeField] private List<VideoClip> _listTrials;
-
+    
     private VideoPlayer _screen;
     private bool _timeIsRunning;
     private float _timer;
