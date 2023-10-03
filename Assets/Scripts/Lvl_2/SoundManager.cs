@@ -1,41 +1,52 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
-    [SerializeField] private List<AudioSource> _laserLoops;
-    [SerializeField] private AudioClip _loopSound;
+    [SerializeField] private List<AudioSource> _tripodLaserLoop;
 
-    private double _playTime;
-    private double _clipDuration;
-    private int _audioToggle;
+    private void OnEnable() { Transmitter.PlaySound += PlayLaserSound; }
+    private void OnDisable() { Transmitter.PlaySound -= PlayLaserSound; }
 
-    private void Awake()
+    private void PlayLaserSound(int idTripod, bool play)
     {
-        foreach (AudioSource source in _laserLoops)
-            source.clip = _loopSound;
-        _clipDuration = (double)_loopSound.samples / _loopSound.frequency;
+        if (idTripod == 0) PlayClip(_tripodLaserLoop[0], play);
+        else if (idTripod == 1) PlayClip(_tripodLaserLoop[1], play);
+        else if (idTripod == 2) PlayClip(_tripodLaserLoop[2], play);
+        else PlayClip(_tripodLaserLoop[3], play);
     }
 
-    private void Start()
+    private void PlayClip(AudioSource source, bool play)
     {
-        _playTime = AudioSettings.dspTime + .5d;
-        _laserLoops[_audioToggle].PlayScheduled(_playTime);
-        _playTime += _clipDuration;
+        StartCoroutine(play ? StartAudioClip(source) : StopAudioClip(source));
     }
 
-    private void Update()
+    private IEnumerator StartAudioClip(AudioSource source)
     {
-        if (AudioSettings.dspTime > _playTime - 1)
+        if (!source.isPlaying)
         {
-            PlayScheduledClip();
+            source.volume = 0f;
+            source.Play();
+            while (source.volume < .5f)
+            {
+                source.volume += .01f;
+                yield return new WaitForSeconds(.01f);
+            }
         }
     }
-
-    private void PlayScheduledClip()
+    
+    private IEnumerator StopAudioClip(AudioSource source)
     {
-        _laserLoops[_audioToggle].PlayScheduled(_playTime);
-        _playTime += _clipDuration;
-        _audioToggle = 1 - _audioToggle;
+        source.volume = .5f;
+        if (source.isPlaying)
+        {
+            while (source.volume > 0f)
+            {
+                source.volume -= .01f;
+                yield return new WaitForSeconds(.01f);
+            }
+            source.Stop();
+        }
     }
 }

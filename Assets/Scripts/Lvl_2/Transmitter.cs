@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Transmitter : MonoBehaviour
 {
+    public int _idTripod;
+    
     [Header("Sources References")]
     [SerializeField] private List<GameObject> _sources;
     [SerializeField] private List<GameObject> _lookAtSources;
-    private int _idSource;
-    private bool _sourceSelected;
+    public int _idSource;
+    public bool _sourceSelected;
 
     [Header("Tripods References")]
     [SerializeField] private GameObject _prisme;
@@ -18,29 +20,28 @@ public class Transmitter : MonoBehaviour
     [Header("Receptors References")]
     [SerializeField] private List<GameObject> _receptors;
     [SerializeField] private List<GameObject> _lookAtReceptors;
-
-    [Header("AudioSource References")]
-    [SerializeField] private List<AudioSource> _listLoopAudio;
-    private double _clipDuration;
     
-    private List<bool> _isSource;
-    private bool _isConnectedSource;
-    private bool _isConnectedTripod;
-    private bool _isConnectedReceptor;
-    private List<bool> _receptorTouched;
-    private bool _isGrabbed;
-    private bool _alreadyDone;
-    private bool _checkTargets;
-    private bool _checkReceptors;
-    private bool _checkLasers;
+    public bool _isConnectedSource;
+    public bool _isConnectedTripod;
+    public bool _isConnectedReceptor;
+    public bool _isGrabbed;
+    public bool _alreadyDone;
+    public bool _checkTargets;
+    public bool _checkReceptors;
+    public bool _checkLasers;
 
-    private List<LineRenderer> _laserSources = new();
-    private List<LineRenderer> _laserTripods = new();
-    private List<LineRenderer> _laserReceptors = new();
+    public List<bool> _receptorTouched = new();
+    public List<bool> _isSource = new();
+    public List<LineRenderer> _laserSources = new();
+    public List<LineRenderer> _laserTripods = new();
+    public List<LineRenderer> _laserReceptors = new();
     
     public delegate void TransmitterEvent(int receptorId);
     public static event TransmitterEvent OpenDoor;
     public static event TransmitterEvent CloseDoor;
+
+    public delegate void SoundEvent(int idTripod, bool play);
+    public static event SoundEvent PlaySound;
     
     private void Awake()
     {
@@ -50,9 +51,8 @@ public class Transmitter : MonoBehaviour
             _laserTripods.Add(lookAtTargets.GetComponent<LineRenderer>());
         foreach (GameObject lookAtReceptors in _lookAtReceptors)
             _laserReceptors.Add(lookAtReceptors.GetComponent<LineRenderer>());
-        _clipDuration = (double)_listLoopAudio[0].clip.samples / _listLoopAudio[0].clip.frequency;
     }
-
+    
     private void OnEnable()
     {
         UITripods.SelectSource += ChangeSource;
@@ -168,10 +168,7 @@ public class Transmitter : MonoBehaviour
         if (other.gameObject.CompareTag("Ground") && !_isGrabbed && !_alreadyDone)
         {
             _alreadyDone = true;
-            if (_sourceSelected && !_isConnectedSource)
-            {
-                LocateSource();
-            }
+            if (_sourceSelected && !_isConnectedSource) LocateSource();
         }
     }
 
@@ -208,6 +205,7 @@ public class Transmitter : MonoBehaviour
                 StartCoroutine(ShootLaser(_laserSources[_idSource], _sources[_idSource], _prisme, _isSource));
                 _isConnectedSource = true;
                 _prisme.GetComponent<Animator>().SetBool("ActivatePrisme", true);
+                PlaySound?.Invoke(_idTripod, true);
             }
             else
             {
@@ -239,6 +237,7 @@ public class Transmitter : MonoBehaviour
                         _tripods[i].GetComponent<Transmitter>()._isSource[1] = _isSource[1];
                         _tripods[i].GetComponent<Transmitter>()._isConnectedTripod = true;
                         _tripods[i].GetComponent<Transmitter>()._prisme.GetComponent<Animator>().SetBool("ActivatePrisme", true);
+                        PlaySound?.Invoke(_tripods[i].GetComponent<Transmitter>()._idTripod, true);
                         StartCoroutine(ShootLaser(_laserTripods[i], _prisme, _tripods[i].GetComponent<Transmitter>()._prisme, _isSource));
                     }
                 }
@@ -330,6 +329,7 @@ public class Transmitter : MonoBehaviour
                     tripods.GetComponent<Transmitter>()._isSource[0] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
                     tripods.GetComponent<Transmitter>()._prisme.GetComponent<Animator>().SetBool("ActivatePrisme", false);
+                    PlaySound?.Invoke(tripods.GetComponent<Transmitter>()._idTripod, false);
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[0])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[0] = false;
@@ -351,6 +351,7 @@ public class Transmitter : MonoBehaviour
                     tripods.GetComponent<Transmitter>()._isSource[1] = false;
                     tripods.GetComponent<Transmitter>()._isConnectedTripod = false;
                     tripods.GetComponent<Transmitter>()._prisme.GetComponent<Animator>().SetBool("ActivatePrisme", false);
+                    PlaySound?.Invoke(tripods.GetComponent<Transmitter>()._idTripod, false);
                     if (tripods.GetComponent<Transmitter>()._receptorTouched[2])
                     {
                         tripods.GetComponent<Transmitter>()._receptorTouched[2] = false;
@@ -373,6 +374,7 @@ public class Transmitter : MonoBehaviour
         _isConnectedTripod = false;
         _isConnectedReceptor = false;
         _prisme.GetComponent<Animator>().SetBool("ActivatePrisme", false);
+        PlaySound?.Invoke(_idTripod, false);
         for (int i = 0; i < _isSource.Count; i++) _isSource[i] = false;
         for (int i = 0; i < _receptorTouched.Count; i++)
         {
