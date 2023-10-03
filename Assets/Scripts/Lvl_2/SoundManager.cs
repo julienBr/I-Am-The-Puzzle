@@ -28,7 +28,7 @@ public class SoundManager : MonoBehaviour
         {
             source.volume = 0f;
             source.Play();
-            while (source.volume < .5f)
+            while (source.volume < 1f)
             {
                 source.volume += .01f;
                 yield return new WaitForSeconds(.01f);
@@ -38,10 +38,10 @@ public class SoundManager : MonoBehaviour
     
     private IEnumerator StopAudioClip(AudioSource source)
     {
-        source.volume = .5f;
+        source.volume = 1f;
         if (source.isPlaying)
         {
-            while (source.volume > 0f)
+            while (source.volume > 1f)
             {
                 source.volume -= .01f;
                 yield return new WaitForSeconds(.01f);
