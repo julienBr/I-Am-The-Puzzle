@@ -7,9 +7,8 @@ using UnityEngine;
 public class OpenChest : MonoBehaviour
 {
     [SerializeField] private Animator chestAnimator;
-    [SerializeField] private Animator chestAnimatorMirror;
     [SerializeField] private TextMeshProUGUI codeText; 
-    public String codeTexteValue ;
+    public string codeTexteValue ;
    public string SafeCode;
    [SerializeField] private AudioSource chestOpenSound; 
 
@@ -19,11 +18,9 @@ public class OpenChest : MonoBehaviour
         codeText.text = codeTexteValue;
 
         if (codeTexteValue == SafeCode)
-        { 
-            chestOpenSound.Play();
+        {
             chestAnimator.SetTrigger("Open");
-            chestAnimatorMirror.SetTrigger("Open");
-            
+           
         }
 
         if (codeTexteValue.Length >= 7)
