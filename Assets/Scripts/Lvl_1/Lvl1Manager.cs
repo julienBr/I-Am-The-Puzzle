@@ -6,7 +6,7 @@ public class Lvl1Manager : MonoBehaviour
     public delegate void EnigmeResult(int number, bool unlock);
     public static event EnigmeResult OnLampColorChange;
     
-    private int _enigmeTotal = 3;
+    private int _enigmeTotal = 2;
     [SerializeField] private DataLvl1 levelLoad;
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject mirror;
@@ -14,6 +14,10 @@ public class Lvl1Manager : MonoBehaviour
     [SerializeField] private GameObject finalwarningUI;
     [SerializeField] private Material _warningMirrorShader;
     [SerializeField] private GameObject _cloneplayer;
+    [SerializeField] private GameObject _cloneplayerFace;
+    [SerializeField] private Animator dissolveAnimator; 
+    
+    
     public bool cloneIsDead;
     public bool playerIsDead;
     [SerializeField] private bool _win;
@@ -116,7 +120,7 @@ public class Lvl1Manager : MonoBehaviour
     {
         levelLoad.puzzle++;
         OnLampColorChange?.Invoke(levelLoad.puzzle, true);
-        Destroy(_cloneplayer); 
+       
         
         if (levelLoad.puzzle < _enigmeTotal)
         {
@@ -140,6 +144,8 @@ public class Lvl1Manager : MonoBehaviour
         {
             //gameover
             ////reload la scene
+            
+           
             _lost = true;
             _gameManager.LoadLevel("2_Lvl_1");
             Debug.Log("lost");
@@ -148,6 +154,7 @@ public class Lvl1Manager : MonoBehaviour
         if (!_lost && cloneIsDead && !playerIsDead) //Win
         {
             //WIN
+            destroyClone();
             _win = true;
             EnigmeFinished();
             Debug.Log("WIN");
@@ -160,4 +167,18 @@ public class Lvl1Manager : MonoBehaviour
         rightDoor.SetTrigger("OpenDoor");
         doorSound.Play();
     }
+
+    void destroyClone()
+    {
+        StartCoroutine(delayDissolve());
+    }
+    
+    IEnumerator delayDissolve()
+    {
+        _cloneplayerFace.SetActive(false);
+        dissolveAnimator.SetTrigger("Dissolve");
+        yield return new WaitForSeconds(2f);
+        Destroy(_cloneplayer); 
+    }
+
 }

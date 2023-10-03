@@ -177,6 +177,7 @@ public class OnFlashLight : MonoBehaviour
        if (objectFollowMirorscript != null)
        {
            objectFollowMirorscript.GetComponent<OnFlashLight>().emissiveLamp.GetComponent<MeshRenderer>().material = emissiveRed;
+           objectFollowMirorscript.GetComponent<OnFlashLight>().flashlightmiddle.GetComponent<MeshRenderer>().material = glassLight;
            objectFollowMirorscript.GetComponent<OnFlashLight>().CanOn = false;
            objectFollowMirorscript.GetComponent<OnFlashLight>().batteryIstranparent = true;
        }

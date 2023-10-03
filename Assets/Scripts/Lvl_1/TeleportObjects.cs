@@ -10,16 +10,17 @@ public class TeleportObjects : MonoBehaviour
     [SerializeField] private Material Blueshader;
     [SerializeField] private AudioSource teleportsoundeffect;
     [SerializeField] private AudioSource Onteleportsoundeffect;
+    [SerializeField] private GameObject glassTeleport;
     private void Update()
     {
         if (_objectOn)
         {
             Onteleportsoundeffect.Play();
-            gameObject.GetComponent<Renderer>().material = Blueshader;
+            glassTeleport.GetComponent<Renderer>().material = Blueshader;
         }
         else
         {
-            gameObject.GetComponent<Renderer>().material = Redshader;
+            glassTeleport.GetComponent<Renderer>().material = Redshader;
         }
     }
 
@@ -41,7 +42,7 @@ public class TeleportObjects : MonoBehaviour
             _objectOn = true;
             _objectToTeleport = other.gameObject.gameObject;
         }
-        else _objectOn = false;
+       // else _objectOn = false;
     }
 
     private void OnTriggerExit(Collider other)
