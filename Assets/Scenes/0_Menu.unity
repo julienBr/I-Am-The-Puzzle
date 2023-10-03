@@ -690,7 +690,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78431374, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -731,7 +731,7 @@ MonoBehaviour:
   savedPos: {x: -25, y: -322.50003, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 500, y: 250}
-  savedColor: {r: 0, g: 0.78431374, b: 1, a: 1}
+  savedColor: {r: 1, g: 1, b: 1, a: 1}
   savedTextUV0: {x: 0, y: 0, z: 0, w: 0}
   savedFill: 1
 --- !u!1 &169365947
@@ -1500,7 +1500,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 44c63595d523d0d4f90a4d6d7578b49d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.51
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1756,7 +1756,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78431374, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 0
@@ -1797,7 +1797,7 @@ MonoBehaviour:
   savedPos: {x: 0, y: -7.499993, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 1050, y: 250}
-  savedColor: {r: 0, g: 0.78431374, b: 1, a: 1}
+  savedColor: {r: 1, g: 1, b: 1, a: 1}
   savedTextUV0: {x: 0, y: 0, z: 0, w: 0}
   savedFill: 1
 --- !u!1 &578584053
@@ -2015,7 +2015,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &658518778
 GameObject:
@@ -2572,7 +2572,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78431374, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2613,7 +2613,7 @@ MonoBehaviour:
   savedPos: {x: 25, y: -322.50003, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 500, y: 250}
-  savedColor: {r: 0, g: 0.78431374, b: 1, a: 1}
+  savedColor: {r: 1, g: 1, b: 1, a: 1}
   savedTextUV0: {x: 0, y: 0, z: 0, w: 0}
   savedFill: 1
 --- !u!1001 &919128349
@@ -4109,7 +4109,7 @@ Transform:
   - {fileID: 1894095656}
   - {fileID: 1003548730}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1780579459
 GameObject:
@@ -4275,7 +4275,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.78431374, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -4316,7 +4316,7 @@ MonoBehaviour:
   savedPos: {x: 0, y: -165, z: 0}
   savedUp: {x: 0, y: 1, z: 0}
   savedRectSize: {x: 1050, y: 250}
-  savedColor: {r: 0, g: 0.78431374, b: 1, a: 1}
+  savedColor: {r: 1, g: 1, b: 1, a: 1}
   savedTextUV0: {x: 0, y: 0, z: 0, w: 0}
   savedFill: 1
 --- !u!1 &1894095655
