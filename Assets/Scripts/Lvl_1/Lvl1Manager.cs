@@ -21,6 +21,8 @@ public class Lvl1Manager : MonoBehaviour
 
     [SerializeField] private Animator leftDoor;
     [SerializeField] private Animator rightDoor;
+    [SerializeField] private GameObject switchDoor;
+    [SerializeField] private Material switchDoorGreenLight;
 
     [SerializeField] private AudioSource doorSound;
     
@@ -127,6 +129,7 @@ public class Lvl1Manager : MonoBehaviour
             mirror.GetComponent<MeshRenderer>().material = _warningMirrorShader;
             finalwarningUI.SetActive(true);
             OpenDoor();
+            switchDoor.GetComponent<MeshRenderer>().material = switchDoorGreenLight;
         }
     }
 
