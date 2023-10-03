@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Appdata
   m_EditorClassIdentifier: 
   posPlayer: {x: 25.17, y: 5.95, z: -37.48}
-  _lvl_1_succeeded: 0
+  _lvl_1_succeeded: 1
   _lvl_2_succeeded: 0
   _lvl_3_succeeded: 0
   _finishGame: 0

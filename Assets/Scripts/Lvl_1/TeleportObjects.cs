@@ -11,6 +11,8 @@ public class TeleportObjects : MonoBehaviour
     [SerializeField] private AudioSource teleportsoundeffect;
     [SerializeField] private AudioSource Onteleportsoundeffect;
     [SerializeField] private GameObject glassTeleport;
+    [SerializeField] private ParticleSystem teleportEffect;
+    [SerializeField] private ParticleSystem teleportEffect2;
     private void Update()
     {
         if (_objectOn)
@@ -29,6 +31,8 @@ public class TeleportObjects : MonoBehaviour
     {
         if (_objectOn)
         {
+            teleportEffect.Play();
+            teleportEffect2.Play();
             _objectToTeleport.transform.position = _zonetoTeleport.transform.position;
             teleportsoundeffect.Play();
           //  _objectToTeleport.GetComponent<ObjectFollowMiror>().enabled = true;

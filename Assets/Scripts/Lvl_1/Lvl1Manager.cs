@@ -6,7 +6,7 @@ public class Lvl1Manager : MonoBehaviour
     public delegate void EnigmeResult(int number, bool unlock);
     public static event EnigmeResult OnLampColorChange;
     
-    private int _enigmeTotal = 2;
+    private int _enigmeTotal = 3;
     [SerializeField] private DataLvl1 levelLoad;
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject mirror;
