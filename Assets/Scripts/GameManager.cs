@@ -86,7 +86,7 @@ public class GameManager : MonoBehaviour
     private IEnumerator ThrowLoadScene(string levelToLoad)
     {
         if ((_data._lvl_1_succeeded || _data._lvl_2_succeeded || _data._lvl_3_succeeded) && _currentScene != "1_Hub")
-            yield return new WaitForSeconds(10f);
+            yield return new WaitForSeconds(5f);
         else yield return new WaitForSeconds(1f);
         fade.GetComponent<Animator>().SetTrigger("FadeOut");
         yield return new WaitForSeconds(1f);
