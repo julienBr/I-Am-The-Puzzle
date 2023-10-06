@@ -10,9 +10,11 @@ public class Lvl1Manager : MonoBehaviour
     [SerializeField] private DataLvl1 levelLoad;
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private GameObject mirror;
-    [SerializeField] private GameObject warningUI;
+    [SerializeField] private GameObject WinWarningUI;
+    [SerializeField] private GameObject LooseWarningUI;
     [SerializeField] private GameObject finalwarningUI;
-    [SerializeField] private Material _warningMirrorShader;
+    [SerializeField] private Material _winMirrorShader;
+    [SerializeField] private Material _looseMirrorShader;
     [SerializeField] private GameObject _cloneplayer;
     [SerializeField] private GameObject _cloneplayerFace;
     [SerializeField] private Animator dissolveAnimator; 
@@ -124,13 +126,13 @@ public class Lvl1Manager : MonoBehaviour
         
         if (levelLoad.puzzle < _enigmeTotal)
         {
-            mirror.GetComponent<MeshRenderer>().material = _warningMirrorShader;
-            warningUI.SetActive(true);
+            mirror.GetComponent<MeshRenderer>().material = _winMirrorShader;
+           WinWarningUI.SetActive(true);
             
         }
         else if (levelLoad.puzzle >= _enigmeTotal)
         {
-            mirror.GetComponent<MeshRenderer>().material = _warningMirrorShader;
+            mirror.GetComponent<MeshRenderer>().material = _winMirrorShader;
             finalwarningUI.SetActive(true);
             OpenDoor();
             switchDoor.GetComponent<MeshRenderer>().material = switchDoorGreenLight;
@@ -145,7 +147,8 @@ public class Lvl1Manager : MonoBehaviour
             //gameover
             ////reload la scene
             
-           
+            mirror.GetComponent<MeshRenderer>().material = _looseMirrorShader;
+            LooseWarningUI.SetActive(true);
             _lost = true;
             _gameManager.LoadLevel("2_Lvl_1");
             Debug.Log("lost");

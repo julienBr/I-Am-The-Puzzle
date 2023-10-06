@@ -15,6 +15,7 @@ public class ChangeTrialsScreen : MonoBehaviour
     private float _timer;
     private bool _checkCollider;
 
+    [SerializeField] private AudioSource scannerSoundEffect;
     private void Awake() { _screen = GetComponent<VideoPlayer>(); }
 
     private void ChangeScreen(bool toggle)
@@ -26,19 +27,20 @@ public class ChangeTrialsScreen : MonoBehaviour
     {
         if (_timeIsRunning)
         {
+            scannerSoundEffect.mute = false;
             ChangeScreen(true);
             _timer += Time.deltaTime;
             switch (_checkCollider)
             {
-                case false when _timer >= 4f && gameObject.name == "Screen1":
+                case false when _timer >= 3f && gameObject.name == "Screen1":
                     _gameManager.LoadLevel("2_Lvl_1");
                     _checkCollider = true;
                     break;
-                case false when _timer >= 4f && gameObject.name == "Screen2":
+                case false when _timer >= 3f && gameObject.name == "Screen2":
                     _gameManager.LoadLevel("3_Lvl_2");
                     _checkCollider = true;
                     break;
-                case false when _timer >= 4f && gameObject.name == "Screen3":
+                case false when _timer >= 3f && gameObject.name == "Screen3":
                     _gameManager.LoadLevel("4_Lvl_3");
                     _checkCollider = true;
                     break;
@@ -47,6 +49,7 @@ public class ChangeTrialsScreen : MonoBehaviour
 
         if (!_timeIsRunning)
         {
+            scannerSoundEffect.mute = true;
             ChangeScreen(false);
             _timer = 0f;
             _checkCollider = false;

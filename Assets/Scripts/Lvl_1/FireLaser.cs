@@ -1,12 +1,7 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
-using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.XR.Content.Interaction;
-using UnityEngine.XR.Interaction.Toolkit;
 
+using System.Collections;
+using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 public class FireLaser : MonoBehaviour
 {
     private bool targetHit;
@@ -29,14 +24,11 @@ public class FireLaser : MonoBehaviour
     private Ray _ray;
    private RaycastHit hitInfo;
 
-    void Start()
-    {
-    }
-
+ 
 
     void FixedUpdate()
     {
-        //StartCoroutine(DeathRespawnDelay());
+       
 
         if (_canShoot == true)
         {
@@ -95,6 +87,7 @@ public class FireLaser : MonoBehaviour
                 ImpactHit.transform.position = hitInfo.point;
                 ImpactHit.transform.forward = hitInfo.normal;
                 ImpactHit.Play();
+                impactsound.Play();
 
                 tracer.transform.position = hitInfo.point;
                 _canShoot = false;
