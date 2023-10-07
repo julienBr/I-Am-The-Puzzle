@@ -1252,6 +1252,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _gameManager: {fileID: 1099673302}
+  _data: {fileID: 11400000, guid: 5583df428b4409448a8e50dfb88191bc, type: 2}
+  _level: {fileID: 11400000, guid: fb0f46ca5e27a9d4da39b653da27c021, type: 2}
   _menu: {fileID: 372785586}
   _buttons:
   - {fileID: 2054206572}
@@ -10913,7 +10915,7 @@ PrefabInstance:
     - target: {fileID: 282981220735278566, guid: 160dbb73ca554b749a4bed246d430b0c,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 893697255182747905, guid: 160dbb73ca554b749a4bed246d430b0c,
         type: 3}

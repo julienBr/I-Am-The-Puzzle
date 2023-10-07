@@ -7,8 +7,10 @@ using UnityEngine.XR.Interaction.Toolkit;
 
 public class GameMenu : MonoBehaviour
 {
-    [Header("Game Manager")]
+    [Header("Managers")]
     [SerializeField] private GameManager _gameManager;
+    [SerializeField] private AppData _data;
+    [SerializeField] private DataLvl1 _level;
     
     [Header("Menu")]
     [SerializeField] private GameObject _menu;
@@ -49,8 +51,16 @@ public class GameMenu : MonoBehaviour
 
     public void onClick(int idButton)
     {
-        _buttons[idButton].GetComponent<Image>().color = Color.cyan;
+        /*_buttons[idButton].GetComponent<Image>().color = Color.cyan;
         _textButtons[idButton].material = _newGlow;
-        Debug.Log(idButton);
+        Debug.Log(idButton);*/
+        if (idButton == 0)
+        {
+            _level.puzzle = 0;
+            _level.levelactuelle = _level.tableauLevel[0];
+            _gameManager.LoadLevel("2_Lvl_1");
+        }
+        else if(idButton == 1) _gameManager.LoadLevel("1_Hub");
+        else _gameManager.LoadLevel("0_Menu");
     }
 }
