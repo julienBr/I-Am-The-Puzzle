@@ -1,7 +1,4 @@
-using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 using UnityEngine.XR;
 using UnityEngine.XR.Interaction.Toolkit;
 
@@ -11,12 +8,9 @@ public class GameMenu : MonoBehaviour
     [SerializeField] private GameManager _gameManager;
     [SerializeField] private AppData _data;
     [SerializeField] private DataLvl1 _level;
-    
+
     [Header("Menu")]
     [SerializeField] private GameObject _menu;
-    [SerializeField] private List<GameObject> _buttons;
-    [SerializeField] private List<TMP_Text> _textButtons;
-    [SerializeField] private Material _newGlow;
     
     [Header("Controllers")]
     [SerializeField] private XRNode inputSource;
@@ -51,16 +45,27 @@ public class GameMenu : MonoBehaviour
 
     public void onClick(int idButton)
     {
-        /*_buttons[idButton].GetComponent<Image>().color = Color.cyan;
-        _textButtons[idButton].material = _newGlow;
-        Debug.Log(idButton);*/
         if (idButton == 0)
         {
-            _level.puzzle = 0;
-            _level.levelactuelle = _level.tableauLevel[0];
-            _gameManager.LoadLevel("2_Lvl_1");
+            if (gameObject.scene.name == "2_Lvl_1")
+            {
+                _level.puzzle = 0;
+                _level.levelactuelle = _level.tableauLevel[0];
+                _gameManager.LoadLevel("2_Lvl_1");
+            }
+            else if (gameObject.scene.name == "3_Lvl_2") _gameManager.LoadLevel("3_Lvl_2");
+            else _gameManager.LoadLevel("4_Lvl_3");
+            _menu.SetActive(false);
         }
-        else if(idButton == 1) _gameManager.LoadLevel("1_Hub");
-        else _gameManager.LoadLevel("0_Menu");
+        else if (idButton == 1)
+        {
+            _gameManager.LoadLevel("1_Hub");
+            _menu.SetActive(false);
+        }
+        else
+        {
+            _gameManager.LoadLevel("0_Menu");
+            _menu.SetActive(false);
+        }
     }
 }
